@@ -3,7 +3,7 @@
  ?>
 <form method="POST">
 	<div class="form-group">
-		<label for="email">Title</label>
+		<label for="title">Title</label>
 		<input type="text" name="title" id="title" style="width: 360px;" />
          <?php if($_GET['section']=="academic"){
          	echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo">
