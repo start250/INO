@@ -1,4 +1,6 @@
-
+<?php 
+include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
+?>
 <form  method="POST" enctype="multipart/form-data">
     <input type="file" id="myFile" onchange="myFunction()" name="fileToUpload"/>
     <button type="submit" name="upload">Upload to server</button>
@@ -47,10 +49,34 @@ $target_path = 'Books/';
 
   $target_path = $target_path.$partName."-".time().".".$extension;   
   echo "path is: $target_path";
-if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {  
-    
+if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {   
     echo "File uploaded successfully!";  
+
 } else{  
     echo "Sorry, file not uploaded, please try again!";  
 }  }
+
+
+$title="title";
+$author='Marik toin';
+$description="the da dkjsanfd asnd asjkdnqawsn";
+$pages=233;
+$size=123;
+$added_by="mars"; 
+$updated_at=time();
+$thumb="/image.png";
+$views=1;
+$downloads=2;
+$sql = "INSERT INTO Books (title, author, description, pages, size, added_by, updated_at,thumb,views,downloads) 
+  
+                   VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$updated_at','$thumb','$views','$downloads')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+$conn->close();
 ?> 

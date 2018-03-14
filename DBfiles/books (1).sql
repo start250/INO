@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2018 at 04:07 PM
+-- Generation Time: Mar 14, 2018 at 04:16 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Books`
+-- Table structure for table `books`
 --
 
 CREATE TABLE `books` (
@@ -37,7 +37,10 @@ CREATE TABLE `books` (
   `added_by` varchar(200) NOT NULL DEFAULT 'admin',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `_id` int(11) NOT NULL
+  `_id` int(11) NOT NULL,
+  `thumb` varchar(400) NOT NULL DEFAULT '/noimage.jpeg',
+  `views` int(11) NOT NULL DEFAULT '0',
+  `downloads` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,9 +48,9 @@ CREATE TABLE `books` (
 --
 
 --
--- Indexes for table `Books`
+-- Indexes for table `books`
 --
-ALTER TABLE `Books`
+ALTER TABLE `books`
   ADD PRIMARY KEY (`_id`);
 
 --
@@ -55,9 +58,9 @@ ALTER TABLE `Books`
 --
 
 --
--- AUTO_INCREMENT for table `Books`
+-- AUTO_INCREMENT for table `books`
 --
-ALTER TABLE `Books`
+ALTER TABLE `books`
   MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
