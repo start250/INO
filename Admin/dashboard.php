@@ -38,7 +38,7 @@ session_start();
 		</div>
 	</div>
 </nav>
-<div id="main_dash">
+<div id="main_dash" class="container">
 
 <?php
 if(@$_GET['section']=="academic"){
