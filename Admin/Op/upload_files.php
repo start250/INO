@@ -8,7 +8,7 @@ include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
 <textarea placeholder="Description..." name="description" class="form-control"></textarea><br>
 <input class="form-control" type="text" placeholder="pages" name="pages"><br>
 <input class="form-control" type="text" placeholder="Added By..." name="added_by"><br> 
-
+<input hidden type="text"  id="size" name="size"><br> 
 <input id="myFile"  class="form-control" onchange="myFunction()" type="file" placeholder="Pick File" name="fileToUpload">
 
    <br> <button type="submit" class="btn btn-primary" name="upload">Upload Book</button>
@@ -34,6 +34,8 @@ function myFunction(){
                 }
                 if ('size' in file) {
                     txt += "size: " + file.size + " bytes <br>";
+                    document.getElementById("size").value=file.size;
+                    console.log( document.getElementById("size").value);
                 }
             }
         }
@@ -67,7 +69,8 @@ if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {
 $author=$_POST['author'];
 $description=$_POST['description'];
 $pages=$_POST['pages'];
-$size=$_POST['title'];
+$size=$_POST['size'];
+echo "<br> $size <br>";
 $added_by=$_POST['added_by'];
 $updated_at=$_POST['title'];
 $thumb=$_POST['title']; 
