@@ -1,4 +1,4 @@
 <?php
 $str="nameoffile.pdf";
 
-echo $str;
+echo mysqli_real_escape_string("bdsa");
