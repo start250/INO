@@ -1,8 +1,10 @@
 <?php 
 include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
-?>
-<h3>Book Information...</h3>
-<form  method="POST" enctype="multipart/form-data">
+
+echo '<h3>Book Information...</h3>';
+
+?> 
+<form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
 
 <input class="form-control" type="text" placeholder="Title" name="title"><br>
 <input class="form-control" type="text" placeholder="Author" name="author"><br>
@@ -10,9 +12,10 @@ include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
 <input class="form-control" type="text" placeholder="pages" name="pages"><br>
 <input class="form-control" type="text" placeholder="Added By..." name="added_by"><br> 
 <input hidden type="text"  id="size" name="size"><br> 
-<input id="myFile"  class="form-control" onchange="myFunction()" type="file" placeholder="Pick File" name="fileToUpload"><br>
-<p id="filesInfo"></p><br>
-    <button type="submit" class="btn btn-primary" name="upload">Upload Book</button>
+<input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
+
+<p id="filesInfo"></p> 
+    <button type="submit" class="btn btn-primary" name="upload">Upload to <?=$_SESSION["section"]?> section</button>
 
 
 
@@ -74,13 +77,16 @@ $size=$_POST['size'];
 $added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 $updated_at=mysqli_real_escape_string($conn,$_POST['title']);
 $thumb=mysqli_real_escape_string($conn,$_POST['title']); 
-$book_link=mysqli_real_escape_string($conn,$target_path); 
-$sql = "INSERT INTO Books (title, author, description, pages, size, added_by, updated_at,thumb,book_link) 
+$book_link=mysqli_real_escape_string($conn,$target_path);
+$section=$_SESSION['section']; 
+$sql = "INSERT INTO Books (title, author, description, pages, size, added_by, updated_at,thumb,book_link,section) 
   
-                   VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$updated_at','$thumb','$book_link')";
+                   VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$updated_at','$thumb','$book_link','$section')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo '<script type="text/javascript">
+    window.location = "/inogit/admin/dashboard.php"
+</script>';
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

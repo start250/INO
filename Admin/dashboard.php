@@ -5,8 +5,7 @@ session_start();
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/js.js"></script>
 
@@ -42,45 +41,51 @@ session_start();
 
 <?php
 if(@$_GET['section']=="academic"){
-	$_SESSION["url"]="dashboard.php?section=academic";
+	$_SESSION["url"]="dashboard.php?section=academic"; 
+	$section="Academic";
+	$_SESSION["section"]=	$section;
 	include('operations.php');
-	$section="academic";
 	
 }
 else if(@$_GET['section']=="eng_class"){
-	$_SESSION["url"]="dashboard.php?section=eng_class";
+	$_SESSION["url"]="dashboard.php?section=eng_class"; 
+	$section="English Class";
+	$_SESSION["section"]=	$section;
 	include('operations.php');
-	$section="english class";
 	
 }
 else if(@$_GET['section']=="rules_road"){
 	$_SESSION["url"]="dashboard.php?section=rules_road";
+	$section="Rules of the Road";
+	$_SESSION["section"]=	$section;
 	include('operations.php');
-	$section="rules of road";
 	
 }
 else if(@$_GET['section']=="business"){
-	$_SESSION["url"]="dashboard.php?section=business";
+	$_SESSION["url"]="dashboard.php?section=business"; 
+	$section="Business";
+	$_SESSION["section"]=$section;
 	include('operations.php');
-	$section="business";
-	
 }
 else if(@$_GET['section']=="health"){
 	$_SESSION["url"]="dashboard.php?section=health";
+	$section="Health";
+	$_SESSION["section"]=$section;
 	include('operations.php');
-	$section="health";
 	
 }
 else if(@$_GET['section']=="culture"){
 	$_SESSION["url"]="dashboard.php?section=culture";
+	$section="Culture"; 
+	$_SESSION["section"]=$section;
 	include('operations.php');
-	$section="culture";
 	
 }
 else if(@$_GET['section']=="test"){
 	$_SESSION["url"]="dashboard.php?section=test";
+	$section="Test";
+	$_SESSION["section"]=$section;
 	include('operations.php');
-	$section="test";
 	
 }
 
