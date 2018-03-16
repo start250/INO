@@ -63,7 +63,7 @@ $target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Books/";
 
   $fullName=basename( $_FILES["fileToUpload"]["name"]);
   list($partName,$extension)=explode('.', $fullName);
-$book_name=$partName."-".time().".".$extension;
+$book_name=urlencode($partName."-".time().".".$extension);
   $target_path .= $book_name;   
 if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {   
     echo "File uploaded successfully!";  
