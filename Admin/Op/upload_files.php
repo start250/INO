@@ -1,5 +1,5 @@
 <?php 
-include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
+include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 
 echo '<h3>Book Information...</h3>';
 
@@ -57,13 +57,14 @@ function myFunction(){
 </script>
   
 <?php 
+
 if(isset($_POST['upload'])){ 
-$target_path = 'C:\xampp\htdocs\INOGIT\Resources\Storage\Books\\';  
+$target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Books/";  
 
   $fullName=basename( $_FILES["fileToUpload"]["name"]);
   list($partName,$extension)=explode('.', $fullName);
-
-  $target_path = $target_path.$partName."-".time().".".$extension;   
+$book_name=$partName."-".time().".".$extension;
+  $target_path .= $book_name;   
 if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {   
     echo "File uploaded successfully!";  
 
@@ -77,7 +78,7 @@ $size=$_POST['size'];
 $added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 $updated_at=mysqli_real_escape_string($conn,$_POST['title']);
 $thumb=mysqli_real_escape_string($conn,$_POST['title']); 
-$book_link=mysqli_real_escape_string($conn,$target_path);
+$book_link=mysqli_real_escape_string($conn,$book_name);
 $section=$_SESSION['section']; 
 $sql = "INSERT INTO Books (title, author, description, pages, size, added_by, updated_at,thumb,book_link,section) 
   
@@ -85,7 +86,7 @@ $sql = "INSERT INTO Books (title, author, description, pages, size, added_by, up
 
 if ($conn->query($sql) === TRUE) {
     echo '<script type="text/javascript">
-    window.location = "/inogit/admin/dashboard.php"
+   // window.location = "/inogit/admin/dashboard.php"
 </script>';
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

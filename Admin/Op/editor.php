@@ -1,6 +1,4 @@
-<?php 
 
- ?>
 <form method="POST">
 	<div class="form-group">
 		<label for="title">Title</label>
@@ -70,6 +68,9 @@ else
   document.getElementById("year").innerHTML=""
 }
 </script>
+<?php  
+echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
+ ?>
 <style type="text/css">
 .selectAcademicInfo{
     padding: 5px 8px;

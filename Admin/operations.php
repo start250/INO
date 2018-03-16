@@ -1,10 +1,6 @@
-<?php @$url=$_SESSION["url"]; ?>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
+<?php @$url=$_SESSION["url"];
+?>
 
 <div class="tab">
   <ul id="action">

@@ -12,7 +12,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
   <div class="card-body">
     <h5 class="card-title"><?= $row["title"]?></h5>
     <p class="card-text"><?= $row["description"]?></p>
-    <a target="_blank" href="<?=$row["book_link"]?>" class="btn btn-primary">Show Book</a>
+    <a target="_blank" href="/INOGIT/Public/views/show.php?book_link=<?=$row["book_link"]?>" class="btn btn-primary">Show Book</a>
   </div>
 </div>
 
