@@ -31,7 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_navs_main.php');
 <br>
 <h2><?= $row['title']?><h2>
 <br>
-<embed src="/INOGIT/Resources/Storage/Books/<?=$_GET['book_link']?>#" width="800" height="800">
+<embed src="/INOGIT/Resources/Storage/Books/<?=$_GET['book_link']?>#toolbar=0&navpanes=0" width="800" height="500">
 
 </div>
 <!-- this will house the right widget -->
