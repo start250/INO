@@ -2,7 +2,10 @@
 <?php @$url=$_SESSION["url"];
 ?>
 
-<div class="tab">
+<?php
+if (isset($_SESSION['admin'])) {
+  ?>
+  <div class="tab">
   <ul id="action">
     <li style="<?php if(@$_GET['action']=="home") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=home'?>">Home</a></li>
     <li style="<?php if(@$_GET['action']=="editor") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=editor'?>">Editor</a></li>
@@ -10,7 +13,9 @@
     <li style="<?php if(@$_GET['action']=="manage_posts") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=manage_posts'?>">Manage Posts</a></li>
 </ul>
 </div>
-
+<?php
+}
+?>
 
 <div>
 <?php
