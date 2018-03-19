@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style type="text/css">
   li{
 padding: 3px;
@@ -13,12 +14,18 @@ if(@$_GET['section']=='eng_class'){
 ?>">
     <a class="navbar-brand" href="#" style="color: black;">Iga Neza</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="color: black;">
+=======
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/INOGIT">Iga Neza</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> 6c5ab2922bc1c3e37995e91d36b5fb987decc2b9
       <span class="navbar-toggler-icon"></span>
     
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
        <li <?php if(!@$_GET['section']) echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php"><i class="fa fa-home"></i>Home</a></li>
         <li <?php if(@$_GET['section']=='academic') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=academic"><i class="fa fa-book"></i> Academic</a></li>
         <li <?php if(@$_GET['section']=='eng_class') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=eng_class"><i class="fa fa-language"></i> English Class</a></li>
@@ -27,6 +34,18 @@ if(@$_GET['section']=='eng_class'){
         <li <?php if(@$_GET['section']=='health') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=health"><i class="fa fa-medkit"></i> Health</a></li>
         <li <?php if(@$_GET['section']=='culture') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=culture"><i class="fa fa-leaf"></i> Culture</a></li>
         <li <?php if(@$_GET['section']=='test') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=test"><i class="fa fa-question"></i>Test(s)</a></li>
+=======
+        <li class="nav-item active">
+          <a class="nav-link" href="/INOGIT">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+       
+>>>>>>> 6c5ab2922bc1c3e37995e91d36b5fb987decc2b9
       </ul>
       <ul class="navbar-nav float-right">
       <li class="nav-item">
