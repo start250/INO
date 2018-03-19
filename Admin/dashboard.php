@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/mdb.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <?php
+
 session_start();
-include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
+
 
 ?>
+<?php include('../Public/views/_header.php');?>
 </head>
-<?=include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_navs_admin.php');?>
+<?php include('../Public/views/_navs_main.php'); ?>
 <div id="main_dash" class="container">
 
 <?php

@@ -16,3 +16,6 @@ a{
 #action{
 	border-bottom: 6px solid #c2c2a3;
 }
+ul li a{
+color: black;
+}
