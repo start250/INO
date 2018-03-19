@@ -42,6 +42,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
             </div>
         </div>
     </div>
+
     <div id="read_book_<?php echo $row['_id']; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -51,7 +52,8 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
         <h4 class="modal-title"><?= $row["title"]?></h4>
       </div>
       <div class="modal-body">
-        <p>...........................................</p>
+        <iframe src="<?php echo "Resources/Storage/Books/".$row['book_link'];?>" style="width: 100%; height: 500px;"></iframe>
+        
       </div>
       
     </div>
