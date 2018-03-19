@@ -3,61 +3,11 @@
   li{
 padding: 3px;
 }
-. .search-container {
-  float: right;
-}
 
-.search-container input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  background-color: #0066ff;
-  color: white;
-}
-
-.search-container button:hover {
-  background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-.search-container {
-    float: none;
-  }
-  .search-container a, .search-container input[type=text], .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .search-container input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-size:100%; background-color: white; margin-bottom:20px;<?php
-if(@$_GET['section']=='rules_road'){
-  echo "background-image: url('images/road.jpg');";
-}
-if(@$_GET['section']=='eng_class'){
-  echo "background-image: url('images/english.jpg');";
-}
-?>">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-size:100%; background-color: white; margin-bottom:20px;">
     <a class="navbar-brand" href="#" style="color: black;">Iga Neza</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
 
@@ -79,22 +29,12 @@ if(@$_GET['section']=='eng_class'){
 
       </ul>
       <ul class="navbar-nav float-right">
-      <li class="nav-item">
-          <a class="float-right nav-link" href="#" style="color: black;">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="float-right nav-link" href="#" style="color: black;">Sign Up</a>
-        </li>
+      
       </ul>
       <!--<form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>-->
-    <div class="search-container">
-    <form action="">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
+    
     </div>
 </nav>

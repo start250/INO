@@ -50,14 +50,7 @@ padding: 3px;
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-size:100%; background-color: white; margin-bottom:20px;<?php
-if(@$_GET['section']=='rules_road'){
-  echo "background-image: url('images/road.jpg');";
-}
-if(@$_GET['section']=='eng_class'){
-  echo "background-image: url('images/english.jpg');";
-}
-?>">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-size:100%; background-color: white; margin-bottom:20px;">
     <a class="navbar-brand" href="#" style="color: black;">Iga Neza</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
 
@@ -79,12 +72,16 @@ if(@$_GET['section']=='eng_class'){
 
       </ul>
       <ul class="navbar-nav float-right">
-      <li class="nav-item">
-          <a class="float-right nav-link" href="#" style="color: black;">Log In</a>
+      <?php
+if (isset($_SESSION['admin'])) {
+?>
+ <li class="nav-item">
+          <a class="float-right nav-link" href="Admin/logout.php" style="color: black; font-weight: bold;">Logout</a>
         </li>
-        <li class="nav-item">
-          <a class="float-right nav-link" href="#" style="color: black;">Sign Up</a>
-        </li>
+<?php
+}
+      ?>
+       
       </ul>
       <!--<form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

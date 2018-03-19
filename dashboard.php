@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<style type="text/css">
+		h1,h2{
+	width: 100%;
+	background-color:white;
+	border-left:3px solid  #0066ff;
+	padding-left: 3px;
+}
+	</style>
 <link rel="stylesheet" type="text/css" href="Public/assets/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="Public/assets/css/mdb.min.css">
 <link rel="stylesheet" type="text/css" href="Public/assets/css/style.css">

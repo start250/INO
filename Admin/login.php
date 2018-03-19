@@ -10,6 +10,11 @@
 <?php
 
 session_start();
+if (isset($_SESSION['admin'])) {
+	?>
+	<script type="text/javascript">location.href='../'</script>
+	<?php
+}
 include("../DBfiles/connectDB.php");
 ?>
 <?php include('../Public/views/_header.php');?>
@@ -23,7 +28,53 @@ include("../DBfiles/connectDB.php");
                 <div class="panel-body" style="">
                     <h1>Login..</h1>
                     <hr>
+<?php
+if (isset($_POST['login'])) {
+	if (!empty(trim($_POST['username']))&&!empty(trim($_POST['password']))) {
+		$username=mysqli_real_escape_string($_POST['username']);
+		$password=mysqli_real_escape_string($_POST['password']);
+	}
+	else
+	{
+		echo "Both username and password required!";
+	}
+	
+	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."'");
+   $num_r=mysqli_num_rows($query);
+   $row=mysqli_fetch_array($query);
+   if ($num_r>0) {
+   
+$_SESSION['admin']=$row['id'];
+   
+   if ($_SESSION['admin']) {
+   	echo "Logged in...";
+   }
+   
+   ?>
+   <script type="text/javascript">location.href='../'</script>
+   <?php
+   }
+   else
+   {
+   echo "Incorrect Username or password!";
 
+}
+
+
+if(!empty($_POST["remember"])) {
+				setcookie ("username",$_POST["username"],time()+ (10 * 365 * 24 * 60 * 60));
+				setcookie ("password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60));
+			} else {
+				if(isset($_COOKIE["username"])) {
+					setcookie ("username","");
+				}
+				if(isset($_COOKIE["password"])) {
+					setcookie ("password","");
+				}
+			}
+}
+	
+			?>
       <form class="form-signin" method="POST" action="">
         
         <div class="form-group">
@@ -52,42 +103,3 @@ include("../DBfiles/connectDB.php");
     </div>
 </div>
 </body>
-<?php
-if (isset($_POST['login'])) {
-	if (!empty(trim($_POST['username']))&&!empty(trim($_POST['password']))) {
-		$username=$_POST['username'];
-		$password=$_POST['password'];
-	}
-	else
-	{
-		echo "Both username and password required!";
-	}
-	
-	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."'");
-   $num_r=mysqli_num_rows($query);
-   if ($num_r>0) {
-   session_start();
-   $_SESSION['admin']==$row['id'];
-   ?>
-   <script type="text/javascript">location.href='../'</script>
-   <?php
-   }
-   echo "Incorrect Username or password!";
-
-
-
-
-if(!empty($_POST["remember"])) {
-				setcookie ("username",$_POST["username"],time()+ (10 * 365 * 24 * 60 * 60));
-				setcookie ("password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60));
-			} else {
-				if(isset($_COOKIE["username"])) {
-					setcookie ("username","");
-				}
-				if(isset($_COOKIE["password"])) {
-					setcookie ("password","");
-				}
-			}
-}
-	
-			?>
