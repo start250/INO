@@ -1,7 +1,7 @@
 
 <style type="text/css">
-  li{
-padding: 3px;
+  ul li{
+padding: 15px;
 }
 
 </style>

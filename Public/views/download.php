@@ -8,7 +8,7 @@ if(isset($_REQUEST["book_link"])){
    if(file_exists($filepath)) {
 echo "sadsa";
    }
-       /*
+       
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename="'.basename($filepath).'"');
@@ -20,6 +20,6 @@ echo "sadsa";
         readfile($filepath);
         exit;
     }
-}?>*/
+}?>
 
 

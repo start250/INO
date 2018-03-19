@@ -31,8 +31,8 @@ include("../DBfiles/connectDB.php");
 <?php
 if (isset($_POST['login'])) {
 	if (!empty(trim($_POST['username']))&&!empty(trim($_POST['password']))) {
-		$username=mysqli_real_escape_string($_POST['username']);
-		$password=mysqli_real_escape_string($_POST['password']);
+		$username=mysqli_real_escape_string($conn,$_POST['username']);
+		$password=mysqli_real_escape_string($conn,$_POST['password']);
 	}
 	else
 	{
