@@ -15,6 +15,7 @@ session_start();
 ?>
 <?php include('Public/views/_header.php');?>
 </head>
+<body style="background-color: #e6f5ff; padding: 0px; margin: 0px;">
 <?php include('Public/views/_navs_main.php'); ?>
 <div id="main_dash" class="container">
 
@@ -70,3 +71,4 @@ else if(@$_GET['section']=="test"){
 
 ?>
 </div>
+</body>

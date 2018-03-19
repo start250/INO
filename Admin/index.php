@@ -1,3 +1,3 @@
 <script type="text/javascript">
-	location.href='dashboard.php';
+	location.href='login.php';
 </script>
