@@ -76,7 +76,7 @@ padding: 3px;
 if (@$_SESSION['admin']==md5($ad)||$_SESSION['author']==md5($au)) {
 ?>
  <li class="nav-item">
-          <a class="float-right nav-link" href="Admin/logout.php" style="color: black; font-size: 12px;">
+          <a class="float-right nav-link" href="<?php if(@$_SESSION['admin']){ echo"Admin/logout.php"; } else { echo"Author/logout.php"; } ?>" style="color: black; font-size: 12px;">
           <?php echo $f_ad['username'].$f_ad1['username']."<br>"; ?><strong>Logout</strong>
         </a>
         </li>

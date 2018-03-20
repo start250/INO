@@ -8,12 +8,18 @@ if (isset($_POST['search_post_btn'])) {
 }
 
 
-if (@$search_post!='') {
+if (@$search_post!=''&&@$_SESSION['admin']==$ad) {
 $query=mysqli_query($conn,"SELECT * from books where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%'") or die('Failed to search '.mysqli_error());
 }
-else
+elseif (@$search_post!=''&&@$_SESSION['author']==$au) {
+	$query=mysqli_query($conn,"SELECT * from books where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%' AND added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
+}
+elseif(@!$search_post&&@$_SESSION['admin'])
 {
 	$query=mysqli_query($conn,"SELECT * from books");
+}
+elseif (@!$search_post&&$_SESSION['author']) {
+	$query=mysqli_query($conn,"SELECT * from books where added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
 }
 ?>
 

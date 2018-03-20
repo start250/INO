@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Author Login | INO</title>
 <link rel="stylesheet" type="text/css" href="../Public/assets/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../Public/assets/css/mdb.min.css">
 <link rel="stylesheet" type="text/css" href="../Public/assets/css/style.css">
@@ -10,7 +11,7 @@
 <?php
 
 session_start();
-if (@$_SESSION['admin']||$_SESSION['author']) {
+if (@$_SESSION['admin']||@$_SESSION['author']) {
 	?>
 	<script type="text/javascript">location.href='../'</script>
 	<?php
