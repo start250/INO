@@ -73,7 +73,7 @@ padding: 3px;
       </ul>
       <ul class="navbar-nav float-right">
       <?php
-if (@$_SESSION['admin']==md5($ad)||$_SESSION['author']==md5($au)) {
+if (@$_SESSION['admin']==md5($ad)||@$_SESSION['author']==md5($au)) {
 ?>
  <li class="nav-item">
           <a class="float-right nav-link" href="<?php if(@$_SESSION['admin']){ echo"Admin/logout.php"; } else { echo"Author/logout.php"; } ?>" style="color: black; font-size: 12px;">

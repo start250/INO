@@ -4,7 +4,7 @@ include('DBfiles/connectDB.php');
 ?>
 
 <?php
-if (@$_SESSION['admin']==md5($ad)||$_SESSION['author']==md5($au)) {
+if (@$_SESSION['admin']==md5($ad)||@$_SESSION['author']==md5($au)) {
   ?>
   <div class="tab">
   <ul id="action">
