@@ -10,7 +10,7 @@
 <?php
 
 session_start();
-if (@$_SESSION['admin']) {
+if (@$_SESSION['admin']||$_SESSION['author']) {
 	?>
 	<script type="text/javascript">location.href='../'</script>
 	<?php
@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
 		echo "Both username and password required!";
 	}
 	
-	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."' AND priority='admin'");
+	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."' AND priority='administrator'");
    $num_r=mysqli_num_rows($query);
    $row=mysqli_fetch_array($query);
    if ($num_r>0) {

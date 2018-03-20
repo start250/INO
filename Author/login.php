@@ -10,7 +10,7 @@
 <?php
 
 session_start();
-if (@$_SESSION['admin']) {
+if (@$_SESSION['admin']||$_SESSION['author']) {
 	?>
 	<script type="text/javascript">location.href='../'</script>
 	<?php
