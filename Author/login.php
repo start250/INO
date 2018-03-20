@@ -44,9 +44,9 @@ if (isset($_POST['login'])) {
    $row=mysqli_fetch_array($query);
    if ($num_r>0) {
    
-$_SESSION['admin']=md5($row['id']);
-  $_SESSION['ad']=$row['id']; 
-   if ($_SESSION['admin']) {
+$_SESSION['author']=md5($row['id']);
+  $_SESSION['au']=$row['id']; 
+   if ($_SESSION['author']) {
    	echo "Logged in...";
    }
    

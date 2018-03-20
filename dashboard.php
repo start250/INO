@@ -1,3 +1,13 @@
+<?php
+session_start();
+include('DBfiles/connectDB.php');
+@$sql0=mysqli_query($conn,"SELECT * from adminauthor where id='".$_SESSION['ad']."'");
+$f_ad=mysqli_fetch_array($sql0);
+$ad=$f_ad['id'];
+$sql01=mysqli_query($conn,"SELECT * from adminauthor where id='".$_SESSION['au']."'");
+$f_ad1=mysqli_fetch_array($sql01);
+$au=$f_ad1['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +27,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <?php
 
-session_start();
+
 
 
 ?>
