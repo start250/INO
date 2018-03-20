@@ -30,7 +30,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
                             <p style="font-size: 14px;">
                             <?= $row["description"]?>
                              </p>
-                            <a href="<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
+                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
