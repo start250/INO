@@ -10,7 +10,7 @@ echo '<h3>Book Information...</h3>';
 <input class="form-control" type="text" placeholder="Author" name="author"><br>
 <textarea placeholder="Description..." name="description" class="form-control"></textarea><br>
 <input class="form-control" type="number" placeholder="pages" name="pages"><br>
-<input class="form-control" type="text" placeholder="Added By..." name="added_by"><br> 
+<input class="form-control" type="text" placeholder="Added By..." name="added_by" disabled="disabled" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
 <input hidden type="text"  id="size" name="size"><br> 
 <input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
 

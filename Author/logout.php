@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['admin']);
-unset($_SESSION['ad']);
+unset($_SESSION['author']);
+unset($_SESSION['au']);
 ?>
 <script type="text/javascript">location.href='login.php'</script>

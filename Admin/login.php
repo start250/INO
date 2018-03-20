@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
 		echo "Both username and password required!";
 	}
 	
-	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."'");
+	$query=mysqli_query($conn,"SELECT * from adminauthor where username='".$username."' AND password='".$password."' AND priority='admin'");
    $num_r=mysqli_num_rows($query);
    $row=mysqli_fetch_array($query);
    if ($num_r>0) {
