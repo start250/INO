@@ -1,22 +1,44 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 
+if (isset($_GET['edit'])) {
+    $sql3=mysqli_query($conn,"select * from books where _id='".$_GET['edit']."'");
+    $fetch3=mysqli_fetch_array($sql3);
+}
+
 echo '<h3>Book Information...</h3>';
 
 ?> 
 <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
 
-<input class="form-control" type="text" placeholder="Title" name="title"><br>
-<input class="form-control" type="text" placeholder="Author" name="author"><br>
-<textarea placeholder="Description..." name="description" class="form-control"></textarea><br>
-<input class="form-control" type="number" placeholder="pages" name="pages"><br>
-<input class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
+<input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
+<input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
+<textarea placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
+<input class="form-control" type="number" placeholder="pages" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
+<input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $fetch3['added_by']; ?><?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
 <input hidden type="text"  id="size" name="size"><br> 
+<?php 
+if (!isset($_GET['edit'])) {
+  ?>
 <input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
-
+<?php
+}
+?>
 <p id="filesInfo"></p> 
-    <button type="submit" class="btn btn-primary" name="upload">Upload to <?=$_SESSION["section"]?> section</button>
 
+   
+<?php 
+if (!isset($_GET['edit'])) {
+  ?>
+ <button type="submit" class="btn btn-primary" name="upload">Upload to <?=$_SESSION["section"]?> section</button>
+<?php
+}
+else{
+    ?>
+<button type="submit" class="btn btn-primary" name="update">Update book details</button>
+    <?php
+}
+?>
 
 
 </form>
@@ -96,8 +118,25 @@ if ($conn->query($sql) === TRUE) {
     echo "Sorry, file not uploaded, please try again!";  
 }  }
 
+if(isset($_POST['update'])){ 
 
+    $title=mysqli_real_escape_string($conn,$_POST['title']);
+$author=mysqli_real_escape_string($conn,$_POST['author']);
+$description=mysqli_real_escape_string($conn,$_POST['description']);
+$pages=mysqli_real_escape_string($conn,$_POST['pages']);
+$added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 
+$sql = "UPDATE books set title='$title', author='$author', description='$description', pages='$pages', added_by='$added_by' where _id='".$_GET['edit']."'";
+
+if ($conn->query($sql) === TRUE) {
+    echo '<script type="text/javascript">
+location.href = "/inogit/"
+</script>';
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+}
 
 
 $conn->close();

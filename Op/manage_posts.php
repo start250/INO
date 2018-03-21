@@ -2,7 +2,10 @@
 
 
 <?php
-
+if (isset($_GET['delete'])) {
+	
+	mysqli_query($conn,"DELETE from books where _id='".$_GET['delete']."'");
+}
 if (isset($_POST['search_post_btn'])) {
 	$search_post=trim($_POST['search_post_text']);
 }
@@ -53,10 +56,20 @@ while ($row=mysqli_fetch_array($query)) {
         <td><?php echo $row['title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['pages']; ?></td>
-        <td style="font-size: 25px;"> <i class="fa fa-trash"></i> | <i class="fa fa-pencil-square"></i> | <i class="fa fa-eye"></i></td>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil-square"></i></a> | <i class="fa fa-eye"></i></td>
       </tr>
+      <script>
+function deletetask<?php echo $row['_id']; ?>() {
+    
+    if (confirm('Do you really want to delete this Book \"<?php echo $row['title']; ?>\"?') == true) {
+        location.href='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?php echo $_GET['action']; ?>&delete=<?php echo $row['_id']; ?>';
+    } 
+  
+}
+</script>
       <?php
 }
+?><?php
 if (mysqli_num_rows($query)==0) {
   ?>
   <tr>

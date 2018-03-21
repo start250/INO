@@ -90,10 +90,18 @@ if (@$_SESSION['admin']==md5($ad)||@$_SESSION['author']==md5($au)) {
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>-->
     <div class="search-container">
-    <form action="">
+    <form method="POST" action="">
       <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <button type="submit" name="srch"><i class="fa fa-search"></i></button>
     </form>
   </div>
     </div>
 </nav>
+<?php
+if (isset($_POST['srch'])) {
+  @$search=trim($_POST['search']);
+  if ($search!='') {
+    echo "<script>location.href='dashboard.php?section=".$_GET['section']."&search=".$search."'</script>";
+  }
+}
+?>

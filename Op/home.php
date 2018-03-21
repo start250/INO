@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/jquery.min.js'"></script>
 <style>
 .img-thumb{
     max-height:200px;
@@ -9,14 +10,21 @@
 <?php 
 include('C:\xampp\htdocs\INOGIT\DBfiles\connectDB.php');
 echo "<h2> Books in ".$_SESSION["section"]." section </h2>";
+if (isset($_GET['search'])) {
+    $srch=$_GET['search'];
+  $sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' AND section='".$_SESSION["section"]."'";  
+}
+else{
+    $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
+}
 
-$sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
   
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {
         ?>
 
  <br>
+ 
 <div class="row z-depth-1">
            <div class="col-lg-12">
             <div class="panel panel-default">
@@ -30,13 +38,13 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
                             <p style="font-size: 14px;">
                             <?= $row["description"]?>
                              </p>
-                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label><br>
-                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
+                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px; color: #00cc00;"><span id="down<?php= $row['_id']; ?>"><?= $row["downloads"]?></span> downloads</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label><br>
+                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
                                 <i class="fa fa-book" aria-hidden="true"></i>
-                                Read Now</button>
+                                Read Now</button><span id="er"></span>
                         </div>
                     </div>
                 </div>
@@ -65,6 +73,30 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
       
   </div>
 </div>
+<script type="text/javascript">
+
+
+
+
+$(document).ready(function(){
+   
+    function download(){
+       var id='<?php= $row['_id']; ?>';  
+   var data='id='+id;
+   $.ajax({
+    type:"POST",
+    url:"Op/download_ajax.php",
+    data:data,
+    success: function(data){
+    $('#down<?php= $row['_id']; ?>').html(data);
+    
+
+    }
+  });
+    }
+})
+</script>
+
     <?php } ?>
 </div>
 
@@ -72,3 +104,8 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
 
 </div>
 </div>
+<script type="text/javascript">
+
+
+
+</script>
