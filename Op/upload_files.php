@@ -152,7 +152,7 @@ $size=$_POST['size'];
 $added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 $thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"])); 
 $book_link=mysqli_real_escape_string($conn,$book_name);
-$section=$_SESSION['section']; 
+$section=$_GET['section']; 
 $book_category=mysqli_escape_string($conn,$_POST['category']);
 $sql = "INSERT INTO Books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
   
