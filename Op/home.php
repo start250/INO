@@ -38,13 +38,10 @@ else{
                             <p style="font-size: 14px;">
                             <?= $row["description"]?>
                              </p>
-<<<<<<< HEAD
+
                              <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px; color: #00cc00;"><span id="down<?php= $row['_id']; ?>"><?= $row["downloads"]?></span> downloads</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label><br>
                             <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
-=======
-                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label> <label style="font-size: 13px;">on <?= $row["created_at"]?></label><br>
-                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
->>>>>>> a7d00673bf59547871221ec9ece8f79b2dca6531
+
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">

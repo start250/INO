@@ -4,14 +4,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 if (isset($_GET['edit'])) {
     $sql3=mysqli_query($conn,"select * from books where _id='".$_GET['edit']."'");
     $fetch3=mysqli_fetch_array($sql3);
-}
+
 
 echo '<h3>Book Information...</h3>';
 
 ?> 
 <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
-
-<<<<<<< HEAD
 <input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
 <input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
 <textarea placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
@@ -19,9 +17,10 @@ echo '<h3>Book Information...</h3>';
 <input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $fetch3['added_by']; ?><?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
 <input hidden type="text"  id="size" name="size"><br> 
 <?php 
-if (!isset($_GET['edit'])) {
+}
+if ($_GET['edit']!=1) {
   ?>
-=======
+  <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
 <input class="form-control" type="text" placeholder="Title" name="title"><br>
 <input class="form-control" type="text" placeholder="Author" name="author"><br>
 <select class="form-control" name="category">
@@ -72,7 +71,6 @@ if (!isset($_GET['edit'])) {
 <input class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
 <input hidden type="text"  id="size" name="size"><br>Thumbnail
 <input type="file" name="thumb" class="form-control"><br>Book
->>>>>>> a7d00673bf59547871221ec9ece8f79b2dca6531
 <input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
 <?php
 }
