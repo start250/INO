@@ -30,7 +30,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
                             <p style="font-size: 14px;">
                             <?= $row["description"]?>
                              </p>
-                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label><br>
+                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label> <label style="font-size: 13px;">on <?= $row["created_at"]?></label><br>
                             <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a>
