@@ -1,27 +1,31 @@
-
-<form method="POST">
-	<div class="form-group">
-		<input type="text" name="title" class="form-control" id="title" style="" placeholder="Title..." /><br>
-         <?php if($_GET['section']=="academic"){
-         	echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo">
+<?php
+include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
+?>
+<form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
+	<?php if($_GET['section']=="academic"){
+         	echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
          	<option>Select Level...</option>
     <option value="nursary">Nursary</option>
     <option value="primary">Primary</option>
     <option value="high school">High School</option>
     <option value="other info">Other Info</option>
 </select>&nbsp;
-<select name="topic" id="topic" onchange="setYa()" class="selectAcademicInfo">
-<option>Select Topic...</option>
-</select>
-<select name="topic" id="year" class="selectAcademicInfo">
-</select>';
+<select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
+<option>Select Course...</option>
+</select>&nbsp
+<select name="year" id="year" class="selectAcademicInfo form-control">
+<option>Select...</option>
+</select>&nbsp';
          }?>
-        <textarea class="ckeditor" name="editor"></textarea>
-    </div>
-    <center><input type="submit" name="publish" value="publish" class="btn btn-default" style="border:2px solid #c2c2a3;"></center>
+
+<input class="form-control" type="text" placeholder="Title" name="title"><br>
+<textarea placeholder="Description..." name="description" class="form-control"></textarea><br>
+<input type="text" name="video_link" class="form-control" placeholder="Video link"><br>
+Thumbnail
+<input type="file" name="thumb" class="form-control"><br>
+<button type="submit" class="btn btn-primary" name="publish_video">Publish Video</button>
+
 </form>
-<style>
-</style>
 <script type="text/javascript">
   function setLevel(){
      level=document.getElementById("select_level").value;
@@ -64,18 +68,31 @@ else if(level!="nursary"){
 }
 
 else
-  document.getElementById("year").innerHTML=""
+  document.getElementById("year").innerHTML="";
 }
 </script>
-<?php  
-echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
- ?>
-<style type="text/css">
-.selectAcademicInfo{
-    padding: 5px 8px;
-    border: 2px solid #c2c2a3;
-    box-shadow: none;
-    
-  }
-</style>
+<?php
+if(isset($_POST['publish_video'])){
 
+	$course=mysqli_escape_string($conn,$_POST['course']);
+	$level=mysqli_escape_string($conn,$_POST['level']);
+	$yr=mysqli_escape_string($conn,$_POST['year']);
+	$title=mysqli_escape_string($conn,$_POST['title']);
+	$description=mysqli_escape_string($conn,$_POST['description']);
+	$video_link=mysqli_escape_string($conn,$_POST['video_link']);
+	$section=mysqli_escape_string($conn,@$_GET['section']);
+	$thumb_target=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Thumbs/".basename($_FILES['thumb']['name']);
+	$thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"]));
+	if(move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_target)){
+
+    $query="INSERT INTO videos (title,description,thumb,course,video_link,section,level,year) 
+             VALUES ('$title','$description','$thumb','$course','$video_link','$section','$level','$yr')";
+    if($conn->query($query)===TRUE)
+		echo "Publish successfully!!";}
+		else{
+			echo "Error occured!!! Try Again";
+		}
+
+}
+
+?>
