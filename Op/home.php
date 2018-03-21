@@ -23,7 +23,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
                 <div class="panel-body" style="background-color: white;">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="/INOGIT/defaults-img-replace/Thumbnail.jpg" class="img-thumb img-responsive">
+                            <img src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row['thumb'];?>" class="img-thumb img-responsive">
                         </div>
                         <div class="col-md-8">
                             <h4><?= $row["title"]?></h4>
@@ -54,7 +54,7 @@ $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
       </div>
       <div class="modal-body">
         <iframe src="<?php echo "Resources/Storage/Books/".$row['book_link'];?>" style="width: 100%; height: 500px;"></iframe>
-        <a href="<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
+        <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a> <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
       </div>
