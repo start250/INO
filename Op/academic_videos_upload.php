@@ -80,15 +80,15 @@ if(isset($_POST['publish_video'])){
 	$title=mysqli_escape_string($conn,$_POST['title']);
 	$description=mysqli_escape_string($conn,$_POST['description']);
 	$video_link=mysqli_escape_string($conn,$_POST['video_link']);
-	$section=mysqli_escape_string($conn,@$_GET['section']);
+	//$section=mysqli_escape_string($conn,$_GET['section']);
 	$thumb_target=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Thumbs/".basename($_FILES['thumb']['name']);
 	$thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"]));
 	if(move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_target)){
 
-    $query="INSERT INTO videos (title,description,thumb,course,video_link,section,level,year) 
-             VALUES ('$title','$description','$thumb','$course','$video_link','$section','$level','$yr')";
-    if($conn->query($query)===TRUE)
-		echo "Publish successfully!!";}
+    $qry="INSERT INTO academicvideos (title,description,thumb,course,video_link,level,year) VALUES ('$title','$description','$thumb','$course','$video_link','$level','$yr')";
+    if($conn->query($qry)===TRUE)
+		echo "Publish successfully!!";
+     }
 		else{
 			echo "Error occured!!! Try Again";
 		}
