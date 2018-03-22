@@ -127,7 +127,15 @@ $row = $result->fetch_assoc();
       }else{
         echo 'Publish';
         }?>" class="btn btn-default" style="border:2px solid #c2c2a3;"></center>
-   </div></div></form>
+           </form>
+           </div>
+
+   </div>
+   <div  style="background-color:#e6f5ff">
+   <iframe allowtransparency="true" scrolling="no" frameborder="0" width="100%" height="400px" src="/INOGIT/upload.php"></iframe> 
+  </div>
+
+
 <style>
 </style>
 <script type="text/javascript">
@@ -196,7 +204,7 @@ if(isset($_POST['publish_post'])){
     $section=mysqli_escape_string($conn,$_GET['section']);
     $category=mysqli_escape_string($conn,$_POST['category']);
     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
     $qr="INSERT INTO posts (title,content,section,category,featured_image) VALUES ('$title','$content','$section','$category','$featured_image')";
     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
     if($conn->query($qr)===TRUE)

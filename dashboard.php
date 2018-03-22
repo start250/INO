@@ -20,12 +20,7 @@ $au=$f_ad1['id'];
 	padding-left: 3px;
 }
 	</style>
-<link rel="stylesheet" type="text/css" href="Public/assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="Public/assets/css/mdb.min.css">
-<link rel="stylesheet" type="text/css" href="Public/assets/css/style.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+ 
 <?php
 
 
