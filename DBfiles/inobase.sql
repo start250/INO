@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2018 at 11:29 PM
+-- Generation Time: Mar 22, 2018 at 07:04 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.14
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `academic_videos`
+-- Table structure for table `academicvideos`
 --
 
-CREATE TABLE `academic_videos` (
+CREATE TABLE `academicvideos` (
   `id` int(30) NOT NULL,
   `title` text NOT NULL,
   `description` text NOT NULL,
@@ -38,6 +38,14 @@ CREATE TABLE `academic_videos` (
   `level` text NOT NULL,
   `year` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `academicvideos`
+--
+
+INSERT INTO `academicvideos` (`id`, `title`, `description`, `thumb`, `video_link`, `course`, `level`, `year`) VALUES
+(1, 'dfg', 'tyj', 'comment-planter-des-carottes.jpg', 'sdfgh', 'math', 'high school', '6'),
+(2, 'dfghj', 'kjhgfd', 'banana-714.jpg', 'fghj', 'francais', 'primary', '2');
 
 -- --------------------------------------------------------
 
@@ -112,11 +120,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`title`, `author`, `description`, `pages`, `size`, `added_by`, `created_at`, `updated_at`, `_id`, `book_link`, `section`, `thumb`, `views`, `downloads`, `book_category`) VALUES
-('Da Vinci Code', 'Dan Brown', 'The Best book of life and love!', 454, 5154486, 'Marsen', '2018-03-15 19:56:00', '0000-00-00 00:00:00', 1, '\\INOGIT\\Resources\\Storage\\Books\\advanced-arch-2011-1521143760.pdf', 'health', 'Da Vinci Code', 0, 0, ''),
+('Da Vinci Code', 'Dan Brown', 'The Best book of life and love!', 456, 5154486, 'Marsenadmin', '2018-03-15 19:56:00', '0000-00-00 00:00:00', 1, '\\INOGIT\\Resources\\Storage\\Books\\advanced-arch-2011-1521143760.pdf', 'health', 'Da Vinci Code', 0, 0, ''),
 ('English for Newbie', 'Malinde', 'Not easy Hard, difficult, ultra powerful', 325, 245956, 'Mucyo', '2018-03-15 19:57:31', '0000-00-00 00:00:00', 2, 'C:\\xampp\\htdocs\\INOGIT\\Resources\\Storage\\Books\\484Lecture-Wireless-Hacking-1521143851.pdf', 'English Class', 'English for Newbie', 0, 0, ''),
-('This Academia is Screwed', 'Manji', 'Ha! let me say it better than You', 456, 1142382, 'Muhire', '2018-03-15 20:05:31', '0000-00-00 00:00:00', 3, 'C:\\xampp\\htdocs\\INOGIT\\Resources\\Storage\\Books\\10-1521144331.1', 'Academic', 'This Academia is Screwed', 0, 0, ''),
 ('We English!', 'Musafili', 'but if you use header function then some times you will get \"warning like header already send\" to resolve that do not echo or print before sending headers or you can simply use die() or exit() after header function.', 23, 385371, 'Muhizi', '2018-03-15 20:06:42', '0000-00-00 00:00:00', 4, 'C:\\xampp\\htdocs\\INOGIT\\Resources\\Storage\\Books\\gronowski1998-1521144402.pdf', 'English Class', 'We English!', 0, 0, ''),
-('Acadzmic is Life', 'Zilo', 'English Class has this fma asknds askd asjd', 923, 385371, 'Kid Ink', '2018-03-15 20:09:08', '0000-00-00 00:00:00', 5, 'C:\\xampp\\htdocs\\INOGIT\\Resources\\Storage\\Books\\gronowski1998-1521144548.pdf', 'Academic', 'Acadzmic is Life', 0, 0, ''),
 ('Boo book', 'reti', 'fggfkfgk', 1, 19031, 'anony', '2018-03-18 15:30:48', '0000-00-00 00:00:00', 6, 'thumbnail-1521387048.jpg', 'English Class', 'Boo book', 0, 0, ''),
 ('liku', 'klkl', 'cxvdlkf', 54, 0, 'gffgf', '2018-03-18 15:34:51', '0000-00-00 00:00:00', 7, 'l-1521387291.txt', 'Rules of the Road', 'liku', 0, 0, ''),
 ('English Vocs', 'jet pack', 'sderiroegbgritjre regklgklrelkg', 12, 182329, 'boo', '2018-03-19 05:49:27', '0000-00-00 00:00:00', 8, 'INO+technical+description-1521438567.pdf', 'English Class', 'English Vocs', 0, 0, ''),
@@ -132,7 +138,40 @@ INSERT INTO `books` (`title`, `author`, `description`, `pages`, `size`, `added_b
 ('ujhafdjk', 'jfabjkghn', 'yuefhj', 34, 307712, 'admin', '2018-03-20 18:04:06', NULL, 18, 'lecture+1-2018-1521569046.ppt', 'Academic', 'Emoji-Anger-icon.png', 0, 0, ''),
 ('ykejfhi', 'kjefgwbujk', 'xctvbjkml', 456, 707014, 'admin', '2018-03-20 18:04:56', NULL, 19, 'lecture3-1521569096.pdf', 'Academic', 'Emoji-Anger-icon.png', 0, 0, ''),
 ('hkjhlwjqegwrl', 'hekw,jg.rh', 'rytfyguhilfgu', 54, 243610, 'admin', '2018-03-20 18:06:14', NULL, 20, 'Designing+performance+of+microprocessor+speed-1521569174.pdf', 'Academic', 'Emoji-Anger-icon.png', 0, 0, 'Life Book'),
-('rtfyhwjer', 'gvbjklg', 'erdyfuij', 54, 307712, 'admin', '2018-03-20 18:09:46', NULL, 21, 'lecture+1-2018-1521569386.ppt', 'Business', 'Emoji-Anger-icon.png', 0, 0, 'Business News');
+('rtfyhwjer', 'gvbjklg', 'erdyfuij', 54, 307712, 'admin', '2018-03-20 18:09:46', NULL, 21, 'lecture+1-2018-1521569386.ppt', 'Business', 'Emoji-Anger-icon.png', 0, 0, 'Business News'),
+('ayefukyghuij', 'tfygjhfgrjmg', 'etsrfyghij', 234, 707014, 'admin', '2018-03-21 06:19:48', NULL, 22, 'lecture3-1521613188.pdf', 'Culture', 'Register-icon.png', 0, 0, 'Imigani'),
+('jrhekj', 'dgfhgjkl', 'fghjkl;', 345, 270069, 'admin', '2018-03-21 18:43:22', NULL, 23, '1461023276-1521657802.0024quizes+300+Dr+Mahdi', 'culture', 'banana-714.jpg', 0, 0, 'Imigani');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `content` text NOT NULL,
+  `section` text NOT NULL,
+  `category` text NOT NULL,
+  `level` text NOT NULL,
+  `course` text NOT NULL,
+  `year` text NOT NULL,
+  `featured_image` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `content`, `section`, `category`, `level`, `course`, `year`, `featured_image`, `created_at`, `updated_at`) VALUES
+(1, 'ok', '<p>testing</p>\r\n', 'rules_road', 'Ibibazo nibisubizo', '', '', '', 'featured_image', '2018-03-21 21:29:58', '0000-00-00 00:00:00'),
+(2, 'test2', '<p>ok2</p>\r\n', 'rules_road', 'Ibyapa', '', '', '', 'featured_image', '2018-03-21 21:31:35', '0000-00-00 00:00:00'),
+(3, 'testing7', '<p>done all</p>\r\n', 'rules_road', 'Ibyapa', '', '', '', 'shutterstock_376905205-pp1-opener-tn.jpg', '2018-03-21 21:32:15', '0000-00-00 00:00:00'),
+(6, 'oolo', '<p>yolo</p>\r\n', 'academic', '', 'high school', 'computer', '2', '0395-red-wethersfield-onion.jpg', '2018-03-21 21:40:38', '0000-00-00 00:00:00'),
+(7, 'eeekk', '<p>fcgvhjkl</p>\r\n', 'academic', '', 'high school', 'gp', '4', 'carotte.jpg', '2018-03-21 22:42:17', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -167,9 +206,9 @@ INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_
 --
 
 --
--- Indexes for table `academic_videos`
+-- Indexes for table `academicvideos`
 --
-ALTER TABLE `academic_videos`
+ALTER TABLE `academicvideos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -191,6 +230,12 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`_id`);
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `videos`
 --
 ALTER TABLE `videos`
@@ -201,16 +246,22 @@ ALTER TABLE `videos`
 --
 
 --
--- AUTO_INCREMENT for table `academic_videos`
+-- AUTO_INCREMENT for table `academicvideos`
 --
-ALTER TABLE `academic_videos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `academicvideos`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `videos`
