@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
   function setLevel(){
      level=document.getElementById("select_level").value;
@@ -43,14 +44,31 @@ else
   document.getElementById("year").innerHTML="";
 }
 </script>
+
+<?php
+
+if(isset($_GET['edit'])){
+  include('DBfiles\connectDB.php'); 
+$sql =  "SELECT * FROM Posts WHERE id='".$_GET["edit"]."'";
+  $result = $conn->query($sql);
+ 
+$stmt = $conn->prepare("SELECT * FROM Posts WHERE id='".$_GET["edit"]."'"); 
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+}
+?>
+
+
 <form method="POST" enctype="multipart/form-data">
   <div class="row">
 	<div class="col-sm-9">
-		<input type="text" name="title" class="form-control" id="title" style="" placeholder="Title..." /><br>
-        <textarea class="ckeditor" name="editor"></textarea>
+		<input type="text" name="title" class="form-control" id="title" style="" value="<?=$row['title']?>" placeholder="Title..." /><br>
+        <textarea class="ckeditor"   name="editor"><?=$row['content']?></textarea>
     </div>
     <div class="col-sm-3">
       <?php
+    
   if(@$_GET['section']=="business")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Business Opportunities</option>
@@ -97,9 +115,19 @@ else
     ?>
 <br>
       Featured image<input type="file" name="featured_image" class="form-control">
-    </div></div>
-    <center><input type="submit" name="publish_post" value="publish" class="btn btn-default" style="border:2px solid #c2c2a3;"></center>
-</form>
+ 
+    <center><input type="submit" name="<?php 
+    if(isset($_GET['edit'])){
+      echo 'update_post';
+      }else{
+        echo 'publish_post';
+        }?>" value="<?php 
+    if(isset($_GET['edit'])){
+      echo 'Update';
+      }else{
+        echo 'Publish';
+        }?>" class="btn btn-default" style="border:2px solid #c2c2a3;"></center>
+   </div></div></form>
 <style>
 </style>
 <script type="text/javascript">
@@ -159,6 +187,8 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
   }
 </style>
 <?php
+// what is this double code??/
+
 if(isset($_POST['publish_post'])){
   if($_GET['section']!="academic"){
     $title=mysqli_escape_string($conn,$_POST['title']);
@@ -189,7 +219,33 @@ if(isset($_POST['publish_post'])){
     if($conn->query($qr)===TRUE)
       echo "Posting sucessfully!!";
   }
-}
+} 
 
 
-?>
+//a: Update Querry
+
+if(isset($_POST['update_post'])){
+    $title=mysqli_escape_string($conn,$_POST['title']);
+    $content=mysqli_escape_string($conn,$_POST['editor']);
+    $section=mysqli_escape_string($conn,$_GET['section']);
+    $category=mysqli_escape_string($conn,$_POST['category']);
+    $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+    $yr=$_POST['year'];
+    $level=$_POST['level'];
+    $course=$_POST['course'];
+    $qr="UPDATE posts 
+    SET 
+    title= '$title',
+    content='$content',
+    section='$section',
+    category='$category',
+    level='$level',
+    course='$course',
+    year='$yr',
+    featured_image='$featured_image'WHERE id=".$_GET['edit'];
+    move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
+    if($conn->query($qr)===TRUE)
+      echo "Posting sucessfully!!";
+  
+} 

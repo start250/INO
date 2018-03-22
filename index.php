@@ -9,12 +9,11 @@ $sql = "SELECT * FROM Books ";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<?php include('Public/views/_navs_main.php');?>
-
 <?php include('Public/views/_header.php');?>
 </head>
 <body>
+<?php include('Public/views/_navs_main.php');?>
+
 <br><br><br><hr>
 <div class="container">
 
@@ -106,35 +105,5 @@ include('../INOGIT/Public/views/sidebar.php');
 </style>
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 <?=include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>

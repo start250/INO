@@ -39,7 +39,14 @@ else{
                             <?= $row["description"]?>
                              </p>
 
-                             <label style="font-size: 13px; color: #00cc00;"><?= $row["pages"]?> pages</label> | <label style="font-size: 13px; color: #00cc00;"><span id="down<?php= $row['_id']; ?>"><?= $row["downloads"]?></span> downloads</label> | <label style="font-size: 13px;">Uploaded by <b><?= $row["added_by"]?></b></label><br>
+                             <label 
+                             style="font-size: 13px; color: #00cc00;">
+                             <?= $row["pages"]?> pages</label> | 
+                             <label style="font-size: 13px; color: #00cc00;">
+                                 <span id="down<?= $row['_id']; ?>"><?= $row["downloads"]?>
+                                </span> downloads</label> | <label style="font-size: 13px;">
+                                    Uploaded by <b><?= $row["added_by"]?></b></label>
+                                    <br>
                             <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
 
                                 <i class="fa fa-download" aria-hidden="true"></i>
@@ -83,14 +90,14 @@ else{
 $(document).ready(function(){
    
     function download(){
-       var id='<?php= $row['_id']; ?>';  
+       var id='<?= $row['_id']; ?>';  
    var data='id='+id;
    $.ajax({
     type:"POST",
     url:"Op/download_ajax.php",
     data:data,
     success: function(data){
-    $('#down<?php= $row['_id']; ?>').html(data);
+    $('#down<?= $row['_id']; ?>').html(data);
     
 
     }
