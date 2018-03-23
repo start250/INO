@@ -99,19 +99,42 @@ $row = $result->fetch_assoc();
     <option>Ibibazo nibisubizo</option>
     <option>Ibyapa</option></select>';
     else if(@$_GET['section']=="academic")
-      echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
-          <option>Select Level...</option>
-    <option value="nursary">Nursary</option>
+      echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">';
+         
+          if(isset($_GET['edit'])){
+           
+            echo '<option selected value="'.$row['level'].'">'.$row['level'].'</option>';
+          }else{
+            echo '<option>Select Level...</option>';
+          }
+
+         
+         echo '<option value="nursary">Nursary</option>
     <option value="primary">Primary</option>
     <option value="high school">High School</option>
-    <option value="other info">Other Info</option>
-</select>&nbsp;
-<select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
-<option>Select Course...</option>
-</select>&nbsp
-<select name="year" id="year" class="selectAcademicInfo form-control">
-<option>Select...</option>
-</select>'
+    <option value="other info">Other Info</option></select>&nbsp;
+<select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">';
+         
+if(isset($_GET['edit'])){
+ 
+  echo '<option selected value="'.$row['course'].'">'.$row['course'].'</option>';
+}else{
+  echo '<option>Select course...</option>';
+}
+
+
+echo '</select>&nbsp
+<select name="year" id="year" class="selectAcademicInfo form-control">';
+         
+if(isset($_GET['edit'])){
+ 
+  echo '<option selected value="'.$row['year'].'">'.$row['year'].'</option>';
+}else{
+  echo '<option>Select Grade/Year...</option>';
+}
+
+
+echo '</select>'; 
     ?>
 <br>
       Featured image<input type="file" name="featured_image" class="form-control">
