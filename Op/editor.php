@@ -1,4 +1,11 @@
+<?php
+if(isset($_POST['update_post'])){
+  echo '<script type="text/javascript">
+	location.href="/INOGIT/dashboard.php?section=academic&action=editor&edit='.$_POST['id'].'";
+</script>';
+}
 
+?>
 <script type="text/javascript">
   function setLevel(){
      level=document.getElementById("select_level").value;
@@ -57,12 +64,21 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 }
-?>
 
+
+?>
+<?php
+session_start();
+if(isset($_SESSION['update_success'])){
+  echo '<div class="alert alert-success">'.$_SESSION['update_success'].'</div>';
+  unset($_SESSION['update_success']);
+}
+?>
 
 <form method="POST" enctype="multipart/form-data">
   <div class="row">
 	<div class="col-sm-9">
+  <input name="id" value="<?=$row['id']?>" hidden>
 		<input type="text" name="title" class="form-control" id="title" style="" value="<?=$row['title']?>" placeholder="Title..." /><br>
         <textarea width="100%" class="ckeditor"   name="editor"><?=$row['content']?></textarea>
     </div>
@@ -231,7 +247,7 @@ if(isset($_POST['publish_post'])){
     $qr="INSERT INTO posts (title,content,section,category,featured_image) VALUES ('$title','$content','$section','$category','$featured_image')";
     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
     if($conn->query($qr)===TRUE)
-      echo "Posting sucessfully!!";
+      header("Location: /INOGIT/dashboard.php?section=academic");
   }
 }
 if(isset($_POST['publish_post'])){
@@ -276,7 +292,9 @@ if(isset($_POST['update_post'])){
     year='$yr',
     featured_image='$featured_image'WHERE id=".$_GET['edit'];
     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
-    if($conn->query($qr)===TRUE)
-      echo "Posting sucessfully!!";
+    if($conn->query($qr)===TRUE){
+      echo "Update sucessfully!!";
+      $_SESSION['update_success']="Update Successful!";
+    }
   
 } 
