@@ -8,25 +8,28 @@ if (isset($_GET['edit'])) {
 
 echo '<h3>Book Information...</h3>';
 
+}
 ?> 
 <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
 <input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
 <input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
 <textarea placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
 <input class="form-control" type="number" placeholder="pages" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
-<input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $fetch3['added_by']; ?><?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
-<input hidden type="text"  id="size" name="size"><br> 
+<input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
+
+<input hidden type="text"  id="size" name="size"><br>Thumbnail
+<input type="file" name="thumb" class="form-control"><br>Book
+<input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
 <?php 
-}
+
 if ($_GET['edit']!=1) {
   ?>
-  <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
-<input class="form-control" type="text" placeholder="Title" name="title"><br>
-<input class="form-control" type="text" placeholder="Author" name="author"><br>
-<select class="form-control" name="category">
+  <br>
+<select  class="form-control" > 
     <?php
+
     if(@$_GET['section']=="academic")
-        echo "<option>Select Category</option>
+        echo "<option disabled  selected>Select Category</option>
     <option>Science Book</option>
     <option>Humanity Boook</option>
     <option>Language Book</option>
@@ -34,45 +37,39 @@ if ($_GET['edit']!=1) {
     <option>ICT Book</option>
     <option>Business Book</option>";
     else if(@$_GET['section']=="business")
-        echo "<option>Select Category</option>
+        echo "<option disabled selected>Select Category</option>
     <option>Business Opportunities</option>
     <option>Business Advice</option>
     <option>Business News</option>
     <option>Biographies</option>";
     else if(@$_GET['section']=="health")
-        echo "<option>Select Category</option>
+        echo "<option disabled selected>Select Category</option>
     <option>Nutrion</option>
     <option>Traditional Medecine</option>
     <option>Serious Deseases</option>
     <option>Doctor Advice</option>";
     else if(@$_GET['section']=="eng_class")
-        echo "<option>Select Category</option>
+        echo "<option disabled selected>Select Category</option>
     <option>Beginners</option>
     <option>Intermediate</option>
     <option>Advanced</option>
     <option>For Business</option>
     ";
     else if (@$_GET['section']=="culture")
-       echo "<option>Select Category</option>
+       echo "<option disabled selected selected>Select Category</option>
    <option>Amateka</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
     <option>Kirazira</option>
     <option>Ibisakuzo</option>"; 
     else if(@$_GET['section']=="rules_road")
-        echo "<option>Select Category</option>
+        echo "<option disabled selected selected>Select Category</option>
    <option>Igazeti</option>
     <option>Ibibazo n'ibisubizo</option>
     <option>Ibyapa</option>";
     ?>
 </select><br>
-<textarea placeholder="Description..." name="description" class="form-control"></textarea><br>
-<input class="form-control" type="number" placeholder="pages" name="pages"><br>
-<input class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
-<input hidden type="text"  id="size" name="size"><br>Thumbnail
-<input type="file" name="thumb" class="form-control"><br>Book
-<input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
-<?php
+ <?php
 }
 ?>
 <p id="filesInfo"></p> 
@@ -163,7 +160,7 @@ if ($conn->query($sql) === TRUE) {
    // window.location = "/inogit/admin/dashboard.php"
 </script>';
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error "; //. $sql . "<br>" . $conn->error;
 }
 
 } else{  
@@ -185,10 +182,11 @@ if ($conn->query($sql) === TRUE) {
 location.href = "/inogit/"
 </script>';
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error updating... " ;//. $sql . "<br>" . $conn->error;
 }
 
 }
+ 
 
 
 $conn->close();

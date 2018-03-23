@@ -155,7 +155,7 @@ echo '</select>';
 <br>
       Featured image<input type="file" name="featured_image" class="form-control">
  
-    <center><input type="submit" name="<?php 
+    <center><br><br><input type="submit" name="<?php 
     if(isset($_GET['edit'])){
       echo 'update_post';
       }else{

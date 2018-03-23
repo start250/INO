@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/mdb.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<head>  
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<?php
-
-session_start();
-
-
-?>
+ 
 <?php include('../Public/views/_header.php');?>
 </head>
 <?php include('../Public/views/_navs_main.php'); ?>
@@ -69,3 +60,8 @@ else if(@$_GET['section']=="test"){
 
 ?>
 </div>
+
+
+<?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>
+  
+ 

@@ -78,6 +78,6 @@ img{
 </div> 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>
   
-<?=include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>
+ 
  
 
