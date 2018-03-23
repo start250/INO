@@ -1,4 +1,4 @@
-<?php include('Public/views/_header.php');?>
+<?php include('../Public/views/_header.php');?>
 <style>
 .img-thumb{
     max-height:200px;
@@ -113,7 +113,7 @@ $(document).ready(function(){
 
 </div>
 </div>
-<?php include('Public/views/_footer.php');?>
+<?php include('../Public/views/_footer.php');?>
 <script type="text/javascript">
 
 

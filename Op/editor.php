@@ -64,7 +64,7 @@ $row = $result->fetch_assoc();
   <div class="row">
 	<div class="col-sm-9">
 		<input type="text" name="title" class="form-control" id="title" style="" value="<?=$row['title']?>" placeholder="Title..." /><br>
-        <textarea class="ckeditor"   name="editor"><?=$row['content']?></textarea>
+        <textarea width="100%" class="ckeditor"   name="editor"><?=$row['content']?></textarea>
     </div>
     <div class="col-sm-3">
       <?php

@@ -4,7 +4,8 @@ include('DBfiles/connectDB.php');
 ?>
 
 <?php
-if (@$_SESSION['admin']==md5($ad)||@$_SESSION['author']==md5($au)) {
+
+if (isset($_SESSION['admin'])||isset($_SESSION['author'])) {
   ?>
   <div class="tab">
   <ul id="action">
@@ -15,7 +16,7 @@ if (@$_SESSION['admin']==md5($ad)||@$_SESSION['author']==md5($au)) {
     <li style="<?php if(@$_GET['action']=="manage_written_posts") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=manage_written_posts'?>">Manage Posts</a></li>
     <li style="<?php if(@$_GET['action']=="upload_videos") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_videos'?>">Upload Videos</a></li>
     <?php
-if (@$_SESSION['admin']==md5($ad)) {
+if (@$_SESSION['admin']==$ad) {
   ?>
     <li style="<?php if(@$_GET['action']=="manage_authors") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=manage_authors'?>">Manage Authors</a></li>
    <?php

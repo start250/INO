@@ -47,11 +47,12 @@ if (isset($_POST['login'])) {
 $_SESSION['admin']=md5($row['id']);
   $_SESSION['ad']=$row['id']; 
    if ($_SESSION['admin']) {
-   	echo "Logged in...";
+    header("Location: /INOGIT/dashboard.php?section=academic");
+       
    }
+
    
    ?>
-   <script type="text/javascript">location.href='../'</script>
    <?php
    }
    else
