@@ -48,7 +48,7 @@ else
 <?php
 
 if(isset($_GET['edit'])){
-  include('DBfiles\connectDB.php'); 
+  require_once('DBfiles\connectDB.php'); 
 $sql =  "SELECT * FROM Posts WHERE id='".$_GET["edit"]."'";
   $result = $conn->query($sql);
  
