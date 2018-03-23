@@ -17,7 +17,11 @@ $row = $result->fetch_assoc();
   
 <?php include('../Public/views/_header.php');?>
   
-
+<style>
+img{
+  max-width:600px;
+}
+</style>
  </head>
  <body>
 
