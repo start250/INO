@@ -85,4 +85,6 @@ else if(@$_GET['section']=="test"){
 
 ?>
 </div>
-</body>
+
+<?php require_once('Public/views/_footer.php');?>
+ 
