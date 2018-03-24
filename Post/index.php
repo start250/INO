@@ -1,6 +1,10 @@
 <?php 
-  include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php'); 
-$sql =  "SELECT * FROM Posts WHERE id='".$_GET["post"]."'";
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/views.php');  
+$id=mysqli_real_escape_string($conn,$_GET['post']);
+updateViews('POSTS',$id,$conn);
+  
+$sql =  "SELECT * FROM Posts WHERE id='$id'";
   $result = $conn->query($sql);
  
 $stmt = $conn->prepare("SELECT * FROM Posts WHERE id='".$_GET["post"]."'"); 
@@ -45,21 +49,23 @@ img{
         <br>
         <br>
         <br>
-                <h2 class="text-center"><?=$row['title']?></h2>
+                <h2 class="text-center"><?=$row['title']?></h2> 
+<p class="text-right">
+            <i class="fa fa-eye"></i>  <?=$row['views']?>     
+          | <i class="fa fa-user-circle"></i> by <a href="#"><?=$row['author']?></a> 
+         </p>
+
                 <br>
                 <br>
-                <br>
-                <div class="jumbotron">
+                <div class="jumbotron" style="word-wrap: break-word">
                     <?=$row['content']?>
                 </div>
-                <p>
-          <i class="icon-user"></i> by <a href="#"><?=$row['author']?></a> 
-          | <i class="icon-calendar"></i> <?=$row['created_at']?>
-          | <i class="icon-comment"></i> <a href="#"><?=$row['comments']?> Comments</a>
-          | <i class="icon-share"></i> <a href="#"><?=$row['shares']?> Shares</a>
-          | <i class="icon-tags"></i> Section : <a href="#"><span class=""><?=$row['section']?></span></a> 
+                <p><i class="fa fa-clock"></i> <?=$row['created_at']?>
+          | <i class="fa fa-comment"></i> <a href="#"><?=$row['comments']?> Comments</a>
+          | <i class="fa fa-share-alt-square"></i> <a href="#"><?=$row['shares']?> Shares</a>
+          | <i class="fa fa-tags"></i> Section : <a href="#"><span class=""><?=$row['section']?></span></a> 
         </p>
-
+            
        </div>
  
 <!-- sideBAR PLACE -->

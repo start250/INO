@@ -236,32 +236,35 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
 <?php
 // what is this double code??/
 
-if(isset($_POST['publish_post'])){
-  if($_GET['section']!="academic"){
-    $title=mysqli_escape_string($conn,$_POST['title']);
-    $content=mysqli_escape_string($conn,$_POST['editor']);
-    $section=mysqli_escape_string($conn,$_GET['section']);
-    $category=mysqli_escape_string($conn,$_POST['category']);
-    $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
-    $qr="INSERT INTO posts (title,content,section,category,featured_image) VALUES ('$title','$content','$section','$category','$featured_image')";
-    move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
-    if($conn->query($qr)===TRUE)
-      header("Location: /INOGIT/dashboard.php?section=academic");
-  }
-}
+// if(isset($_POST['publish_post'])){
+//   if($_GET['section']!="academic"){
+//     $title=mysqli_escape_string($conn,$_POST['title']);
+//     $content=mysqli_escape_string($conn,$_POST['editor']);
+//     $section=mysqli_escape_string($conn,$_GET['section']);
+//     $category=mysqli_escape_string($conn,$_POST['category']);
+//     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+//     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
+//     $qr="INSERT INTO posts (title,content,section,category,featured_image) 
+//     VALUES ('$title','$content','$section','$category','$featured_image')";
+//     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
+//     if($conn->query($qr)===TRUE)
+//       header("Location: /INOGIT/dashboard.php?section=academic");
+//   }
+// }
 if(isset($_POST['publish_post'])){
   if ($_GET['section']=="academic") {
     $title=mysqli_escape_string($conn,$_POST['title']);
     $content=mysqli_escape_string($conn,$_POST['editor']);
     $section=mysqli_escape_string($conn,$_GET['section']);
+    $author=$_SESSION['username'];
     $category=mysqli_escape_string($conn,$_POST['category']);
     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
     $yr=$_POST['year'];
     $level=$_POST['level'];
     $course=$_POST['course'];
-    $qr="INSERT INTO posts (title,content,section,category,level,course,year,featured_image) VALUES ('$title','$content','$section','$category','$level','$course','$yr','$featured_image')";
+    $qr="INSERT INTO posts (author,title,content,section,category,level,course,year,featured_image)
+   VALUES ('$author','$title','$content','$section','$category','$level','$course','$yr','$featured_image')";
     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
     if($conn->query($qr)===TRUE)
       echo "Posting sucessfully!!";

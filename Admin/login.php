@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
    $num_r=mysqli_num_rows($query);
    $row=mysqli_fetch_array($query);
    if ($num_r>0) {
-   
+    $_SESSION['username']=$username;
 $_SESSION['admin']=md5($row['id']);
   $_SESSION['ad']=$row['id']; 
    if ($_SESSION['admin']) {
