@@ -27,11 +27,10 @@ session_start();
 
   if(!empty($_FILES['uploaded_file']))
   {
-    $path = "Resources/Storage/Postimgs/";
+    $path = "Resources/Storage/Images/";
     $fullName=basename( $_FILES["uploaded_file"]["name"]);
   list($partName,$extension)=explode('.', $fullName);
-$filename=time().".".$extension;
-
+$filename=urlencode(time().".".$extension);
 $path .=$filename;
 $_SESSION['file_link']=$filename;
     if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
@@ -40,7 +39,7 @@ $_SESSION['file_link']=$filename;
 The Link is: 
 <div  id="selectable" onclick="selectText('selectable')" class="alert alert-info">
 <p>
-http://localhost/INOGIT/Resources/Storage/Postimgs/<?=$filename?>
+http://localhost/INOGIT/Resources/Storage/Images/<?=$filename?>
 </p>
 <script type="text/javascript">
     function selectText(containerid) {

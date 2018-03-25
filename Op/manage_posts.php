@@ -16,7 +16,7 @@ elseif (@$search_post!=''&&@$_SESSION['author']==$au) {
 }
 elseif(@!$search_post&&@$_SESSION['admin'])
 {
-	$query=mysqli_query($conn,"SELECT * from posts WHERE section='".$_GET['section']."'");
+	$query=mysqli_query($conn,"SELECT * from posts WHERE section='".$_GET['section']."' ORDER BY id DESC");
 }
 elseif (@!$search_post&&$_SESSION['author']) {
 	$query=mysqli_query($conn,"SELECT * from posts where added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());

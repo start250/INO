@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/INOGIT/ckeditor/ckeditor.js"></script>
 <?php
 if(isset($_POST['update_post'])){
   echo '<script type="text/javascript">
@@ -80,7 +81,8 @@ if(isset($_SESSION['update_success'])){
 	<div class="col-sm-9">
   <input name="id" value="<?=$row['id']?>" hidden>
 		<input type="text" name="title" class="form-control" id="title" style="" value="<?=$row['title']?>" placeholder="Title..." /><br>
-        <textarea width="100%" class="ckeditor"   name="editor"><?=$row['content']?></textarea>
+        <textarea width="100%" class="ckeditor" name="ckeditor"><?=$row['content']?></textarea>
+
     </div>
     <div class="col-sm-3">
       <?php
@@ -114,43 +116,20 @@ if(isset($_SESSION['update_success'])){
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Ibibazo nibisubizo</option>
     <option>Ibyapa</option></select>';
-    else if(@$_GET['section']=="academic")
-      echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">';
+    else if(@$_GET['section']=="academic") 
+      echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
+            <option>Select Level...</option>
+            <option value="nursary">Nursary</option>;
+            <option value="primary">Primary</option>
+            <option value="high school">High School</option>
+            <option value="other info">Other Info</option></select>&nbsp;
+
+          <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
+          <option>Select course...</option></select>&nbsp
+          <select name="year" id="year" class="selectAcademicInfo form-control">
+          <option>Select Grade/Year...</option></select>&nbsp
+          ';
          
-          if(isset($_GET['edit'])){
-           
-            echo '<option selected value="'.$row['level'].'">'.$row['level'].'</option>';
-          }else{
-            echo '<option>Select Level...</option>';
-          }
-
-         
-         echo '<option value="nursary">Nursary</option>
-    <option value="primary">Primary</option>
-    <option value="high school">High School</option>
-    <option value="other info">Other Info</option></select>&nbsp;
-<select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">';
-         
-if(isset($_GET['edit'])){
- 
-  echo '<option selected value="'.$row['course'].'">'.$row['course'].'</option>';
-}else{
-  echo '<option>Select course...</option>';
-}
-
-
-echo '</select>&nbsp
-<select name="year" id="year" class="selectAcademicInfo form-control">';
-         
-if(isset($_GET['edit'])){
- 
-  echo '<option selected value="'.$row['year'].'">'.$row['year'].'</option>';
-}else{
-  echo '<option>Select Grade/Year...</option>';
-}
-
-
-echo '</select>'; 
     ?>
 <br>
       Featured image<input type="file" name="featured_image" class="form-control">
@@ -235,22 +214,21 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
 </style>
 <?php
 // what is this double code??/
-
-// if(isset($_POST['publish_post'])){
-//   if($_GET['section']!="academic"){
-//     $title=mysqli_escape_string($conn,$_POST['title']);
-//     $content=mysqli_escape_string($conn,$_POST['editor']);
-//     $section=mysqli_escape_string($conn,$_GET['section']);
-//     $category=mysqli_escape_string($conn,$_POST['category']);
-//     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-//     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
-//     $qr="INSERT INTO posts (title,content,section,category,featured_image) 
-//     VALUES ('$title','$content','$section','$category','$featured_image')";
-//     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
-//     if($conn->query($qr)===TRUE)
-//       header("Location: /INOGIT/dashboard.php?section=academic");
-//   }
-// }
+ if(isset($_POST['publish_post'])){
+   if($_GET['section']!="academic"){
+     $title=mysqli_escape_string($conn,$_POST['title']);
+     $content=mysqli_escape_string($conn,$_POST['editor']);
+     $section=mysqli_escape_string($conn,$_GET['section']);
+     $category=mysqli_escape_string($conn,$_POST['category']);
+     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
+     $qr="INSERT INTO posts (title,content,section,category,featured_image) 
+     VALUES ('$title','$content','$section','$category','$featured_image')";
+     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
+     if($conn->query($qr)===TRUE)
+       header("Location: /INOGIT/dashboard.php?section=academic");
+   }
+ }
 if(isset($_POST['publish_post'])){
   if ($_GET['section']=="academic") {
     $title=mysqli_escape_string($conn,$_POST['title']);

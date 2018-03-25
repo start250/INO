@@ -5,7 +5,7 @@ if (isset($_GET['delete'])) {
   
   mysqli_query($conn,"DELETE from videos where id='".$_GET['delete']."'");
 }
-  $query=mysqli_query($conn,"SELECT * FROM videos WHERE section='".$_GET['section']."'");
+  $query=mysqli_query($conn,"SELECT * FROM videos WHERE section='".$_GET['section']."' ORDER BY id DESC");
 ?>
 <div class="row"><div class="col-lg-4 form-group">
 <form  class="" method="POST" enctype="multipart/form-data">

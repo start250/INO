@@ -56,7 +56,7 @@ while ($row=mysqli_fetch_array($query)) {
         <td><?php echo $row['title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['pages']; ?></td>
-        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil-square"></i></a> | <i class="fa fa-eye"></i></td>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil-alt"></i></a> 
       </tr>
       <script>
 function deletetask<?php echo $row['_id']; ?>() {
