@@ -26,7 +26,7 @@ padding: 15px;
         <li <?php if(@$_GET['section']=='health') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=health"><i class="fa fa-medkit"></i>&nbsp; Health</a></li>
         <li <?php if(@$_GET['section']=='culture') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=culture"><i class="fa fa-leaf"></i>&nbsp; Culture</a></li>
         <li <?php if(@$_GET['section']=='test') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=test"><i class="fa fa-question"></i>&nbsp; Test(s)</a></li>
-
+        <li <?php if(@$_GET['section']=='logos') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=logos"><i class="fa fa-flag"></i>&nbsp; Logos</a></li>
       </ul>
       <ul class="navbar-nav float-right">
       

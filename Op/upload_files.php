@@ -25,7 +25,7 @@ echo '<h3>Book Information...</h3>';
 if ($_GET['edit']!=1) {
   ?>
   <br>
-<select  class="form-control" > 
+<select  class="form-control" name="category"> 
     <?php
 
     if(@$_GET['section']=="academic")

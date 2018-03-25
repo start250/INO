@@ -12,7 +12,7 @@
 session_start();
 if (@$_SESSION['admin']||@$_SESSION['author']) {
 	?>
-	<script type="text/javascript">location.href='../'</script>
+	<script type="text/javascript">location.href='../dashboard.php'</script>
 	<?php
 }
 include("../DBfiles/connectDB.php");

@@ -80,7 +80,12 @@ else if(@$_GET['section']=="test"){
 	$section="Test";
 	$_SESSION["section"]=$section;
 	require_once('operations.php');
-	
+}
+else if(@$_GET['section']=="logos"){
+	$_SESSION["url"]="dashboard.php?section=logos";
+	$section="Logos";
+	$_SESSION["section"]=$section;
+  	require_once('Op/manageLogos.php');
 }
 
 ?>
