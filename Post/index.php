@@ -7,7 +7,7 @@ updateViews('POSTS',$id,$conn);
 $sql =  "SELECT * FROM Posts WHERE id='$id'";
   $result = $conn->query($sql);
  
-$stmt = $conn->prepare("SELECT * FROM Posts WHERE id='".$_GET["post"]."'"); 
+$stmt = $conn->prepare("SELECT * FROM posts WHERE id='".$_GET["post"]."'"); 
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc(); 
@@ -75,7 +75,7 @@ img{
 <img style="
  object-fit: cover;
  width:100%;
-  height:100%"  src="/INOGIT/Resources/Storage/Featuredimgs/<?=$row['featured_image']?>">
+  height:100%"  src="/INOGIT/Resources/Storage/Featured_images/<?=$row['featured_image']?>">
 </div>
           <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/sidebar.php');?>
       </div>

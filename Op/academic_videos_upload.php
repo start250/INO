@@ -1,7 +1,15 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
+
+if (isset($_GET['delete'])) {
+  
+  mysqli_query($conn,"DELETE from academicvideos where id='".$_GET['delete']."'");
+}
+  $query=mysqli_query($conn,"SELECT * from academicvideos");
 ?>
-<form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
+
+<div class="row"><div class="col-lg-4 form-group">
+<form  class="" method="POST" enctype="multipart/form-data">
 	<?php if($_GET['section']=="academic"){
          	echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
          	<option>Select Level...</option>
@@ -26,6 +34,70 @@ Thumbnail
 <button type="submit" class="btn btn-primary" name="publish_video">Publish Video</button>
 
 </form>
+</div>
+<div class="col-lg-8">
+  
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Course</th>
+        <th>Level</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+<?php
+
+while ($row=mysqli_fetch_array($query)) {
+
+
+?>
+      <tr>
+        <td><?php echo $row['title']; ?></td>
+        <td><?php echo $row['course']; ?></td>
+        <td><?php echo $row['level']; ?></td>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_videos&edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a>
+      </tr>
+      <script>
+function deletetask<?php echo $row['id']; ?>() {
+    
+    if (confirm('Do you really want to delete this post \"<?php echo $row['title']; ?>\"?') == true) {
+        location.href='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?php echo $_GET['action']; ?>&delete=<?php echo $row['id']; ?>';
+    } 
+  
+}
+</script>
+      <?php
+}
+?><?php
+if (mysqli_num_rows($query)==0) {
+  ?>
+  <tr>
+       
+        <td colspan="4">You haven't any video.</td>
+      </tr>
+  <?php
+}
+      ?>
+
+    </tbody></table></div>
+  <div class="col-md-4">
+     </div>
+</div>
+    <script>
+function deletetask<?php echo $row['_id']; ?>() {
+    
+    if (confirm('Do you really want to delete this Book \"<?php echo $row['title']; ?>\"?') == true) {
+        location.href='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?php echo $_GET['action']; ?>&delete=<?php echo $row['id']; ?>';
+    } 
+  
+}
+</script>
+
+
+</div>
+</div>
 <script type="text/javascript">
   function setLevel(){
      level=document.getElementById("select_level").value;

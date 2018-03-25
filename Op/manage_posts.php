@@ -55,7 +55,7 @@ while ($row=mysqli_fetch_array($query)) {
         <td><?php echo $row['section']; ?></td>
         <td><?php if($_GET['section']=="academic") echo $row['level']." | ".$row['course']; else echo $row['category']; ?></td>
         <td><?php echo $row['created_at']; ?></td>
-        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=editor&edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square"></i></a>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=editor&edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a>
       </tr>
       <script>
 function deletetask<?php echo $row['id']; ?>() {

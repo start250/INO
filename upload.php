@@ -22,7 +22,7 @@
 </html>
 <?php 
 session_start();
-$_SESSION['file_link'];
+@$_SESSION['file_link'];
  
 
   if(!empty($_FILES['uploaded_file']))
