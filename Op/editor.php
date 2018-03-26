@@ -217,11 +217,11 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
  if(isset($_POST['publish_post'])){
    if($_GET['section']!="academic"){
      $title=mysqli_escape_string($conn,$_POST['title']);
-     $content=mysqli_escape_string($conn,$_POST['editor']);
+     $content=mysqli_escape_string($conn,$_POST['ckeditor']);
      $section=mysqli_escape_string($conn,$_GET['section']);
      $category=mysqli_escape_string($conn,$_POST['category']);
      $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
+     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured-images/".basename( $_FILES["featured_image"]["name"]);
      $qr="INSERT INTO posts (title,content,section,category,featured_image) 
      VALUES ('$title','$content','$section','$category','$featured_image')";
      move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
@@ -232,7 +232,7 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
 if(isset($_POST['publish_post'])){
   if ($_GET['section']=="academic") {
     $title=mysqli_escape_string($conn,$_POST['title']);
-    $content=mysqli_escape_string($conn,$_POST['editor']);
+    $content=mysqli_escape_string($conn,$_POST['ckeditor']);
     $section=mysqli_escape_string($conn,$_GET['section']);
     $author=$_SESSION['username'];
     $category=mysqli_escape_string($conn,$_POST['category']);
@@ -254,7 +254,7 @@ if(isset($_POST['publish_post'])){
 
 if(isset($_POST['update_post'])){
     $title=mysqli_escape_string($conn,$_POST['title']);
-    $content=mysqli_escape_string($conn,$_POST['editor']);
+    $content=mysqli_escape_string($conn,$_POST['ckeditor']);
     $section=mysqli_escape_string($conn,$_GET['section']);
     $category=mysqli_escape_string($conn,$_POST['category']);
     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));

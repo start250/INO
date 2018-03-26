@@ -14,6 +14,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
   			<option>English Logo</option>
   			<option>Culture Logo</option>
   			<option>Quiz Logo</option>
+        <option>Academic_news</option>
+        <option>Explore_Rwandan_Education</option>
+        <option>Past_Papers</option>
+        <option>Scholarship</option>
+        <option>Library</option>
   		</select><br>
   		<button type="submit" class="form-control btn-info" name="uploadLogo">Upload</button>
   	</form>

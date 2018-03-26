@@ -84,6 +84,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     </div>
     <div class="col-lg-4">
         <ul>
+    <?php if(!@$_GET['s']) {?>        
         <li><a href="index.php?s=Academic Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Academic Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Academic</a></li>
@@ -104,7 +105,28 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco</a></li>
     <li><a href="index.php?s=Quiz Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Quiz Logo'";
     $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li></ul>
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
+<?php } 
+else if(@$_GET['s']=="Academic Logo"){ ?>
+  <li><a href="index.php?s=Academic Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Library'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Library</a></li>
+    <li><a href="index.php?s=Business Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Scholarship</a></li>
+    <li><a href="index.php?s=Road Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Past_Papers'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">National Past Paper</a></li>
+    <li><a href="index.php?s=Health Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Explore_Rwandan_Education'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Explore Rwandan Education</a></li>
+    <li><a href="index.php?s=English Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Academic_news'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Academic news</a></li>
+    
+
+<?php } ?>
+</ul>
     </div>
 </div>
 

@@ -20,7 +20,7 @@ include("../DBfiles/connectDB.php");
 <?php include('../Public/views/_header.php');?>
 </head>
 <body style="background-color: #e6f5ff; padding: 0px; margin: 0px;">
-<?php include('../Public/views/_navs_admin.php'); ?>
+
 <div id="main_dash" class="container">
 <div class="row z-depth-1">
            <div class="col-lg-8">

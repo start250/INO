@@ -76,7 +76,7 @@ padding: 3px;
 if (isset($_SESSION['admin'])||isset($_SESSION['author'])) {
 ?>
  <li class="nav-item">
-          <a class="float-right nav-link" href="<?php if(@$_SESSION['admin']){ echo"../Admin/logout.php"; } else { echo"../INOGIT/Author/logout.php"; } ?>" style="color: black; font-size: 12px;">
+          <a class="float-right nav-link" href="<?php if(@$_SESSION['admin']){ echo"../INOGIT/logout.php"; } else { echo"../INOGIT/Author/logout.php"; } ?>" style="color: black; font-size: 12px;">
           <?php echo $f_ad['username'].$f_ad1['username']."<br>"; ?><strong>Logout</strong>
         </a>
         </li>

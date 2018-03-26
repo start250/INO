@@ -60,7 +60,7 @@ http://localhost/INOGIT/Resources/Storage/Images/<?=$filename?>
 <div>
 Preview:
 
-<img style="height:100px" src="/INOGIT/Resources/Storage/Postimgs/<?=$filename?>" alt="No Preview">
+<img style="height:100px" src="/INOGIT/Resources/Storage/Images/<?=$filename?>" alt="No Preview">
 </div>
 </div>
 
