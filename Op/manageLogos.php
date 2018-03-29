@@ -19,6 +19,32 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
         <option>Past_Papers</option>
         <option>Scholarship</option>
         <option>Library</option>
+        <option>Business_Opportunities</option>
+        <option>Business_Advice</option>
+        <option>Business_News</option>
+        <option>Biographies_Of_Successful_Business_Men</option>
+        <option>Meet_With_Business_Mentors</option>
+        <option>Nutritions</option>
+        <option>Traditional_Medecine</option>
+        <option>Serious_Deseases</option>
+        <option>Doctor_Advice</option>
+        <option>Health_News</option>
+        <option>Ask_Doctor</option>
+        <option>Igazeti</option>
+        <option>Ibibazo_nibisubizo</option>
+        <option>Ibyapa</option>
+        <option>Amakuru</option>
+        <option>Baza_Mwarimu</option>
+        <option>For_Biginners</option>
+        <option>For_Intermediate</option>
+        <option>Advanced_English</option>
+        <option>Business_English</option>
+        <option>Ask_Teacher</option>
+        <option>Amateka_yu_Rwanda</option>
+        <option>Imigani</option>
+        <option>Ibisakuzo</option>
+        <option>Kirazira_zumuco_Nyarwanda</option>
+        <option>Baza_Sokuru</option>
   		</select><br>
   		<button type="submit" class="form-control btn-info" name="uploadLogo">Upload</button>
   	</form>
