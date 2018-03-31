@@ -23,7 +23,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <i class="glyphicon glyphicon-th" style="font-size: 20px;"></i>                        
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.php">
             <img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Master Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
@@ -76,12 +76,50 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
                     echo "Amategeko y'umuhanda";
         ?>
     </center><br>
-    <div class="row">
-        <div class="col-lg-5">
-            
-        </div>
-        <div class="col-lg-3">kk</div>
-    </div><?php } ?>
+    <?php
+    $subCat=@$_GET['sub'];
+    if($subCat=="Library"){?>
+       <form>
+            <center>
+                <button type="submit" class="SubCat"><i class="fa fa-flask"></i>Science Books</button>
+                <button type="submit" class="SubCat"><i class="fa fa-users"></i>Humanity Books</button>
+                <button type="submit" class="SubCat"><i class="fa fa-heartbeat"></i>Life Books</button>
+                <button type="submit" class="SubCat"><i class="fa fa-laptop"></i>ICT Books</button>
+                <button type="submit" class="SubCat"><i class="fa fa-language"></i>Language Books</button>
+                <button type="submit" class="SubCat"><i class="fa fa-briefcase"></i>Business Books</button>
+            </center>
+        </form>
+        
+        <?php
+    }
+    else if ($subCat=="Past_Papers") {?>
+       <form>
+            <center>
+                <button type="submit" class="SubCat">P6</button>
+                <button type="submit" class="SubCat">S3</button>
+                <button type="submit" class="SubCat">S6</button>
+                <button type="submit" class="SubCat">Other Papers</button>
+            </center>
+        </form>
+   <?php }
+   else if($subCat=="Scholarship"){?>
+        <form>
+            <center>
+                <button type="submit" class="SubCat"><i class="fa fa-star"></i>Tips to Win Scholarship</button>
+                <button type="submit" class="SubCat"><i class="fa fa-link"></i>Links</button>
+                <button type="submit" class="SubCat"><i class="fa fa-newspaper"></i>News</button>
+                <button type="submit" class="SubCat"><i class="fa fa-question-circle"></i>Ask</button>
+            </center>
+        </form>
+    <?php
+   }
+if(@$_GET['sub']=="Ask_Teacher" || @$_GET['sub']=="Ask_Doctor" || @$_GET['sub']=="Baza_Sokuru" || @$_GET['sub']=="Baza_Mwarimu")
+include('Public/views/ask_everyone.php');
+if(@$_GET['s']!="Academic Logo" && @$_GET['sub'])
+    include('Public/views/documentWRITTENvideo.php');   
+    ?>
+
+   <?php } ?>
     </div>
     <div class="col-lg-4">
         <ul>
@@ -108,17 +146,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
 <?php } 
-else if(@$_GET['s']=="Academic Logo"){ ?>
+else if(@$_GET['s']=="Academic Logo" && @$_GET['sub']!="Explore_Rwandan_Education"){ ?>
   <li><a href="index.php?s=Academic Logo&sub=Library"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Library'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Library</a></li>
-    <li><a href="index.php?s=Academic Logo$sub=Scholarship"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
+    <li><a href="index.php?s=Academic Logo&sub=Scholarship"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Scholarship</a></li>
-    <li><a href="index.php?s=Academic Logo$sub=Past_Papers"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Past_Papers'";
+    <li><a href="index.php?s=Academic Logo&sub=Past_Papers"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Past_Papers'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">National Past Paper</a></li>
-    <li><a href="index.php?s=Academic Logo$sub=Explore_Rwandan_Education"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Explore_Rwandan_Education'";
+    <li><a href="index.php?s=Academic Logo&sub=Explore_Rwandan_Education"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Explore_Rwandan_Education'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Explore Rwandan Education</a></li>
     <li><a href="index.php?s=Academic Logo&sub=Academic_news"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Academic_news'";
@@ -191,7 +229,7 @@ else if(@$_GET['s']=="English Logo"){ ?>
     <li><a href="index.php?s=English Logo&sub=For_Biginners"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='For_Biginners'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">For Biginners</a></li>
-    <li><a href="index.php?s=English Logo&sub=For_Intermediate"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='For_Intermediate'";
+    <li><a href="index.php?s=English Logo&sub=For_Intermediates"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='For_Intermediate'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">For Intermediate</a></li>
     <li><a href="index.php?s=English Logo&sub=Advanced_English"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Advanced_English'";
@@ -224,6 +262,26 @@ else if(@$_GET['s']=="Culture Logo"){
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Baza Sokuru</a></li>
 <?php
 }
+else if($subCat=="Explore_Rwandan_Education" && @$_GET['s']=="Academic Logo"){
+?>
+<li><a href="index.php?s=Academic Logo&sub_ex=Nursary_school"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Nursary_school'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Nursary school</a></li>
+    <li><a href="index.php?s=Academic Logo&sub_ex=Primary_school"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Primary_school'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Primary school</a></li>
+    <li><a href="index.php?s=Academic Logo&sub_ex=Ordinary_level"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ordinary_level'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ordinary level</a></li>
+    <li><a href="index.php?s=Academic Logo&sub_ex=Advanced_level"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Advanced_level'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Advanced level</a></li>
+    <li><a href="index.php?s=Academic Logo&sub_ex=University"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='University'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">University</a></li>
+
+    <?php
+}
 ?>
 </ul>
     </div>
@@ -251,4 +309,14 @@ else if(@$_GET['s']=="Culture Logo"){
     .col-lg-8 center{
         font-size: 20px;
     }
+    .SubCat{
+        border:none;
+        background-color:white;
+        margin: 15px; 
+    }
 </style>
+
+
+
+
+   

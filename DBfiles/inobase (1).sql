@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2018 at 11:57 PM
+-- Generation Time: Mar 31, 2018 at 11:02 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.14
 
@@ -113,10 +113,37 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`title`, `author`, `description`, `pages`, `size`, `added_by`, `created_at`, `updated_at`, `_id`, `book_link`, `section`, `thumb`, `views`, `downloads`, `book_category`) VALUES
-('CTFVGBHNJ', 'DFGYUJ', 'JHGFDRTYGUJI', 45, 707014, 'admin', '2018-03-25 07:17:40', NULL, 1, 'lecture3-1521962260.pdf', 'culture', 'midseason-tomatoes-1024x683.jpg', 0, 0, ''),
-('gghj', 'fghj', 'fghj', 66, 243610, 'admin', '2018-03-25 11:23:24', NULL, 2, 'Designing+performance+of+microprocessor+speed-1521977004.pdf', 'eng_class', 'img.jpg', 0, 0, ''),
-('gghj', 'fghj', 'fghj', 66, 243610, 'admin', '2018-03-25 11:27:08', NULL, 3, 'Designing+performance+of+microprocessor+speed-1521977228.pdf', 'eng_class', 'img.jpg', 0, 0, ''),
-('', 'oiuy', 'rtfyguij', 67, 307712, 'admin', '2018-03-25 11:27:40', NULL, 4, 'lecture+1-2018-1521977260.ppt', 'eng_class', 'midseason-tomatoes-1024x683.jpg', 0, 0, 'Intermediate');
+('Helo', 'lucas', 'the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.', 32, 312320, 'admin', '2018-03-31 11:09:35', NULL, 1, 'Lecture+1-2018-1522494575.ppt', 'eng_class', 'Web-Twitter-alt-2-Metro-icon.png', 0, 0, 'For_Biginners'),
+('ESRDYFTUIK', 'DXFGHJ', 'EWARSGYIJOGFCXZSDXFBHJ', 45, 4890, 'admin', '2018-03-31 11:40:13', NULL, 2, 'Logout-1522496413.png', 'eng_class', 'Log-Out-icon.png', 0, 0, 'For_Intermediates'),
+('etrdtfhuj', 'fghj', 'oijhuftreswasdfgy', 23, 15517, 'admin', '2018-03-31 11:43:15', NULL, 3, 'Apps-preferences-desktop-user-password-icon-1522496595.png', 'eng_class', 'Apps-preferences-system-login-icon.png', 0, 0, 'For_Intermediates');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(30) NOT NULL,
+  `postID` int(11) NOT NULL,
+  `names` text NOT NULL,
+  `email` text NOT NULL,
+  `msg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `postID`, `names`, `email`, `msg`) VALUES
+(1, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(2, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(3, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(4, 4, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
+(5, 4, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
+(6, 4, '', '', ''),
+(7, 4, '', '', ''),
+(8, 5, 'lucas', 'a.anaclet920@gmail.com', 'dvkhsbjl,dn');
 
 -- --------------------------------------------------------
 
@@ -136,13 +163,44 @@ CREATE TABLE `logos` (
 
 INSERT INTO `logos` (`id`, `filename`, `position`) VALUES
 (1, 'logo-1522009133.png', 'Master Logo'),
-(2, 'Cry-icon-1522011130.png', 'Academic Logo'),
+(2, '2-Hot-Home-icon-1522065218.png', 'Academic Logo'),
 (3, 'Emoji-Glad-icon-1522011148.png', 'Business Logo'),
 (4, 'Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large-1522011155.png', 'Road Logo'),
 (5, 'Emoji-Cute-icon-1522011162.png', 'Health Logo'),
 (6, 'Emoji-Anger-icon-1522011171.png', 'English Logo'),
 (7, 'Emoji-Whining-icon-1522011178.png', 'Culture Logo'),
-(8, 'Emoji-Nervous-icon-1522011187.png', 'Quiz Logo');
+(8, 'Emoji-Nervous-icon-1522011187.png', 'Quiz Logo'),
+(9, '2-Hot-Home-icon-1522072803.png', 'Library'),
+(10, 'Register-icon-1522072721.png', 'Scholarship'),
+(11, 'Save-icon-1522072713.png', 'Past_Papers'),
+(12, '1Password-icon-1522072705.png', 'Explore_Rwandan_Education'),
+(13, '2-Hot-Home-icon-1522072823.png', 'Academic_news'),
+(15, 'iDisk-User-Drive-icon-1522502990.png', 'Business_Opportunities'),
+(16, 'word-doc-icon-1522503004.png', 'Business_Advice'),
+(17, 'Animals-Sheep-On-Bike-icon-1522503018.png', 'Business_News'),
+(18, 'Animals-Ant-icon-1522503034.png', 'Biographies_Of_Successful_Business_Men'),
+(19, 'coreldraw-cdr-icon-1522503074.png', 'Meet_With_Business_Mentors'),
+(20, 'Apps-session-logout-icon-1522094985.png', 'Nutritions'),
+(21, 'word-doc-icon-1522095000.png', 'Traditional_Medecine'),
+(22, 'Animals-Sheep-2-icon-1522095014.png', 'Serious_Deseases'),
+(23, 'Log-Out-icon-1522095026.png', 'Doctor_Advice'),
+(24, 'Animals-Rabbit-icon-1522095037.png', 'Health_News'),
+(25, 'Logout-1522095057.png', 'Ask_Doctor'),
+(26, '', 'Igazeti'),
+(27, 'Piggy-bank-icon-1522095390.png', 'Ibibazo_nibisubizo'),
+(28, 'Animals-Fish-2-icon+%281%29-1522095365.png', 'Ibyapa'),
+(29, 'Monitor-icon-1522095455.png', 'Amakuru'),
+(30, 'Animals-Giraffe-icon+%281%29-1522095484.png', 'Baza_Mwarimu'),
+(31, 'Security-Password-2-icon-1522094953.png', 'For_Biginners'),
+(32, 'Animals-Dog-Bowl-icon-1522503114.png', 'For_Intermediate'),
+(33, 'Password-icon-1522094915.png', 'Advanced_English'),
+(34, 'App-password-icon-1522094891.png', 'Business_English'),
+(35, 'House-icon-1522094878.png', 'Ask_Teacher'),
+(36, 'home-icon-1522094868.png', 'Amateka_yu_Rwanda'),
+(37, '2-Hot-Home-icon-1522094860.png', 'Imigani'),
+(38, 'png-icon-1522095331.png', 'Ibisakuzo'),
+(39, 'Animals-Dog-Bowl-icon-1522095259.png', 'Kirazira_zumuco_Nyarwanda'),
+(40, 'dropbox-icon-1522095311.png', 'Baza_Sokuru');
 
 -- --------------------------------------------------------
 
@@ -174,8 +232,15 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `author`, `section`, `category`, `level`, `course`, `year`, `featured_image`, `created_at`, `updated_at`, `shares`, `comments`, `views`) VALUES
-(3, 'The MAC protocol in cellular networks is designed to maximize', '<p>&nbsp;networks, also use a MAC layer. The MAC protocol in cellular networks is designed to maximize the utilization of the expensive licensed spectrum.&nbsp;<sup><a href=\"https://en.wikipedia.org/wiki/Medium_access_control#cite_note-Miao-3\">[3]</a></sup>The&nbsp;<a href=\"https://en.wikipedia.org/wiki/Air_interface\" title=\"Air interface\">air interface</a>&nbsp;of a cellular network is at layers 1 and 2 of the OSI model; at layer 2, it is divided into multiple protocol layers. In UMTS and LTE, those protocols are the&nbsp;<a href=\"https://en.wikipedia.org/wiki/PDCP\" title=\"PDCP\">Packet Data Convergence Protocol</a>&nbsp;(PDCP), the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Radio_Link_Control\" title=\"Radio Link Control\">Radio Link Control</a>&nbsp;(RLC) protocol, and the MAC protocol. The base station has the absolute control over the air interface and schedules the downlink access as well as the uplink access of all devices. The MAC protocol is specified by&nbsp;<a href=\"https://en.wikipedia.org/wiki/3GPP\" title=\"3GPP\">3GPP</a>&nbsp;in TS 25.321<sup><a href=\"https://en.wikipedia.org/wiki/Medium_access_control#cite_note-4\">[4]</a></sup>&nbsp;for UMTS, TS 36.321<sup><a href=\"https://en.wikipedia.org/wiki/Medium_access_control#cite_note-5\">[5]</a></sup>&nbsp;for LTE and TS 38.321<sup><a href=\"https://en.wikipedia.org/wiki/Medium_access_control#cite_note-6\">[6]</a></sup>&nbsp;for&nbsp;<a href=\"https://en.wikipedia.org/wiki/5G\" title=\"5G\">5G</a>&nbsp;New Radio&nbsp;</p>\r\n', '', '', 'culture', 'Imigani', '', '', '', 'filename.jpg', '2018-03-25 07:10:06', '0000-00-00 00:00:00', 0, 0, 0),
-(4, 'you are still getting this warning, you most ', '<p>The MAC protocol in cellular networks is designed to maximize&nbsp;sqli_fetch_array(): It is not safe to rely on the system&#39;s timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone &#39;UTC&#39; for now, but please set date.timezone to select your timezone. in&nbsp;<strong>/home/microkaz/ino.microkazi.info/Admin/login.php</strong>&nbsp;on line&nbsp;<strong>44</strong></p>\r\n', '', '', 'culture', 'Ibisakuzo', '', '', '', 'Barry-Allen-The-Flash-Season-3-barry-allen-the-flash-39923681-500-334.jpg', '2018-03-25 07:10:52', '0000-00-00 00:00:00', 0, 0, 0);
+(1, 'the unicode) directly from this page into a text layer.', '<p>the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', '2-Hot-Home-icon.png', '2018-03-31 11:08:16', '0000-00-00 00:00:00', 0, 2, 1),
+(2, 'tfyhijok', '<p>ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'Register-icon.png', '2018-03-31 12:18:00', '0000-00-00 00:00:00', 0, 2, 1),
+(3, 'ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl', '<p>ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'home-icon.png', '2018-03-31 12:20:22', '0000-00-00 00:00:00', 0, 2, 4),
+(4, 'paste it into a text field and let ligatures do the rest ', '<p>After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'Animals-Aquarium-icon.png', '2018-03-31 12:26:45', '0000-00-00 00:00:00', 0, 2, 1),
+(5, 'Featured_images Featured_images Featured_images', '<p>Featured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_images</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'im (1).jpg', '2018-03-31 14:24:29', '0000-00-00 00:00:00', 0, 3, 3),
+(6, 'yello ', '<p>yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'lead_960.jpg', '2018-03-31 14:31:19', '0000-00-00 00:00:00', 0, 2, 1),
+(7, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit ame', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', '636122739856255638-1137033243_Big-data-Exhaustive-review-pulls-together-evidence-on-food-groups-and-diet-related-disease.jpg', '2018-03-31 15:54:36', '0000-00-00 00:00:00', 0, 0, 0),
+(8, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 15:57:18', '0000-00-00 00:00:00', 0, 0, 1),
+(9, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 18:32:06', '0000-00-00 00:00:00', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -200,8 +265,7 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_link`, `section`, `created_at`, `updated_at`) VALUES
-(6, 'Hello', 'thank', 'Barry_Allen_Grant_Gustin-10.jpg', 'Ibisakuzo', 'sdfyghuijkol', 'culture', '2018-03-25 07:12:21', '0000-00-00 00:00:00'),
-(7, 'dcfvgbhnjm', 'jhgf', 'img.jpg', 'Kirazira', 'xdcfvbhn', 'culture', '2018-03-25 07:13:07', '0000-00-00 00:00:00');
+(1, 'the unicode) directly from this page into a text layer.', 'the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.', 'Health-Sign-red-icon.png', 'For_Biginners', 'the unicode) directly from this page into a text layer.', 'eng_class', '2018-03-31 11:10:06', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -232,6 +296,12 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`_id`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `logos`
 --
 ALTER TABLE `logos`
@@ -257,31 +327,37 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `academicvideos`
 --
 ALTER TABLE `academicvideos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `logos`
 --
 ALTER TABLE `logos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

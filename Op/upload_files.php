@@ -38,34 +38,33 @@ if ($_GET['edit']!=1) {
     <option>Business Book</option>";
     else if(@$_GET['section']=="business")
         echo "<option disabled selected>Select Category</option>
-    <option>Business Opportunities</option>
-    <option>Business Advice</option>
-    <option>Business News</option>
-    <option>Biographies</option>";
+    <option>Business_Opportunities</option>
+    <option>Business_Advice</option>
+    <option>Business_News</option>
+    <option>Biographies_Of_Successful_Business_Men</option>";
     else if(@$_GET['section']=="health")
         echo "<option disabled selected>Select Category</option>
     <option>Nutrion</option>
-    <option>Traditional Medecine</option>
-    <option>Serious Deseases</option>
-    <option>Doctor Advice</option>";
+    <option>Traditional_Medecine</option>
+    <option>Serious_Deseases</option>
+    <option>Doctor_Advice</option>";
     else if(@$_GET['section']=="eng_class")
         echo "<option disabled selected>Select Category</option>
-    <option>Beginners</option>
-    <option>Intermediate</option>
-    <option>Advanced</option>
-    <option>For Business</option>
+    <option>For_Biginners</option>
+    <option>For_Intermediates</option>
+    <option>Advanced_English</option>
+    <option>Business_English</option>
     ";
     else if (@$_GET['section']=="culture")
        echo "<option disabled selected selected>Select Category</option>
-   <option>Amateka</option>
+   <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira</option>
-    <option>Ibisakuzo</option>"; 
+    <option>Kirazira_zumuco_Nyarwanda</option>"; 
     else if(@$_GET['section']=="rules_road")
         echo "<option disabled selected selected>Select Category</option>
    <option>Igazeti</option>
-    <option>Ibibazo n'ibisubizo</option>
+    <option>Ibibazo_nibisubizo</option>
     <option>Ibyapa</option>";
     ?>
 </select><br>

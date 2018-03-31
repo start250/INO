@@ -89,32 +89,35 @@ if(isset($_SESSION['update_success'])){
     
   if(@$_GET['section']=="business")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Business Opportunities</option>
-    <option>Business Advice</option>
-    <option>Biographies</option></select>';
+    <option>Business_Opportunities</option>
+    <option>Business_Advice</option>
+    <option>Business_News</option>
+    <option>Biographies_Of_Successful_Business_Men</option></select>';
     else if(@$_GET['section']=="health")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Nutrion</option>
-    <option>Traditional Medecine</option>
-    <option>Serious Deseases</option>
-    <option>Doctor Advice</option></select>';
+    <option>Traditional_Medecine</option>
+    <option>Serious_Deseases</option>
+    <option>Doctor_Advice</option>
+    <option>Health_News</option></select>';
     else if(@$_GET['section']=="eng_class")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Beginners</option>
-    <option>Intermediate</option>
-    <option>Advanced</option>
-    <option>For Business</option></select>
+    <option>For_Beginners</option>
+    <option>For_Intermediates</option>
+    <option>Advanced_English</option>
+    <option>Business_English</option></select>
     ';
     else if (@$_GET['section']=="culture")
        echo '<select name="category" class="form-control"><option>Select Category</option>
-   <option>Amateka</option>
+   <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira</option>
-    <option>Ibisakuzo</option></select>'; 
+    <option>Kirazira_zumuco_Nyarwanda</option>
+    </select>'; 
     else if(@$_GET['section']=="rules_road")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Ibibazo nibisubizo</option>
+    <option>Ibibazo_nibisubizo</option>
+    <option>Igazeti</option>
     <option>Ibyapa</option></select>';
     else if(@$_GET['section']=="academic") 
       echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
@@ -219,18 +222,17 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
      $title=mysqli_escape_string($conn,$_POST['title']);
      $content=mysqli_escape_string($conn,$_POST['ckeditor']);
      $section=mysqli_escape_string($conn,$_GET['section']);
+     $author=$_SESSION['username'];
      $category=mysqli_escape_string($conn,$_POST['category']);
      $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured-images/".basename( $_FILES["featured_image"]["name"]);
-     $qr="INSERT INTO posts (title,content,section,category,featured_image) 
-     VALUES ('$title','$content','$section','$category','$featured_image')";
+     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+     $qr="INSERT INTO posts (author,title,content,section,category,featured_image) 
+     VALUES ('$author','$title','$content','$section','$category','$featured_image')";
      move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
      if($conn->query($qr)===TRUE)
        header("Location: /INOGIT/dashboard.php?section=academic");
    }
- }
-if(isset($_POST['publish_post'])){
-  if ($_GET['section']=="academic") {
+  else if ($_GET['section']=="academic") {
     $title=mysqli_escape_string($conn,$_POST['title']);
     $content=mysqli_escape_string($conn,$_POST['ckeditor']);
     $section=mysqli_escape_string($conn,$_GET['section']);
@@ -247,7 +249,7 @@ if(isset($_POST['publish_post'])){
     if($conn->query($qr)===TRUE)
       echo "Posting sucessfully!!";
   }
-} 
+}
 
 
 //a: Update Querry

@@ -12,32 +12,32 @@ if (isset($_GET['delete'])) {
 	<?php
 	if(@$_GET['section']=="business")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Business Opportunities</option>
-    <option>Business Advice</option>
-    <option>Biographies</option></select>';
+    <option>Business_Opportunities</option>
+    <option>Business_Advice</option>
+    <option>Biographies_Of_Successful_Business_Men</option></select>';
     else if(@$_GET['section']=="health")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Nutrion</option>
-    <option>Traditional Medecine</option>
-    <option>Serious Deseases</option>
-    <option>Doctor Advice</option></select>';
+    <option>Traditional_Medecine</option>
+    <option>Serious_Deseases</option>
+    <option>Doctor_Advice</option></select>';
     else if(@$_GET['section']=="eng_class")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Beginners</option>
-    <option>Intermediate</option>
-    <option>Advanced</option>
-    <option>For Business</option></select>
+    <option>For_Biginners</option>
+    <option>For_Intermediate</option>
+    <option>Advanced_English</option>
+    <option>Business_English</option></select>
     ';
     else if (@$_GET['section']=="culture")
        echo '<select name="category" class="form-control"><option>Select Category</option>
-   <option>Amateka</option>
+   <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira</option>
-    <option>Ibisakuzo</option></select>'; 
+    <option>Kirazira_zumuco_Nyarwanda</option>
+    <option>Baza_Sokuru</option></select>'; 
     else if(@$_GET['section']=="rules_road")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Ibibazo nibisubizo</option>
+    <option>Ibibazo_nibisubizo</option>
     <option>Ibyapa</option></select>';
     ?>
 <br>
