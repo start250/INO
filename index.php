@@ -284,6 +284,74 @@ else if($subCat=="Explore_Rwandan_Education" && @$_GET['s']=="Academic Logo"){
 }
 ?>
 </ul>
+<br><br><hr>
+<?php
+if(@$_GET['t']==3 && @$_GET['post']){
+$section20=@$_GET['s'];
+$category20=@$_GET['sub'];
+$query20="SELECT * FROM videos WHERE category='$category20' order by id desc";
+$display_count=1;
+$result20=$conn->query($query20);
+
+   echo "<strong><h2>Related Videos</h2></strong>"; 
+while($row20=$result20->fetch_assoc()){
+    if($display_count<=5){
+?>
+<div class="row">
+    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><?php echo $row20['title']; ?></a></strong><h4>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row20['thumb'];?>"></a>
+    <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row20['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row20['comments']; ?></p>
+</div>    
+</div>
+<hr>
+<?php
+}
+$display_count+=1;
+}}
+if(@$_GET['t']==2 && @$_GET['post']){
+    
+$section21=@$_GET['s'];
+$category21=@$_GET['sub'];
+$query21="SELECT * FROM posts WHERE category='$category21' order by id desc";
+$display_count=1;
+$result21=$conn->query($query21);
+echo "<strong><h2>Related Videos</h2></strong>"; 
+while($row21=$result21->fetch_assoc()){
+    if($display_count<=5){
+?>
+<div class="row">
+    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><?php echo $row21['title']; ?></a></strong><h4>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row21['featured_image'];?>"></a>
+    <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row21['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row21['comments']; ?></p>
+</div>    
+</div>
+<hr>
+<?php
+}
+$display_count+=1;
+}}
+if(@$_GET['t']==1){
+    
+$section22=@$_GET['s'];
+$category22=@$_GET['sub'];
+$query22="SELECT * FROM posts WHERE category='$category22' order by id desc";
+$display_count=1;
+$result22=$conn->query($query22);
+echo "<strong><h2>Also see</h2></strong>"; 
+while($row22=$result22->fetch_assoc()){
+    if($display_count<=5){
+?>
+<div class="row">
+    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><?php echo $row22['title']; ?></a></strong><h4>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row22['featured_image'];?>"></a>
+</div>    
+</div>
+<hr>
+<?php
+}
+$display_count+=1;
+}}
+?>
     </div>
 </div>
 
