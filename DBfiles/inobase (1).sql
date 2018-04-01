@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2018 at 11:02 PM
+-- Generation Time: Apr 01, 2018 at 10:47 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.14
 
@@ -37,6 +37,25 @@ CREATE TABLE `academicvideos` (
   `course` text NOT NULL,
   `level` text NOT NULL,
   `year` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `academic_doc`
+--
+
+CREATE TABLE `academic_doc` (
+  `id` int(30) NOT NULL,
+  `title` text NOT NULL,
+  `author` text NOT NULL,
+  `description` text NOT NULL,
+  `pages` int(11) NOT NULL,
+  `thumb` text NOT NULL,
+  `book_file` text NOT NULL,
+  `level` text NOT NULL,
+  `course` text NOT NULL,
+  `year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -126,6 +145,7 @@ INSERT INTO `books` (`title`, `author`, `description`, `pages`, `size`, `added_b
 CREATE TABLE `comments` (
   `id` int(30) NOT NULL,
   `postID` int(11) NOT NULL,
+  `videoID` int(30) NOT NULL,
   `names` text NOT NULL,
   `email` text NOT NULL,
   `msg` text NOT NULL
@@ -135,15 +155,24 @@ CREATE TABLE `comments` (
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id`, `postID`, `names`, `email`, `msg`) VALUES
-(1, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
-(2, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
-(3, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
-(4, 4, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
-(5, 4, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
-(6, 4, '', '', ''),
-(7, 4, '', '', ''),
-(8, 5, 'lucas', 'a.anaclet920@gmail.com', 'dvkhsbjl,dn');
+INSERT INTO `comments` (`id`, `postID`, `videoID`, `names`, `email`, `msg`) VALUES
+(1, 4, 0, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(2, 4, 0, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(3, 4, 0, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'i am testing ok'),
+(4, 4, 0, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
+(5, 4, 0, 'Arsene', 'a.anaclet920@gmail.com', 'if s]done ok'),
+(6, 4, 0, '', '', ''),
+(7, 4, 0, '', '', ''),
+(8, 5, 0, 'lucas', 'a.anaclet920@gmail.com', 'dvkhsbjl,dn'),
+(9, 4, 0, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'ok view as needed'),
+(10, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(11, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(12, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(13, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(14, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(15, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(16, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine'),
+(17, 0, 4, 'Anaclet Ahishakiye', 'a.anaclet920@gmail.com', 'paragraph is fine');
 
 -- --------------------------------------------------------
 
@@ -233,14 +262,14 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `author`, `section`, `category`, `level`, `course`, `year`, `featured_image`, `created_at`, `updated_at`, `shares`, `comments`, `views`) VALUES
 (1, 'the unicode) directly from this page into a text layer.', '<p>the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', '2-Hot-Home-icon.png', '2018-03-31 11:08:16', '0000-00-00 00:00:00', 0, 2, 1),
-(2, 'tfyhijok', '<p>ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'Register-icon.png', '2018-03-31 12:18:00', '0000-00-00 00:00:00', 0, 2, 1),
+(2, 'tfyhijok', '<p>ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'Register-icon.png', '2018-03-31 12:18:00', '0000-00-00 00:00:00', 0, 2, 2),
 (3, 'ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl', '<p>ftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjklftgyhuijkojhjgvhbjkljbvgbjkl</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'home-icon.png', '2018-03-31 12:20:22', '0000-00-00 00:00:00', 0, 2, 4),
 (4, 'paste it into a text field and let ligatures do the rest ', '<p>After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.After following our&nbsp;<a href=\"https://fontawesome.com/get-started/desktop\">desktop get started steps</a>, you can copy any icon&#39;s name here and paste it into a text field and let ligatures do the rest of the work (when supported by your desktop app). Or you can also copy and paste the icon (not the unicode) directly from this page into a text layer.</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'Animals-Aquarium-icon.png', '2018-03-31 12:26:45', '0000-00-00 00:00:00', 0, 2, 1),
 (5, 'Featured_images Featured_images Featured_images', '<p>Featured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_imagesFeatured_images</p>\r\n', '', '', 'eng_class', 'For_Intermediates', '', '', '', 'im (1).jpg', '2018-03-31 14:24:29', '0000-00-00 00:00:00', 0, 3, 3),
 (6, 'yello ', '<p>yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;yello&nbsp;</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'lead_960.jpg', '2018-03-31 14:31:19', '0000-00-00 00:00:00', 0, 2, 1),
 (7, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit ame', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', '636122739856255638-1137033243_Big-data-Exhaustive-review-pulls-together-evidence-on-food-groups-and-diet-related-disease.jpg', '2018-03-31 15:54:36', '0000-00-00 00:00:00', 0, 0, 0),
 (8, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 15:57:18', '0000-00-00 00:00:00', 0, 0, 1),
-(9, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 18:32:06', '0000-00-00 00:00:00', 0, 0, 0);
+(9, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 18:32:06', '0000-00-00 00:00:00', 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -256,6 +285,9 @@ CREATE TABLE `videos` (
   `category` text NOT NULL,
   `video_link` text NOT NULL,
   `section` text NOT NULL,
+  `views` int(11) NOT NULL DEFAULT '0',
+  `comments` int(11) NOT NULL DEFAULT '0',
+  `share` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -264,8 +296,10 @@ CREATE TABLE `videos` (
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_link`, `section`, `created_at`, `updated_at`) VALUES
-(1, 'the unicode) directly from this page into a text layer.', 'the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.', 'Health-Sign-red-icon.png', 'For_Biginners', 'the unicode) directly from this page into a text layer.', 'eng_class', '2018-03-31 11:10:06', '0000-00-00 00:00:00');
+INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_link`, `section`, `views`, `comments`, `share`, `created_at`, `updated_at`) VALUES
+(1, 'the unicode) directly from this page into a text layer.', 'the unicode) directly from this page into a text layer.the unicode) directly from this page into a text layer.', 'Health-Sign-red-icon.png', 'For_Biginners', 'the unicode) directly from this page into a text layer.', 'eng_class', 0, 0, 0, '2018-03-31 11:10:06', '0000-00-00 00:00:00'),
+(2, 'Games industry is ok', 'Description Description DescriptionDescription Description Description', 'Home-icon (3).png', 'Business_Opportunities', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/3SH3CPJhthE\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>', 'business', 6, 0, 0, '2018-04-01 19:41:29', '0000-00-00 00:00:00'),
+(4, 'very is sorry ik ok', 'very is sorry ik ok very is sorry ik ok very is sorry ik ok', 'Log-Out-icon.png', 'Business_Opportunities', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/3SH3CPJhthE\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>', 'business', 11, 9, 0, '2018-04-01 10:18:32', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -275,6 +309,12 @@ INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_
 -- Indexes for table `academicvideos`
 --
 ALTER TABLE `academicvideos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `academic_doc`
+--
+ALTER TABLE `academic_doc`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -330,6 +370,12 @@ ALTER TABLE `academicvideos`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `academic_doc`
+--
+ALTER TABLE `academic_doc`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
@@ -339,7 +385,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `logos`
@@ -357,7 +403,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

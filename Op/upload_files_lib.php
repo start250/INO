@@ -24,60 +24,16 @@ echo '<h3>Book Information...</h3>';
 
 if ($_GET['edit']!=1) {
   ?>
-  <br> 
-    <?php
-
-    if(@$_GET['section']=="academic")
-         echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
-            <option>Select Level...</option>
-            <option value="nursary">Nursary</option>;
-            <option value="primary">Primary</option>
-            <option value="high school">High School</option>
-            <option value="other info">Other Info</option></select>&nbsp;
-
-          <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
-          <option>Select course...</option></select>&nbsp
-          <select name="year" id="year" class="selectAcademicInfo form-control">
-          <option>Select Grade/Year...</option></select>&nbsp
-          ';
-         
-    else if(@$_GET['section']=="business")
-        echo '<select  class="form-control" name="category">
-    <option disabled selected>Select Category</option>
-    <option>Business_Opportunities</option>
-    <option>Business_Advice</option>
-    <option>Business_News</option>
-    <option>Biographies_Of_Successful_Business_Men</option></select>';
-    else if(@$_GET['section']=="health")
-        echo '<select  class="form-control" name="category">
-    <option disabled selected>Select Category</option>
-    <option>Nutrion</option>
-    <option>Traditional_Medecine</option>
-    <option>Serious_Deseases</option>
-    <option>Doctor_Advice</option></select>';
-    else if(@$_GET['section']=="eng_class")
-        echo '<select  class="form-control" name="category">
-    <option disabled selected>Select Category</option>
-    <option>For_Biginners</option>
-    <option>For_Intermediates</option>
-    <option>Advanced_English</option>
-    <option>Business_English</option></select>
-    ';
-    else if (@$_GET['section']=="culture")
-       echo '<select  class="form-control" name="category">
-   <option disabled selected selected>Select Category</option>
-   <option>Amateka_yu_Rwanda</option>
-    <option>Imigani</option>
-    <option>Ibisakuzo</option>
-    <option>Kirazira_zumuco_Nyarwanda</option></select>'; 
-    else if(@$_GET['section']=="rules_road")
-        echo '<select  class="form-control" name="category">
-    <option disabled selected selected>Select Category</option>
-   <option>Igazeti</option>
-    <option>Ibibazo_nibisubizo</option>
-    <option>Ibyapa</option></select>';
-    ?>
-<br>
+  <br>
+<select  class="form-control" name="category"> 
+        echo "<option disabled  selected>Select Category</option>
+    <option>Science Book</option>
+    <option>Humanity Boook</option>
+    <option>Language Book</option>
+    <option>Life Book</option>
+    <option>ICT Book</option>
+    <option>Business Book</option>
+</select><br>
  <?php
 }
 ?>
@@ -134,51 +90,7 @@ function myFunction(){
     document.getElementById("filesInfo").innerHTML = txt;
 }
 </script>
- <script type="text/javascript">
-  function setLevel(){
-     level=document.getElementById("select_level").value;
-     if(level=="nursary"){
-       topic="<option>baby</option><option>middle</option><option>top class</option>";
-       topic_s=document.getElementById("topic");
-       topic_s.innerHTML=topic;
-     }
-     else if(level=="primary"){
-       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>set</option>";
-       topic_s=document.getElementById("topic");
-       topic_s.innerHTML=topic;
-     }
-      else if(level=="high school"){
-       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>biology</option><option>chemistry</option><option>history</option><option>computer</option><option>kiswahili</option><option>literature</option><option>economie</option><option>entrepreneurship</option><option>geography</option>";
-       topic_s=document.getElementById("topic");
-       topic_s.innerHTML=topic;
-     }
-     else if(level=="other info"){
-        topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Now open</option>";
-        topic_s=document.getElementById("topic");
-        topic_s.innerHTML=topic;
-     }
-
-
-  }
-
-function setYa(){
-   topic1=document.getElementById("topic").value;
-   level=document.getElementById("select_level").value;
-  if(topic1=="economie" || topic1=="literature"){
-    year1="<option>4</option><option>5</option><option>6</option>"
-  year_s=document.getElementById("year");
-  year_s.innerHTML=year1;
-}
-else if(level!="nursary"){
-  year1="<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>"
-  year_s=document.getElementById("year");
-  year_s.innerHTML=year1;
-}
-
-else
-  document.getElementById("year").innerHTML=""
-}
-</script> 
+  
 <?php 
 
 if(isset($_POST['upload'])){ 
