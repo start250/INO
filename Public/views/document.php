@@ -2,9 +2,20 @@
 
 $section13=@$_GET['s'];
 $category13=@$_GET['sub'];
+
+//-----------------------------------------
+$pages=@$_GET['page'];
+if($pages=="" || $pages=="1"){
+$pages=0;
+}
+else
+{
+    $pages=($pages*10)-10;
+}
+
+//--------------------------------------
 $query13="SELECT * FROM books WHERE book_category='$category13' order by created_at desc";
 $display_count=1;
-
 $result13 = $conn->query($query13);
 while($row = $result13->fetch_assoc()) {
 ?>
@@ -48,3 +59,28 @@ while($row = $result13->fetch_assoc()) {
     <?php
 }
     ?>
+
+<?php
+    $c=@$_GET['sub'];
+$sql1="select * from books where book_category='$c' order by created_at desc";
+$res=mysqli_query($conn,$sql1);
+
+$count=mysqli_num_rows($res);
+$num_of_pages=ceil($count/10);
+$getP=@$_GET['page'];
+if($getP-1>0 && $getP!=""){
+?>
+<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']-1?>">Privious</a>
+<?php
+}
+for($i=1;$i<=$num_of_pages;$i++){?>
+    <a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=$i?>" style="text-decoration: none;margin: 6px;<?php if($_GET['page']==$i) echo 'background-color: red'; ?>"><?php echo $i;?> </a>
+    <?php
+}
+if(@$_GET['page']<$num_of_pages){
+?>
+<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']+1?>">next</a>
+
+<?php
+}
+?>

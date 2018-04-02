@@ -335,6 +335,7 @@ if(@$_GET['t']==1){
 $section22=@$_GET['s'];
 $category22=@$_GET['sub'];
 $query22="SELECT * FROM posts WHERE category='$category22' order by id desc";
+echo $pages;
 $display_count=1;
 $result22=$conn->query($query22);
 echo "<strong><h2>Also see</h2></strong>"; 
@@ -383,7 +384,6 @@ $display_count+=1;
         margin: 15px; 
     }
 </style>
-
 
 
 

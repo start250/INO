@@ -182,6 +182,7 @@ else
 <?php 
 
 if(isset($_POST['upload'])){ 
+  if(@$_GET['section']!="academic"){
 $target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Books/";  
 
   $fullName=basename( $_FILES["fileToUpload"]["name"]);
@@ -203,22 +204,49 @@ $added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 $thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"])); 
 $book_link=mysqli_real_escape_string($conn,$book_name);
 $section=$_GET['section']; 
+$year=mysqli_escape_string($conn,$_POST['year']);
+$level=mysqli_escape_string($conn,$_POST['level']);
+$course=mysqli_escape_string($conn,$_POST['course']);
 $book_category=mysqli_escape_string($conn,$_POST['category']);
-$sql = "INSERT INTO Books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
+$sql = "INSERT INTO books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
   
                    VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$thumb','$book_link','$section','$book_category')";
 
 if ($conn->query($sql) === TRUE) {
-    echo '<script type="text/javascript">
-   // window.location = "/inogit/admin/dashboard.php"
-</script>';
-} else {
-    echo "Error "; //. $sql . "<br>" . $conn->error;
+    echo 'ok!';
+} }
 }
+else{  
+   $target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Books/";  
 
-} else{  
-    echo "Sorry, file not uploaded, please try again!";  
-}  }
+  $fullName=basename( $_FILES["fileToUpload"]["name"]);
+  list($partName,$extension)=explode('.', $fullName);
+$book_name=urlencode($partName."-".time().".".$extension);
+  $target_path .= $book_name;  
+ $thumb_target=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Thumbs/".basename($_FILES['thumb']['name']);
+if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_path)) {   
+    echo "File uploaded successfully!";  
+if (move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_target)) 
+    echo "OK";
+    //save info to db
+    $title=mysqli_real_escape_string($conn,$_POST['title']);
+$author=mysqli_real_escape_string($conn,$_POST['author']);
+$description=mysqli_real_escape_string($conn,$_POST['description']);
+$pages=mysqli_real_escape_string($conn,$_POST['pages']);
+$size=$_POST['size']; 
+$added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
+$thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"])); 
+$book_link=mysqli_real_escape_string($conn,$book_name);
+$section=$_GET['section']; 
+$year=mysqli_escape_string($conn,$_POST['year']);
+$level=mysqli_escape_string($conn,$_POST['level']);
+$course=mysqli_escape_string($conn,$_POST['course']);
+$sql="INSERT INTO academic_doc (title,author,description,pages,thumb,book_file,level,course,year)
+         VALUES ('$title','$author','$description','$pages','$thums','$book_link','$level','$course','$year')";
+if($conn->query($sql)===TRUE)
+  echo "ok!";
+
+} }}
 
 if(isset($_POST['update'])){ 
 
@@ -239,7 +267,6 @@ location.href = "/inogit/"
 }
 
 }
- 
 
 
 $conn->close();

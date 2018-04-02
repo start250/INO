@@ -97,7 +97,7 @@ if (mysqli_num_rows($query)==0) {
   <div class="col-md-4">
      </div>
 </div>
-    <script>
+
 <?php
 if(isset($_POST['publish_video'])){
 	if(@$_GET['section']!="academic"){

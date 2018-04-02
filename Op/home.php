@@ -15,7 +15,7 @@ if (isset($_GET['search'])) {
   $sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' AND section='".$_SESSION["section"]."'";  
 }
 else{
-    $sql = "SELECT * FROM Books WHERE section='".$_SESSION["section"]."'";
+    $sql = "SELECT * FROM books WHERE section='".$_SESSION["section"]."'";
 }
 
   

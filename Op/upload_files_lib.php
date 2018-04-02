@@ -1,6 +1,9 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
-
+if (isset($_GET['delete'])) {
+  
+  mysqli_query($conn,"DELETE from books where _id='".$_GET['delete']."'");
+}
 if (isset($_GET['edit'])) {
     $sql3=mysqli_query($conn,"select * from books where _id='".$_GET['edit']."'");
     $fetch3=mysqli_fetch_array($sql3);
@@ -10,6 +13,7 @@ echo '<h3>Book Information...</h3>';
 
 }
 ?> 
+
 <form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
 <input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
 <input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
@@ -154,5 +158,55 @@ location.href = "/inogit/"
  
 
 
-$conn->close();
+
+
+$sql6="SELECT * FROM books WHERE section='academic' ORDER BY created_at DESC";
+$query=mysqli_query($conn,$sql6);
 ?> 
+
+<br><br>
+<div class="row"><h4><strong>Recently added.</strong></h4>
+    <table class="table table-hover">
+        
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+<?php
+$count=1;
+while ($row=mysqli_fetch_array($query)) {
+if($count<=6){
+
+?>
+      <tr>
+        <td><?php echo $row['title']; ?></td>
+        <td><?php echo $row['book_category']; ?></td>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> 
+      </tr>
+            <script>
+function deletetask<?php echo $row['_id']; ?>() {
+    
+    if (confirm('Do you really want to delete this post \"<?php echo $row['title']; ?>\"?') == true) {
+        location.href='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?php echo $_GET['action']; ?>&delete=<?php echo $row['_id']; ?>';
+    } 
+  
+}
+</script>
+      <?php
+}$count++;}
+?><?php
+if (mysqli_num_rows($query)==0) {
+  ?>
+  <tr>
+       
+        <td colspan="4">You haven't any video.</td>
+      </tr>
+  <?php
+}
+      ?>
+
+    </tbody></table></div>
