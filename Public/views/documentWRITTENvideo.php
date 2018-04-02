@@ -10,8 +10,26 @@ $subCat12=@$_GET['sub'];
 </ul>
 <center>
 <?php
-
-echo "<h2>".@$_GET['sub']."</h2>";
+if(@$_GET['sub']=="Biographies_Of_Successful_Business_Men")
+	echo "Biographies Of Successful Business Men";
+else if(@$_GET['sub']=="Meet_With_Business_Mentors")
+	echo "Meet With Business Mentors";
+else if(@$_GET['sub']=="Ibibazo_nibisubizo")
+	echo "Ibibazo n'ibisubizo";
+else if(@$_GET['sub']=="Amateka_yu_Rwanda")
+	echo "Amateka y'u Rwanda";
+else if(@$_GET['sub']=="Kirazira_z'umuco_Nyarwanda")
+	echo "Kirazira z'umuco Nyarwanda";
+else{
+	$secondPart="";
+	$pos=stripos(@$_GET['sub'],"_");
+	if($pos===FALSE)
+		echo "<h2>".@$_GET['sub']."</h2>";
+	else{
+	list($fisrtPart,$secondPart)=explode("_", @$_GET['sub']);
+	echo "<h2>".$fisrtPart." ".$secondPart."</h2>";
+}
+}
 
 ?>
 </center><br>

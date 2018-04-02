@@ -97,9 +97,11 @@ $res=mysqli_query($conn,$sql1);
 $count=mysqli_num_rows($res);
 $num_of_pages=ceil($count/10);
 $getP=@$_GET['page'];
+echo "<center>";
 if($getP-1>0 && $getP!=""){
 ?>
-<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']-1?>">Privious</a>
+
+<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']-1?>">&laquo;</a>
 <?php
 }
 for($i=1;$i<=$num_of_pages;$i++){?>
@@ -108,8 +110,9 @@ for($i=1;$i<=$num_of_pages;$i++){?>
 }
 if(@$_GET['page']<$num_of_pages){
 ?>
-<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']+1?>">next</a>
+<a href="index.php?s=<?=$_GET['s']?>&sub=<?=$_GET['sub']?>&t=<?=$_GET['t']?>&page=<?=@$_GET['page']+1?>">&raquo;</a>
 
 <?php
 }
+echo "</center>";
 ?>
