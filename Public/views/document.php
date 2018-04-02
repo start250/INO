@@ -2,7 +2,6 @@
 
 $section13=@$_GET['s'];
 $category13=@$_GET['sub'];
-
 //-----------------------------------------
 $pages=@$_GET['page'];
 if($pages=="" || $pages=="1"){
@@ -14,10 +13,11 @@ else
 }
 
 //--------------------------------------
-$query13="SELECT * FROM books WHERE book_category='$category13' order by created_at desc";
+$query13="SELECT * FROM books WHERE book_category='$category13' order by _id desc limit $pages,10";
 $display_count=1;
 $result13 = $conn->query($query13);
-while($row = $result13->fetch_assoc()) {
+while($row13 = $result13->fetch_assoc()) {
+    
 ?>
  <br>
  
@@ -27,26 +27,26 @@ while($row = $result13->fetch_assoc()) {
                 <div class="panel-body" style="background-color: white;">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row['thumb'];?>" class="img-thumb img-responsive">
+                            <img src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row13['thumb'];?>" class="img-thumb img-responsive">
                         </div>
                         <div class="col-md-8">
-                            <h4><?= $row["title"]?></h4>
+                            <h4><?= $row13["title"]?></h4>
                             <p style="font-size: 14px;">
-                            <?= $row["description"]?>
+                            <?= $row13["description"]?>
                              </p>
 
                              <label 
                              style="font-size: 13px; color: #00cc00;">
-                             <?= $row["pages"]?> pages</label> | 
+                             <?= $row13["pages"]?> pages</label> | 
                              <label style="font-size: 13px; color: #00cc00;">
-                                 <span id="down<?= $row['_id']; ?>"><?= $row["downloads"]?>
+                                 <span id="down<?= $row13['_id']; ?>"><?= $row13["downloads"]?>
                                 </span> downloads</label>
                                     <br>
-                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
+                            <a href="Resources/Storage/Books/<?php echo $row13['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
 
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download</a>
-                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
+                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row13['_id']; ?>">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                                 Read Now</button><span id="er"></span>
                         </div>
@@ -62,7 +62,7 @@ while($row = $result13->fetch_assoc()) {
 
 <?php
     $c=@$_GET['sub'];
-$sql1="select * from books where book_category='$c' order by created_at desc";
+$sql1="select * from books where book_category='$c' order by _id desc";
 $res=mysqli_query($conn,$sql1);
 
 $count=mysqli_num_rows($res);
