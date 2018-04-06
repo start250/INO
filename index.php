@@ -44,8 +44,26 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
                     </div>
                 </div>
                 </form></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <?php
+
+                session_start();
+                if(isset($_SESSION['username'])){
+                    ?>
+ <li><a href="/INOGIT/User"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['username']?></a></li>
+<li><a href="/INOGIT/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <?php
+
+                }else{
+                    ?>
+  <li><a href="/INOGIT/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+<li><a href="/INOGIT/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php
+
+                }
+                 
+
+                ?>
+          
       </ul>
     </div>
   </div>
