@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2018 at 10:47 PM
+-- Generation Time: Apr 07, 2018 at 01:30 AM
 -- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.14
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -191,7 +191,7 @@ CREATE TABLE `logos` (
 --
 
 INSERT INTO `logos` (`id`, `filename`, `position`) VALUES
-(1, 'logo-1522009133.png', 'Master Logo'),
+(1, 'IMG-20180403-WA0004+%282%29-1523057251.jpg', 'Master Logo'),
 (2, '2-Hot-Home-icon-1522065218.png', 'Academic Logo'),
 (3, 'Emoji-Glad-icon-1522011148.png', 'Business Logo'),
 (4, 'Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large-1522011155.png', 'Road Logo'),
@@ -270,6 +270,42 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `author`, `section`, `
 (7, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit ame', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', '636122739856255638-1137033243_Big-data-Exhaustive-review-pulls-together-evidence-on-food-groups-and-diet-related-disease.jpg', '2018-03-31 15:54:36', '0000-00-00 00:00:00', 0, 0, 0),
 (8, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 15:57:18', '0000-00-00 00:00:00', 0, 0, 1),
 (9, 'content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet', '<p>content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet&nbsp;content here Lorem ipsum dolor sit amet, id nec conceptam conclusionemque.Lorem ipsum dolor sit amet</p>\r\n', '', 'admin', 'eng_class', 'For_Intermediates', '', '', '', 'img.jpg', '2018-03-31 18:32:06', '0000-00-00 00:00:00', 0, 0, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reset_password`
+--
+
+CREATE TABLE `reset_password` (
+  `id` int(11) NOT NULL,
+  `token` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(254) NOT NULL,
+  `username` varchar(254) NOT NULL,
+  `password` varchar(254) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `level` varchar(254) NOT NULL DEFAULT 'guest',
+  `joinedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `active` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `level`, `joinedAt`, `active`) VALUES
+(0, 'mik', 'mik', '$2y$10$oUk4Uh.wQceRt6AyNa0N6O3Wzo9OGYRS/15FTafb4xnKtFa3JanU2', 'mik@mik.com', 'admin', '2018-04-06 23:19:48', 0);
 
 -- --------------------------------------------------------
 
@@ -354,6 +390,20 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `videos`
 --
 ALTER TABLE `videos`
@@ -398,6 +448,12 @@ ALTER TABLE `logos`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `videos`
