@@ -55,7 +55,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     <div class="col-lg-8">
         
         <?php if(@$_GET['s']){ ?>
-        <center><i class="fa fa-home" style="font-size: 30px;"></i><a href="index.php">Home</a> | <img src="Resources/Storage/<?php $s=$_GET["s"]; 
+        <center><i class="fa fa-home" style="font-size: 30px;"></i><a href="index.php">Home</a> | <a href="index.php?s=<?=$_GET['s']?>"> <img src="Resources/Storage/<?php $s=$_GET["s"]; 
         $query="SELECT * FROM logos WHERE position='".$s."'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
@@ -71,15 +71,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
                 else if(@$_GET['s']=="Health Logo")
                     echo "Health";
                 else if(@$_GET['s']=="Quiz Logo")
-                    echo "Random Quiz";
+                    echo "Random Quiz";  
                 else if(@$_GET['s']=="Road Logo")
                     echo "Amategeko y'umuhanda";
-        ?>
+        ?></a> <?php if(@$_GET['sub']){ ?>| <img src="Resources/Storage/<?php $s=$_GET["sub"]; $query="SELECT * FROM logos WHERE position='".$s."'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>"><?php echo @$_GET['sub'];} ?>
     </center><br>
     <?php
     $subCat=@$_GET['sub'];
     if($subCat=="Library"){?>
-       <form>
+       <form method="POST">
             <center>
                 <button type="submit" class="SubCat"><i class="fa fa-flask"></i>Science Books</button>
                 <button type="submit" class="SubCat"><i class="fa fa-users"></i>Humanity Books</button>
@@ -93,7 +95,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
         <?php
     }
     else if ($subCat=="Past_Papers") {?>
-       <form>
+       <form method="POST">
             <center>
                 <button type="submit" class="SubCat">P6</button>
                 <button type="submit" class="SubCat">S3</button>
@@ -103,16 +105,82 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
         </form>
    <?php }
    else if($subCat=="Scholarship"){?>
-        <form>
+        <form method="POST">
             <center>
-                <button type="submit" class="SubCat"><i class="fa fa-star"></i>Tips to Win Scholarship</button>
-                <button type="submit" class="SubCat"><i class="fa fa-link"></i>Links</button>
-                <button type="submit" class="SubCat"><i class="fa fa-newspaper"></i>News</button>
-                <button type="submit" class="SubCat"><i class="fa fa-question-circle"></i>Ask</button>
+                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-star"></i>Tips to Win Scholarship</button>
+                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-link"></i>Links</button>
+                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-newspaper"></i>News</button>
+                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-question-circle"></i>Ask</button>
             </center>
         </form>
     <?php
    }
+   else if(@$_GET['sub']=="Explore_Rwandan_Education"){
+           $urlNow=$_SERVER['REQUEST_URI'];
+    ?>
+      <center><div class="dropDownsButton">  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Nursary
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Baby class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Middle class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tp class</a></li>
+    </ul>
+</div><div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Primary
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General paper</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
+    </ul>
+</div><div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ordinary level
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Biology</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geography</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">History</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Entrepreneurship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Computer science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kiswahili</a></li>
+    </ul>
+</div><div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Advanced Level
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Biology</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geography</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">History</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Entrepreneurship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Computer science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Economie</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Literature</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General paper</a></li>
+    </ul>
+</div><div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">University
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Links</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tips to win scholarship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ask</a></li>
+    </ul>
+  </div></div></center>    
+   <?php }
 if(@$_GET['sub']=="Ask_Teacher" || @$_GET['sub']=="Ask_Doctor" || @$_GET['sub']=="Baza_Sokuru" || @$_GET['sub']=="Baza_Mwarimu")
 include('Public/views/ask_everyone.php');
 if(@$_GET['s']!="Academic Logo" && @$_GET['sub'])
@@ -146,7 +214,7 @@ if(@$_GET['s']!="Academic Logo" && @$_GET['sub'])
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
 <?php } 
-else if(@$_GET['s']=="Academic Logo" && @$_GET['sub']!="Explore_Rwandan_Education"){ ?>
+else if(@$_GET['s']=="Academic Logo"){ ?>
   <li><a href="index.php?s=Academic Logo&sub=Library"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Library'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Library</a></li>
@@ -167,16 +235,16 @@ else if(@$_GET['s']=="Academic Logo" && @$_GET['sub']!="Explore_Rwandan_Educatio
 <?php } 
 else if(@$_GET['s']=="Business Logo"){
 ?>
-<li><a href="index.php?s=Business Logo&sub=Business_Opportunities"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Opportunities'";
+<li><a href="index.php?s=Business Logo&sub=Business_Opportunities&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Opportunities'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business Opportunities</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Business_Advice"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Advice'";
+    <li><a href="index.php?s=Business Logo&sub=Business_Advice&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Advice'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business Advice</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Business_News"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_News'";
+    <li><a href="index.php?s=Business Logo&sub=Business_News&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_News'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business News</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Biographies_Of_Successful_Business_Men"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Biographies_Of_Successful_Business_Men'";
+    <li><a href="index.php?s=Business Logo&sub=Biographies_Of_Successful_Business_Men&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Biographies_Of_Successful_Business_Men'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Biographies Of Successful Business Men</a></li>
     <li><a href="index.php?s=Business Logo&sub=Meet_With_Business_Mentors"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Meet_With_Business_Mentors'";
@@ -262,26 +330,7 @@ else if(@$_GET['s']=="Culture Logo"){
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Baza Sokuru</a></li>
 <?php
 }
-else if($subCat=="Explore_Rwandan_Education" && @$_GET['s']=="Academic Logo"){
-?>
-<li><a href="index.php?s=Academic Logo&sub_ex=Nursary_school"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Nursary_school'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Nursary school</a></li>
-    <li><a href="index.php?s=Academic Logo&sub_ex=Primary_school"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Primary_school'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Primary school</a></li>
-    <li><a href="index.php?s=Academic Logo&sub_ex=Ordinary_level"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ordinary_level'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ordinary level</a></li>
-    <li><a href="index.php?s=Academic Logo&sub_ex=Advanced_level"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Advanced_level'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Advanced level</a></li>
-    <li><a href="index.php?s=Academic Logo&sub_ex=University"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='University'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">University</a></li>
 
-    <?php
-}
 ?>
 </ul>
 <br><br><hr>
@@ -383,7 +432,21 @@ $display_count+=1;
         background-color:white;
         margin: 15px; 
     }
+    .dropDownsButton .dropdown{
+        display: inline-block;
+    }
 </style>
+
+
+<?php
+if(isset($_POST['sub_ex1'])){
+
+}
+
+
+
+
+?>
 
 
 
