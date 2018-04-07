@@ -2,8 +2,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php');  
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/mailer.php');
- 
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/mailer.php'); 
+    if(!isset($_SESSION)) { session_start(); }   
+
 if(isset($_POST['email'])&&isset($_POST['password'])){ 
     $email=mysqli_real_escape_string($conn,$_POST['email']); 
     $password=mysqli_real_escape_string($conn,$_POST['password']); 
@@ -65,6 +66,13 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
  <title>Login</title>
 </head>
 <body>
+    
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_nav.php');
+if(isset($_SESSION['username'])){
+    echo "You are logged in as ".$_SESSION['username'];
+    die();
+} 
+?>
 <div class="container">
 <br>
 <br>

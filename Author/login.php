@@ -10,7 +10,7 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <?php
 
-session_start();
+  if(!isset($_SESSION)) { session_start(); }  
 if (@$_SESSION['admin']||@$_SESSION['author']) {
 	?>
 	<script type="text/javascript">location.href='../'</script>

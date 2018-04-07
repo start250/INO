@@ -1,10 +1,3 @@
-<script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="/INOGIT/Public/assets/js/mdb.min.js"></script> -->
-    <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
 
 <br><br><br>
 </div>
@@ -82,10 +75,7 @@
                         <a href="javascript:void();">
                             <i class="fa fa-angle-double-right"></i>Get Started</a>
                     </li>
-                    <li>
-                        <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
-                            <i class="fa fa-angle-double-right"></i>Imprint</a>
-                    </li>
+                
                 </ul>
             </div>
         </div>
@@ -124,7 +114,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                 <p>Iga neza Online</p>
-                <p class="h6">&copy All right Reversed.
+                <p class="h6">&copy   <?php echo date("Y"); ?> All rights Reversed.
                     <a class="text-green ml-2" href="/INOGIT" target="_blank">IGANEZA</a>
                 </p>
             </div>
@@ -137,8 +127,7 @@
 </footer>
 
 <style>
-/* Footer */
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/* Footer */ 
 section {
     padding: 60px 0;
 }
@@ -257,5 +246,10 @@ section .section-title {
             font-weight: bold;
         }
     </style> -->
+    <script type="text/javascript" src="/INOGIT/Public/assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/INOGIT/Public/assets/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="/INOGIT/Public/assets/js/mdb.min.js"></script> --> 
 
 </body>

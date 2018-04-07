@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-session_start();
+  if(!isset($_SESSION)) { session_start(); }  
 require_once('DBfiles/connectDB.php');
 @$sql0=mysqli_query($conn,"SELECT * from adminauthor where id='".$_SESSION['ad']."' AND priority='administrator'");
 $f_ad=mysqli_fetch_array($sql0);
@@ -29,7 +29,9 @@ $au=$f_ad1['id'];
 ?>
 <?php require_once('Public/views/_header.php');?>
 </head>
+
 <body style="background-color: #e6f5ff; padding: 0px; margin: 0px;">
+	
 <?php require_once('Public/views/_navs_main.php'); ?>
 <div id="main_dash" class="container">
 

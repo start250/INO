@@ -1,73 +1,14 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
+
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>INO - Homepage</title>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+ <title>Home</title>
 </head>
 <body>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar" id="topHeader">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <i class="glyphicon glyphicon-th" style="font-size: 20px;"></i>                        
-      </button>
-      <a class="navbar-brand" href="index.php">
-            <img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Master Logo'";
-    $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">
-      </a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-       
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-            <li><form class="navbar-form" action="">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </div>
-                </div>
-                </form></li>
-                <?php
-
-                session_start();
-                if(isset($_SESSION['username'])){
-                    ?>
- <li><a href="/INOGIT/User"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['username']?></a></li>
-<li><a href="/INOGIT/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    <?php
-
-                }else{
-                    ?>
-  <li><a href="/INOGIT/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<li><a href="/INOGIT/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <?php
-
-                }
-                 
-
-                ?>
-          
-      </ul>
-    </div>
-  </div>
-</nav>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_nav.php');?>
+    
  
 <div class="row">
     <div class="col-lg-8">
@@ -423,15 +364,11 @@ $display_count+=1;
 }}
 ?>
     </div>
-</div>
-<!--Footer-->
+</div> 
 
   <hr>
-<?php include('Public/views/_footer.php'); ?>
 
-
-</body>
-</html>
+ 
 <style type="text/css">
     .col-lg-4 ul li{
         padding: 10px;
@@ -478,6 +415,8 @@ if(isset($_POST['sub_ex1'])){
 
 
 ?>
+<?php include('Public/views/_footer.php'); ?>
+
 
 
 

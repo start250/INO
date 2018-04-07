@@ -4,6 +4,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php');  
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 
+
 if(isset($_POST['name'])&&isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['email'])&&isset($_POST['terms'])){
     
 
@@ -28,9 +29,16 @@ if(isset($_POST['name'])&&isset($_POST['username'])&&isset($_POST['password'])&&
 }  
 
 ?>
- <title>Register</title>
+ <title>Register</title> 
 </head>
 <body>
+    
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_nav.php');
+if(isset($_SESSION['username'])){
+    echo "You are logged in as ".$_SESSION['username'];
+    die();
+} 
+?>
 <br><br><br>
 <div class="container">
  <div class="form-avatar hidden-xs">
