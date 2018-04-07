@@ -81,17 +81,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     <?php
     $subCat=@$_GET['sub'];
     if($subCat=="Library"){?>
-       <form method="POST">
             <center>
-                <button type="submit" class="SubCat"><i class="fa fa-flask"></i>Science Books</button>
-                <button type="submit" class="SubCat"><i class="fa fa-users"></i>Humanity Books</button>
-                <button type="submit" class="SubCat"><i class="fa fa-heartbeat"></i>Life Books</button>
-                <button type="submit" class="SubCat"><i class="fa fa-laptop"></i>ICT Books</button>
-                <button type="submit" class="SubCat"><i class="fa fa-language"></i>Language Books</button>
-                <button type="submit" class="SubCat"><i class="fa fa-briefcase"></i>Business Books</button>
+               <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=1" class="lib_Cat" name="Science_Books"> <i class="fa fa-flask"></i>Science Books</a>
+                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=2" class="lib_Cat" name="Humanity_Books"><i class="fa fa-users"></i>Humanity Books</a>
+                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=3" class="lib_Cat" name="Life_Books"><i class="fa fa-heartbeat"></i>Life Books</a>
+                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=4" class="lib_Cat" name="ICT_Books"><i class="fa fa-laptop"></i>ICT Books</a><br>
+                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=5" class="lib_Cat" name="Language_Books"><i class="fa fa-language"></i>Language Books</a>
+                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=6" class="lib_Cat" name="Business_Books"><i class="fa fa-briefcase"></i>Business Books</a>
             </center>
-        </form>
-        
         <?php
     }
     else if ($subCat=="Past_Papers") {?>
@@ -132,7 +129,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary science</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General paper</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Social Studies</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
@@ -209,7 +206,7 @@ if(@$_GET['s']!="Academic Logo" && @$_GET['sub'])
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">English</a></li>
     <li><a href="index.php?s=Culture Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Culture Logo'";
     $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco</a></li>
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco w'i Rwanda</a></li>
     <li><a href="index.php?s=Quiz Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Quiz Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
@@ -379,6 +376,11 @@ while($row21=$result21->fetch_assoc()){
 }
 $display_count+=1;
 }}
+//-------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------*/
 if(@$_GET['t']==1){
     
 $section22=@$_GET['s'];
@@ -404,6 +406,11 @@ $display_count+=1;
 ?>
     </div>
 </div>
+<!--Footer-->
+
+  <hr>
+<?php include('Public/views/_footer.php'); ?>
+
 
 </body>
 </html>
@@ -435,6 +442,12 @@ $display_count+=1;
     .dropDownsButton .dropdown{
         display: inline-block;
     }
+    .lib_Cat{
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
 </style>
 
 

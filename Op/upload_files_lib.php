@@ -32,7 +32,7 @@ if ($_GET['edit']!=1) {
 <select  class="form-control" name="category"> 
         echo "<option disabled  selected>Select Category</option>
     <option>Science Book</option>
-    <option>Humanity Boook</option>
+    <option>Humanity Book</option>
     <option>Language Book</option>
     <option>Life Book</option>
     <option>ICT Book</option>

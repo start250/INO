@@ -47,10 +47,6 @@ else{
                                 </span> downloads</label> | <label style="font-size: 13px;">
                                     Uploaded by <b><?= $row["added_by"]?></b></label>
                                     <br>
-                            <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
-
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                                Download</a>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                                 Read Now</button><span id="er"></span>
@@ -89,21 +85,6 @@ else{
 
 $(document).ready(function(){
    
-    function download(){
-       var id='<?= $row['_id']; ?>';  
-   var data='id='+id;
-   $.ajax({
-    type:"POST",
-    url:"Op/download_ajax.php",
-    data:data,
-    success: function(data){
-    $('#down<?= $row['_id']; ?>').html(data);
-    
-
-    }
-  });
-    }
-})
 </script>
 
     <?php } ?>

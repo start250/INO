@@ -91,5 +91,5 @@ else if(@$_GET['section']=="logos"){
 ?>
 </div>
 
-<?php require_once('Public/views/_footer.php');?>
+<?php //require_once('Public/views/_footer.php');?>
  
