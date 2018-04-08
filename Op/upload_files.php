@@ -14,7 +14,7 @@ echo '<h3>Book Information...</h3>';
 <input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
 <input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
 <textarea placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
-<input class="form-control" type="number" placeholder="pages" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
+<input class="form-control"id="pages" type="number" placeholder="pages (choose file for automatic guess)" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
 <input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
 
 <input hidden type="text"  id="size" name="size"><br>Thumbnail
@@ -115,6 +115,13 @@ function myFunction(){
                 if ('name' in file) {
                     txt += "name: " + file.name + "<br>";
                 }
+                var reader = new FileReader();
+reader.readAsBinaryString(file);
+reader.onloadend = function(){
+    var count = reader.result.match(/\/Type[\s]*\/Page[^s]/g).length;
+   document.getElementById('pages').value=count;
+   document.getElementById('pages').style="border: 2px solid green";
+}
                 if ('size' in file) {
                     txt += "size: " + (file.size/1048576).toFixed(1)+ " Mb <br>";
                     document.getElementById("size").value=file.size;

@@ -47,7 +47,7 @@ else{
                                 </span> downloads</label> | <label style="font-size: 13px;">
                                     Uploaded by <b><?= $row["added_by"]?></b></label>
                                     <br>
-                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
+                            <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?php echo $row['_id']; ?>)" data-target="#read_book_<?php echo $row['_id']; ?>">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                                 Read Now</button><span id="er"></span>
                         </div>
@@ -58,26 +58,45 @@ else{
     </div>
 
     <div id="read_book_<?php echo $row['_id']; ?>" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg">
 
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        <h4 class="modal-title"><?= $row["title"]?></h4>
-      </div>
-      <div class="modal-body">
-        <iframe src="<?php echo "Resources/Storage/Books/".$row['book_link'];?>" style="width: 100%; height: 500px;"></iframe>
+<div class="modal-content">
+    <div class="modal-header">
+
+        <h4 class="modal-title">
+            <?= $row["title"]?>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <iframe id="frame<?php echo $row['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
         <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                                Download</a> <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
-      </div>
-      
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Download</a>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
     </div>
 
-       
-      
-  </div> 
-    <?php } ?>
+</div>
+
+
+
+</div>
+</div>
+
+<?php } ?>
+
+
+
+<script>
+function getBookSrc(bookID){
+$.get("api_book.php?bookID="+bookID, function(data, status){
+$("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
+});
+}
+
+</script>
+</div> 
+<br>
+<br> 
 </div>
 
 <div class="bg-info col-lg-4">

@@ -51,30 +51,42 @@ while($row = $result->fetch_assoc()) {
 </div>
 
 <div id="read_book_<?php echo $row['_id']; ?>" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg">
 
-        <div class="modal-content">
-            <div class="modal-header">
+<div class="modal-content">
+    <div class="modal-header">
 
-                <h4 class="modal-title">
-                    <?= $row["title"]?>
-                </h4>
-            </div>
-            <div class="modal-body">
-                <iframe src="<?php echo " Resources/Storage/Books/ ".$row['book_link'];?>" style="width: 100%; height: 500px;"></iframe>
-                <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                    Download</a>
-                <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-
-
+        <h4 class="modal-title">
+            <?= $row["title"]?>
+        </h4>
     </div>
+    <div class="modal-body">
+        <iframe id="frame<?php echo $row['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
+        <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Download</a>
+        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
+    </div>
+
+</div>
+
+
+
+</div>
+</div>
+
+<?php } ?>
+
+
+
+<script>
+function getBookSrc(bookID){
+$.get("api_book.php?bookID="+bookID, function(data, status){
+$("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
+});
+}
+
+</script>
 </div> 
 <br>
-<br>
-<?php
- }?>
+<br> 
