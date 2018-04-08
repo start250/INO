@@ -1,3 +1,15 @@
+<?php
+
+if(!isset($_SESSION)) { session_start(); }  
+
+if(!isset($_SESSION['username'])){
+    echo "Unauthorized access. Please, login as admin.";
+    die();
+} 
+echo "luaa";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>  
@@ -9,10 +21,7 @@
 <div id="main_dash" class="container">
 
 <?php
-$_SESSION["url"]="dashboard.php?section=academic"; 
-$section="Academic";
-$_SESSION["section"]=	$section;
-include('../operations.php');
+
 if(@$_GET['section']=="academic"){
 	$_SESSION["url"]="dashboard.php?section=academic"; 
 	$section="Academic";

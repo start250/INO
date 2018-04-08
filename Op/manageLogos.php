@@ -6,45 +6,45 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
   	<form method="POST" action="" enctype="multipart/form-data">
   		<input type="file" name="fileToUpload" class="form-control"><br>
   		<select name="position" class="form-control">
-  			<option>Master Logo</option>
-  			<option>Academic Logo</option>
-  			<option>Business Logo</option>
-  			<option>Road Logo</option>
-  			<option>Health Logo</option>
-  			<option>English Logo</option>
-  			<option>Culture Logo</option>
-  			<option>Quiz Logo</option>
-        <option>Academic_news</option>
-        <option>Explore_Rwandan_Education</option>
-        <option>Past_Papers</option>
+  			<option>Master</option>
+  			<option>Academic</option>
+  			<option>Business</option>
+  			<option>Road</option>
+  			<option>Health</option>
+  			<option>English</option>
+  			<option>Culture</option>
+  			<option>Quiz</option>
+        <option>Academic news</option>
+        <option>Explore Rwandan Education</option>
+        <option>Past Papers</option>
         <option>Scholarship</option>
         <option>Library</option>
-        <option>Business_Opportunities</option>
-        <option>Business_Advice</option>
-        <option>Business_News</option>
-        <option>Biographies_Of_Successful_Business_Men</option>
-        <option>Meet_With_Business_Mentors</option>
+        <option>Business Opportunities</option>
+        <option>Business Advice</option>
+        <option>Business News</option>
+        <option>Biographies Of Successful Business Men</option>
+        <option>Meet With Business Mentors</option>
         <option>Nutritions</option>
-        <option>Traditional_Medecine</option>
-        <option>Serious_Deseases</option>
-        <option>Doctor_Advice</option>
-        <option>Health_News</option>
-        <option>Ask_Doctor</option>
+        <option>Traditional Medecine</option>
+        <option>Serious Deseases</option>
+        <option>Doctor Advice</option>
+        <option>Health News</option>
+        <option>Ask Doctor</option>
         <option>Igazeti</option>
-        <option>Ibibazo_nibisubizo</option>
+        <option>Ibibazo nibisubizo</option>
         <option>Ibyapa</option>
         <option>Amakuru</option>
-        <option>Baza_Mwarimu</option>
-        <option>For_Biginners</option>
-        <option>For_Intermediate</option>
-        <option>Advanced_English</option>
-        <option>Business_English</option>
-        <option>Ask_Teacher</option>
-        <option>Amateka_yu_Rwanda</option>
+        <option>Baza Mwarimu</option>
+        <option>For Biginners</option>
+        <option>For Intermediate</option>
+        <option>Advanced English</option>
+        <option>Business English</option>
+        <option>Ask Teacher</option>
+        <option>Amateka yu Rwanda</option>
         <option>Imigani</option>
         <option>Ibisakuzo</option>
-        <option>Kirazira_zumuco_Nyarwanda</option>
-        <option>Baza_Sokuru</option>
+        <option>Kirazira zumuco Nyarwanda</option>
+        <option>Baza Sokuru</option>
   		</select><br>
   		<button type="submit" class="form-control btn-info" name="uploadLogo">Upload</button>
   	</form>

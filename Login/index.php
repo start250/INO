@@ -14,7 +14,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
     $result = $stmt->get_result();
     $row = $result->fetch_assoc(); 
     if(password_verify($password, $row['password'])) { 
-        session_start();
+        if(!isset($_SESSION)) { session_start(); }  
         $_SESSION['active']=$row['active'];
         $_SESSION['username']=$row['username'];  
         $_SESSION['level']=$row['level'];

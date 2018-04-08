@@ -74,7 +74,7 @@ if (mysqli_num_rows($query)==0) {
   ?>
   <tr>
        
-        <td colspan="4">You haven't any post.</td>
+        <td colspan="4">You haven't any books.</td>
       </tr>
   <?php
 }

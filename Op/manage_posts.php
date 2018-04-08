@@ -8,18 +8,20 @@ if (isset($_POST['search_post_btn'])) {
 }
 
 
-if (@$search_post!=''&&@$_SESSION['admin']==$ad) {
+if (@$search_post!='') {
 $query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%'") or die('Failed to search '.mysqli_error());
 }
-elseif (@$search_post!=''&&@$_SESSION['author']==$au) {
+elseif (@$search_post!='') {
 	$query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%' AND added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
 }
-elseif(@!$search_post&&@$_SESSION['admin'])
+elseif(@!$search_post)
 {
 	$query=mysqli_query($conn,"SELECT * from posts WHERE section='".$_GET['section']."' ORDER BY id DESC");
 }
-elseif (@!$search_post&&$_SESSION['author']) {
+elseif (@!$search_post) {
 	$query=mysqli_query($conn,"SELECT * from posts where added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
+}else{
+  $query=mysqli_query($conn,"SELECT * from posts where category='".$_GET['section']."'");
 }
 ?>
 

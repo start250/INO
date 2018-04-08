@@ -241,8 +241,8 @@ $section=$_GET['section'];
 $year=mysqli_escape_string($conn,$_POST['year']);
 $level=mysqli_escape_string($conn,$_POST['level']);
 $course=mysqli_escape_string($conn,$_POST['course']);
-$sql="INSERT INTO academic_doc (title,author,description,pages,thumb,book_file,level,course,year)
-         VALUES ('$title','$author','$description','$pages','$thums','$book_link','$level','$course','$year')";
+$sql="INSERT INTO books (title,author,description,pages,thumb,book_link,level,course,year)
+         VALUES ('$title','$author','$description','$pages','$thumb','$book_link','$level','$course','$year')";
 if($conn->query($sql)===TRUE)
   echo "ok!";
 

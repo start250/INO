@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="../Public/assets/css/bootstrap.min.css">
@@ -102,4 +102,4 @@ if(!empty($_POST["remember"])) {
         </div>
     </div>
 </div>
-</body>
+</body> -->

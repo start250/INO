@@ -1,4 +1,16 @@
 <?php
+
+if(!isset($_SESSION)) { session_start(); }  
+
+if(!isset($_SESSION['username'])){
+    echo "Unauthorized access. Please, login as admin.";
+    die();
+} 
+ 
+?>
+
+
+<?php
 error_reporting(0);
   if(!isset($_SESSION)) { session_start(); }  
 require_once('DBfiles/connectDB.php');

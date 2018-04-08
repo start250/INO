@@ -76,17 +76,7 @@ else{
 
        
       
-  </div>
-</div>
-<script type="text/javascript">
-
-
-
-
-$(document).ready(function(){
-   
-</script>
-
+  </div> 
     <?php } ?>
 </div>
 
