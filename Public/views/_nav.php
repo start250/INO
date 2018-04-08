@@ -1,8 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <a class="navbar-brand" href="#">
-<img src="Resources/Storage/
-            <?php $query="SELECT * FROM logos WHERE position='Master Logo'";
+<img class="logo" src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Master Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
   </a>

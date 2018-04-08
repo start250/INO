@@ -3,9 +3,12 @@
 include('DBfiles/connectDB.php');
 ?>
 
+
 <?php
 
-if (isset($_SESSION['admin'])||isset($_SESSION['author'])) {
+if(!isset($_SESSION)) { session_start(); }  
+
+if (isset($_SESSION['level'])&&$_SESSION['level']==='admin') {
   ?>
   <div class="tab">
   <ul id="action">
@@ -17,7 +20,7 @@ if (isset($_SESSION['admin'])||isset($_SESSION['author'])) {
     <li style="<?php if(@$_GET['action']=="upload_videos") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_videos'?>">Upload Videos</a></li>
     <?php if(@$_GET['section']=="academic") {?><li style="<?php if(@$_GET['action']=="upload_files_lib") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_files_lib'?>">Upload Files Library</a></li><?php }?>
     <?php
-if (@$_SESSION['admin']==$ad) {
+if (@$_SESSION['level']==='admin') {
   ?>
     <li style="<?php if(@$_GET['action']=="manage_authors") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=manage_authors'?>">Manage Authors</a></li>
    <?php

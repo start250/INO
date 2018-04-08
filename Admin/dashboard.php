@@ -9,6 +9,10 @@
 <div id="main_dash" class="container">
 
 <?php
+$_SESSION["url"]="dashboard.php?section=academic"; 
+$section="Academic";
+$_SESSION["section"]=	$section;
+include('../operations.php');
 if(@$_GET['section']=="academic"){
 	$_SESSION["url"]="dashboard.php?section=academic"; 
 	$section="Academic";

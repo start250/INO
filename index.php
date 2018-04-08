@@ -14,7 +14,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
     <div class="col-lg-8">
         
         <?php if(@$_GET['s']){ ?>
-        <center><i class="fa fa-home" style="font-size: 30px;"></i><a href="index.php">Home</a> | <a href="index.php?s=<?=$_GET['s']?>"> <img src="Resources/Storage/<?php $s=$_GET["s"]; 
+        <center><i class="fa fa-home" style="font-size: 30px;"></i><a href="index.php">Home</a> | <a href="index.php?s=<?=$_GET['s']?>"> <img src="Resources/Storage/Logos/<?php $s=$_GET["s"]; 
         $query="SELECT * FROM logos WHERE position='".$s."'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
@@ -33,7 +33,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
                     echo "Random Quiz";  
                 else if(@$_GET['s']=="Road Logo")
                     echo "Amategeko y'umuhanda";
-        ?></a> <?php if(@$_GET['sub']){ ?>| <img src="Resources/Storage/<?php $s=$_GET["sub"]; $query="SELECT * FROM logos WHERE position='".$s."'";
+        ?></a> <?php if(@$_GET['sub']){ ?>| <img src="Resources/Storage/Logos/<?php $s=$_GET["sub"]; $query="SELECT * FROM logos WHERE position='".$s."'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>"><?php echo @$_GET['sub'];} ?>
     </center><br>
@@ -148,42 +148,42 @@ if(@$_GET['s']!="Academic Logo" && @$_GET['sub'])
     <div class="col-lg-4">
         <ul>
     <?php if(!@$_GET['s']) {?>        
-        <li><a href="index.php?s=Academic Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Academic Logo'";
+        <li><a href="index.php?s=Academic Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Academic Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Academic</a></li>
-    <li><a href="index.php?s=Business Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business Logo'";
+    <li><a href="index.php?s=Business Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Business Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business</a></li>
-    <li><a href="index.php?s=Road Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Road Logo'";
+    <li><a href="index.php?s=Road Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Road Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Amategeko y'umuhanda</a></li>
-    <li><a href="index.php?s=Health Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Health Logo'";
+    <li><a href="index.php?s=Health Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Health Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Health</a></li>
-    <li><a href="index.php?s=English Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='English Logo'";
+    <li><a href="index.php?s=English Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='English Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">English</a></li>
-    <li><a href="index.php?s=Culture Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Culture Logo'";
+    <li><a href="index.php?s=Culture Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Culture Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco w'i Rwanda</a></li>
-    <li><a href="index.php?s=Quiz Logo"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Quiz Logo'";
+    <li><a href="index.php?s=Quiz Logo"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Quiz Logo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
 <?php } 
 else if(@$_GET['s']=="Academic Logo"){ ?>
-  <li><a href="index.php?s=Academic Logo&sub=Library"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Library'";
+  <li><a href="index.php?s=Academic Logo&sub=Library"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Library'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Library</a></li>
-    <li><a href="index.php?s=Academic Logo&sub=Scholarship"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
+    <li><a href="index.php?s=Academic Logo&sub=Scholarship"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Scholarship</a></li>
-    <li><a href="index.php?s=Academic Logo&sub=Past_Papers"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Past_Papers'";
+    <li><a href="index.php?s=Academic Logo&sub=Past_Papers"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Past_Papers'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">National Past Paper</a></li>
-    <li><a href="index.php?s=Academic Logo&sub=Explore_Rwandan_Education"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Explore_Rwandan_Education'";
+    <li><a href="index.php?s=Academic Logo&sub=Explore_Rwandan_Education"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Explore_Rwandan_Education'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Explore Rwandan Education</a></li>
-    <li><a href="index.php?s=Academic Logo&sub=Academic_news"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Academic_news'";
+    <li><a href="index.php?s=Academic Logo&sub=Academic_news"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Academic_news'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Academic news</a></li>
     
@@ -191,40 +191,40 @@ else if(@$_GET['s']=="Academic Logo"){ ?>
 <?php } 
 else if(@$_GET['s']=="Business Logo"){
 ?>
-<li><a href="index.php?s=Business Logo&sub=Business_Opportunities&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Opportunities'";
+<li><a href="index.php?s=Business Logo&sub=Business_Opportunities&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Business_Opportunities'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business Opportunities</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Business_Advice&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_Advice'";
+    <li><a href="index.php?s=Business Logo&sub=Business_Advice&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Business_Advice'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business Advice</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Business_News&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_News'";
+    <li><a href="index.php?s=Business Logo&sub=Business_News&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Business_News'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business News</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Biographies_Of_Successful_Business_Men&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Biographies_Of_Successful_Business_Men'";
+    <li><a href="index.php?s=Business Logo&sub=Biographies_Of_Successful_Business_Men&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Biographies_Of_Successful_Business_Men'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Biographies Of Successful Business Men</a></li>
-    <li><a href="index.php?s=Business Logo&sub=Meet_With_Business_Mentors"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Meet_With_Business_Mentors'";
+    <li><a href="index.php?s=Business Logo&sub=Meet_With_Business_Mentors"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Meet_With_Business_Mentors'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Meet With Business Mentors</a></li>
     <?php
 }
    else if(@$_GET['s']=="Health Logo"){ ?>
-    <li><a href="index.php?s=Health Logo&sub=Nutritions&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Nutritions'";
+    <li><a href="index.php?s=Health Logo&sub=Nutritions&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Nutritions'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Nutritions</a></li>
-    <li><a href="index.php?s=Health Logo&sub=Traditional_Medecine&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Traditional_Medecine'";
+    <li><a href="index.php?s=Health Logo&sub=Traditional_Medecine&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Traditional_Medecine'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Traditional Medecine</a></li>
-    <li><a href="index.php?s=Health Logo&sub=Serious_Deseases&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Serious_Deseases'";
+    <li><a href="index.php?s=Health Logo&sub=Serious_Deseases&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Serious_Deseases'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Serious Deseases</a></li>
-    <li><a href="index.php?s=Health Logo&sub=Doctor_Advice&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Doctor_Advice'";
+    <li><a href="index.php?s=Health Logo&sub=Doctor_Advice&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Doctor_Advice'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Doctor Advice</a></li>
-    <li><a href="index.php?s=Health Logo&sub=Health_News&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Health_News'";
+    <li><a href="index.php?s=Health Logo&sub=Health_News&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Health_News'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Health News</a></li>
-    <li><a href="index.php?s=Health Logo&sub=Ask_Doctor"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ask_Doctor'";
+    <li><a href="index.php?s=Health Logo&sub=Ask_Doctor"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ask_Doctor'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ask_Doctor</a></li>
 
@@ -233,55 +233,55 @@ else if(@$_GET['s']=="Business Logo"){
 }
 else if(@$_GET['s']=="Road Logo"){
    ?>
-   <li><a href="index.php?s=Road Logo&sub=Igazeti&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Igazeti'";
+   <li><a href="index.php?s=Road Logo&sub=Igazeti&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Igazeti'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Igazeti</a></li>
-    <li><a href="index.php?s=Road Logo&sub=Ibibazo_nibisubizo&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ibibazo_nibisubizo'";
+    <li><a href="index.php?s=Road Logo&sub=Ibibazo_nibisubizo&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibibazo_nibisubizo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibibazo n'Ibisubizo</a></li>
-    <li><a href="index.php?s=Road Logo&sub=Ibyapa&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ibyapa'";
+    <li><a href="index.php?s=Road Logo&sub=Ibyapa&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibyapa'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibyapa</a></li>
-    <li><a href="index.php?s=Road Logo&sub=Amakuru&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Amakuru'";
+    <li><a href="index.php?s=Road Logo&sub=Amakuru&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Amakuru'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Amakuru</a></li>
-    <li><a href="index.php?s=Road Logo&sub=Baza_Mwarimu"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Baza_Mwarimu'";
+    <li><a href="index.php?s=Road Logo&sub=Baza_Mwarimu"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Baza_Mwarimu'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Baza Mwarimu</a></li>
 <?php }
 else if(@$_GET['s']=="English Logo"){ ?>
-    <li><a href="index.php?s=English Logo&sub=For_Biginners&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='For_Biginners'";
+    <li><a href="index.php?s=English Logo&sub=For_Biginners&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='For_Biginners'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">For Biginners</a></li>
-    <li><a href="index.php?s=English Logo&sub=For_Intermediates&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='For_Intermediate'";
+    <li><a href="index.php?s=English Logo&sub=For_Intermediates&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='For_Intermediate'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">For Intermediate</a></li>
-    <li><a href="index.php?s=English Logo&sub=Advanced_English&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Advanced_English'";
+    <li><a href="index.php?s=English Logo&sub=Advanced_English&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Advanced_English'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Advanced English</a></li>
-    <li><a href="index.php?s=English Logo&sub=Business_English&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Business_English'";
+    <li><a href="index.php?s=English Logo&sub=Business_English&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Business_English'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business English</a></li>
-    <li><a href="index.php?s=English Logo&sub=Ask_Teacher"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ask_Teacher'";
+    <li><a href="index.php?s=English Logo&sub=Ask_Teacher"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ask_Teacher'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ask Teacher</a></li>
 <?php
 }
 else if(@$_GET['s']=="Culture Logo"){
 ?>
-<li><a href="index.php?s=Culture Logo&sub=Amateka_yu_Rwanda&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Amateka_yu_Rwanda'";
+<li><a href="index.php?s=Culture Logo&sub=Amateka_yu_Rwanda&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Amateka_yu_Rwanda'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Amateka y'u Rwanda</a></li>
-    <li><a href="index.php?s=Culture Logo&sub=Imigani&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Imigani'";
+    <li><a href="index.php?s=Culture Logo&sub=Imigani&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Imigani'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Imigani</a></li>
-    <li><a href="index.php?s=Culture Logo&sub=Ibisakuzo&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Ibisakuzo'";
+    <li><a href="index.php?s=Culture Logo&sub=Ibisakuzo&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibisakuzo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibisakuzo</a></li>
-    <li><a href="index.php?s=Culture Logo&sub=Kirazira_z'umuco_Nyarwanda&t=1"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Kirazira_zumuco_Nyarwanda'";
+    <li><a href="index.php?s=Culture Logo&sub=Kirazira_z'umuco_Nyarwanda&t=1"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Kirazira_zumuco_Nyarwanda'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Kirazira z'umuco Nyarwanda</a></li>
-    <li><a href="index.php?s=Culture Logo&sub=Baza_Sokuru"><img src="Resources/Storage/<?php $query="SELECT * FROM logos WHERE position='Baza_Sokuru'";
+    <li><a href="index.php?s=Culture Logo&sub=Baza_Sokuru"><img src="Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Baza_Sokuru'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Baza Sokuru</a></li>
 <?php
@@ -304,7 +304,7 @@ while($row20=$result20->fetch_assoc()){
 ?>
 <div class="row">
     <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><?php echo $row20['title']; ?></a></strong><h4>
-    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row20['thumb'];?>"></a>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Thumbs/'.$row20['thumb'];?>"></a>
     <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row20['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row20['comments']; ?></p>
 </div>    
 </div>
@@ -326,7 +326,7 @@ while($row21=$result21->fetch_assoc()){
 ?>
 <div class="row">
     <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><?php echo $row21['title']; ?></a></strong><h4>
-    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row21['featured_image'];?>"></a>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Featured_images/'.$row21['featured_image'];?>"></a>
     <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row21['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row21['comments']; ?></p>
 </div>    
 </div>
@@ -354,7 +354,7 @@ while($row22=$result22->fetch_assoc()){
 ?>
 <div class="row">
     <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><?php echo $row22['title']; ?></a></strong><h4>
-    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row22['featured_image'];?>"></a>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Featured_images/'.$row22['featured_image'];?>"></a>
 </div>    
 </div>
 <hr>

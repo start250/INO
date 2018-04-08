@@ -56,7 +56,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
   	$res = $conn->query($query);
   	while($row=$res->fetch_assoc()){
   	?>
-  	<img src="/INOGIT/Resources/Storage/<?php echo $row['filename']; ?>"><br>
+  	<img class="logo" src="/INOGIT/Resources/Storage/Logos/<?php echo $row['filename']; ?>"><br>
   	<label><?php echo $row['position']; ?></label><br>
   	<hr>
   	<?php } ?>
@@ -64,7 +64,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 </div>
 <?php
 if(isset($_POST['uploadLogo'])){
-	$target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/";
+	$target_path =$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Logos/";
 $position=mysqli_escape_string($conn,$_POST['position']);
 $fullName=basename( $_FILES["fileToUpload"]["name"]);
   list($partName,$extension)=explode('.', $fullName);
