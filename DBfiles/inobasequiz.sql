@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2018 at 09:08 PM
+-- Generation Time: Apr 09, 2018 at 09:13 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `inobasequiz`
+-- Database: `inobaseQUiz`
 --
 
 -- --------------------------------------------------------
@@ -50,6 +50,15 @@ CREATE TABLE `class_coment` (
   `class_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `class_coment`
+--
+
+INSERT INTO `class_coment` (`content_id`, `generated_time`, `content`, `content_by`, `published`, `class_id`) VALUES
+(1, 1523300052, 'No\\', 1, 1, 1),
+(2, 1523300053, 'Sending data...', 1, 1, 1),
+(3, 1523300068, 'I will add image', 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +70,13 @@ CREATE TABLE `class_gid` (
   `class_id` int(11) NOT NULL,
   `gid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class_gid`
+--
+
+INSERT INTO `class_gid` (`clgid`, `class_id`, `gid`) VALUES
+(2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -76,6 +92,13 @@ CREATE TABLE `live_class` (
   `closed_time` int(11) NOT NULL,
   `content` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `live_class`
+--
+
+INSERT INTO `live_class` (`class_id`, `class_name`, `initiated_by`, `initiated_time`, `closed_time`, `content`) VALUES
+(1, 'Kwiga Imigani', 1, 1520008872, 0, '\n		Those who were not here last time...<div>we have new guidelines</div><div>sa</div><div>saihubd casjdnas asdas&nbsp;</div><div>sa</div><div>das</div><div><br></div>	<div contenteditable=\"false\"><a href=\"http://localhost/INOGIT/quiz/classfiles/battery-8.png\" target=\"new\" style=\"cursor:pointer;\"><img src=\"http://localhost/INOGIT/quiz/classfiles/battery-8.png\" style=\"max-width:400px;max-height:400px;\"></a></div>That;s it<div><br></div>');
 
 -- --------------------------------------------------------
 
@@ -111,7 +134,16 @@ INSERT INTO `savsoft_answers` (`aid`, `qid`, `q_option`, `uid`, `score_u`, `rid`
 (95, 6, 'Keyboard___CPU', 7, 0.25, 2),
 (96, 6, 'Honda___BMW', 7, 0.25, 2),
 (97, 6, 'Red___Green', 7, 0.25, 2),
-(98, 1, '57', 7, 1, 2);
+(98, 1, '57', 7, 1, 2),
+(109, 16, 'This is to insure that all goes well and nobody should say that I\'m not goud in inglis, I have money to buy this bwebsitie thuo have thsuaolnd o f rich friends I wan t caertificate to buy car in america with mui money, I life in Kicukiro, I hati this website,', 1, 0, 4),
+(110, 3, '52', 1, 0.5, 4),
+(111, 15, 'Washington DC', 1, 0, 4),
+(118, 16, 'sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN sjakjc scDCLN ', 8, 0, 5),
+(119, 3, '54', 8, 0.5, 5),
+(120, 15, 'Washington D.C', 8, 1, 5),
+(127, 16, 'rghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjnrghtwernwads gradfsjn', 8, 0, 6),
+(128, 3, '54', 8, 0.5, 6),
+(129, 15, 'Washington D.C', 8, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -242,7 +274,19 @@ INSERT INTO `savsoft_options` (`oid`, `qid`, `q_option`, `q_option_match`, `scor
 (90, 17, '<p>admin</p>', NULL, 0),
 (91, 17, '<p>SSDAJKA</p>', NULL, 0),
 (92, 17, '<p>admin</p>', NULL, 0),
-(93, 17, '<p>AASDD</p>', NULL, 1);
+(93, 17, '<p>AASDD</p>', NULL, 1),
+(94, 18, ' 4', NULL, 1),
+(95, 18, ' 5', NULL, 0),
+(96, 18, ' 6', NULL, 0),
+(97, 18, ' 3', NULL, 0),
+(98, 19, ' 4', NULL, 0),
+(99, 19, ' 8', NULL, 0.5),
+(100, 19, ' 6', NULL, 0),
+(101, 19, ' Eight', NULL, 0.5),
+(102, 20, ' Osama', NULL, 0),
+(103, 20, ' Obama', NULL, 1),
+(104, 20, ' Arvind', NULL, 0),
+(105, 20, ' Anil', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -287,16 +331,19 @@ CREATE TABLE `savsoft_qbank` (
 
 INSERT INTO `savsoft_qbank` (`qid`, `question_type`, `question`, `description`, `cid`, `lid`, `no_time_served`, `no_time_corrected`, `no_time_incorrected`, `no_time_unattempted`) VALUES
 (1, 'Multiple Choice Single Answer', 'What is the capital of INDIA?', 'New Delhi', 2, 1, 17, 13, 2, 2),
-(3, 'Multiple Choice Multiple Answer', 'What is 2+2=?', '4', 2, 1, 16, 11, 2, 3),
-(6, 'Match the Column', 'Match the Following', '', 1, 1, 12, 6, 2, 4),
-(7, 'Short Answer', 'What is the color of sky?', '', 1, 1, 12, 5, 2, 5),
-(8, 'Long Answer', 'Write an essay on INDIA. (250 words )', '', 1, 1, 5, 0, 0, 3),
+(3, 'Multiple Choice Multiple Answer', 'What is 2+2=?', '4', 2, 1, 20, 11, 5, 4),
+(6, 'Match the Column', 'Match the Following', '', 1, 1, 13, 6, 2, 5),
+(7, 'Short Answer', 'What is the color of sky?', '', 1, 1, 13, 5, 2, 6),
+(8, 'Long Answer', 'Write an essay on INDIA. (250 words )', '', 1, 1, 6, 0, 0, 4),
 (12, 'Multiple Choice Single Answer', '<p>What is 12+2 = ?</p>', '<p>Here is description or explanation</p>', 1, 2, 5, 2, 1, 2),
 (13, 'Multiple Choice Multiple Answer', '<p>What is 32+8 = ?&nbsp;</p>', '<p>Here is description or explanation</p>', 1, 2, 5, 2, 0, 3),
 (14, 'Match the Column', 'Match the column', 'Here is description or explanation', 1, 2, 0, 0, 0, 0),
-(15, 'Short Answer', '<p>What is the capital of USA</p>', '<p>Here is description or explanation</p>', 1, 2, 0, 0, 0, 0),
-(16, 'Long Answer', '<p>Write about Globalization in 250 words</p>', '<p>Here is description or explanation</p>', 2, 2, 0, 0, 0, 0),
-(17, 'Multiple Choice Single Answer', '<p>admin</p>', '<p><strong>admin</strong></p>', 2, 1, 0, 0, 0, 0);
+(15, 'Short Answer', '<p>What is the capital of USA</p>', '<p>Here is description or explanation</p>', 1, 2, 3, 2, 1, 0),
+(16, 'Long Answer', '<p>Write about Globalization in 250 words</p>', '<p>Here is description or explanation</p>', 2, 2, 3, 0, 0, 0),
+(17, 'Multiple Choice Single Answer', '<p>admin</p>', '<p><strong>admin</strong></p>', 2, 1, 0, 0, 0, 0),
+(18, 'Multiple Choice Single Answer', ' what is 2+2 =?', '  description here', 1, 1, 0, 0, 0, 0),
+(19, 'Multiple Choice Multiple Answer', ' what is 2+6 =?', '  ', 1, 1, 0, 0, 0, 0),
+(20, 'Multiple Choice Single Answer', ' Who is in the picture?<img src=&#34;http://localhost/INOGIT/quiz/upload/word_images/15232978901.jpeg&#34;>', '  ', 1, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -360,7 +407,8 @@ CREATE TABLE `savsoft_quiz` (
 INSERT INTO `savsoft_quiz` (`quid`, `quiz_name`, `description`, `start_date`, `end_date`, `gids`, `qids`, `noq`, `correct_score`, `incorrect_score`, `ip_address`, `duration`, `maximum_attempts`, `pass_percentage`, `view_answer`, `camera_req`, `question_selection`, `gen_certificate`, `certificate_text`, `with_login`, `quiz_template`) VALUES
 (1, 'Sample Quiz', '<p>Sample Quiz Sample Quiz</p>', 1460344840, 1623195357, '3,1', '1,3,12,13', 4, '1', '0', '', 1000, 10, 50, 1, 0, 0, 0, NULL, 1, 'Default'),
 (2, 'Sample Quiz 2', '<p>Sample Quiz 2</p>', 1457687593, 1623195357, '1,3,4', '', 5, '1', '0', '', 100, 10, 50, 1, 0, 1, 1, 'ID: #{result_id}<br>\r\n \r\n<br><br>\r\n<center>\r\n<font style=\'font-size:32px;\'>Certificate</font><br><br><br>\r\n<h4>This is certified that {first_name}  {last_name} has attempted the quiz \'{quiz_name}\' and obtained {percentage_obtained}% marks.<br>\r\nHis/her result status is {status}<br>\r\n</h4>\r\n\r\n</center>\r\n<br><br><br><br><br><br> \r\n{qr_code}<br>\r\nDate: {generated_date}', 1, 'Default'),
-(3, 'Quiz with advance template', '', 123195357, 1623195357, '1,3,4', '1,3,6,7', 4, '1,1,1,1', '-0.33,-0.33,-0.33,-0.33', '', 10, 10, 50, 1, 0, 0, 0, NULL, 1, 'Advance');
+(3, 'Quiz with advance template', '', 123195357, 1623195357, '1,3,4', '1,3,6,7', 4, '1,1,1,1', '-0.33,-0.33,-0.33,-0.33', '', 10, 10, 50, 1, 0, 0, 0, NULL, 1, 'Advance'),
+(4, 'English For Rwanda Businessmen', '<p>This quiz will test your english understanging. If you pass you will be able to continue learning English on this website. If you fail, Please do not give up, read more English books on Iga Neza Online Website.</p>', 1523298008, 1554834008, '1', '16,3,15', 3, '1,1,1', '0,0,0', '', 30, 10, 50, 1, 0, 0, 1, '\r\n<center><h3>Certificate of Achievement</h3></center>\r\n<br><br>\r\nThis is to certify that user  {first_name}, {last_name} has completed the  {quiz_name} With  {percentage_obtained} . <br> \r\nDate:  {generated_date};\r\n<br><br><br><br><br>\r\n\r\n<center> For official certification, please contact us. </center>', 0, 'Advance');
 
 -- --------------------------------------------------------
 
@@ -395,7 +443,10 @@ CREATE TABLE `savsoft_result` (
 INSERT INTO `savsoft_result` (`rid`, `quid`, `uid`, `result_status`, `start_time`, `end_time`, `categories`, `category_range`, `r_qids`, `individual_time`, `total_time`, `score_obtained`, `percentage_obtained`, `attempted_ip`, `score_individual`, `photo`, `manual_valuation`) VALUES
 (1, 3, 7, 'Fail', 1523195428, 1523195525, 'Math,General knowledge', '2,2', '1,3,6,7', '3,34,36,18', 91, 1.34, 33.5, '::1', '1,1,2,2', '', 0),
 (2, 2, 7, 'Pass', 1523195756, 1523195838, 'General knowledge,Math', '3,1', '7,8,6,1', '0,32,25,9,11', 77, 4, 80, '::1', '1,1,1,1', '', 0),
-(3, 2, 1, 'Open', 1523196034, 0, 'General knowledge,Math', '3,1', '6,8,7,3', '0,0,0,0,0', 0, 0, 0, '::1', '0,0,0,0', '', 0);
+(3, 2, 1, 'Fail', 1523196034, 1523298800, 'General knowledge,Math', '3,1', '6,8,7,3', '0,0,0,0,0', 0, 0, 0, '::1', '0,0,0,0', '', 0),
+(4, 4, 1, 'Fail', 1523298829, 1523298977, 'Math,General knowledge', '2,1', '16,3,15', '90,34,16', 140, 1, 33.3333, '::1', '1,2,2', '', 0),
+(5, 4, 8, 'Pending', 1523299244, 1523299297, 'Math,General knowledge', '2,1', '16,3,15', '0,20,25', 45, 1, 33.3333, '::1', '3,2,1', '', 1),
+(6, 4, 8, 'Pending', 1523299572, 1523299615, 'Math,General knowledge', '2,1', '16,3,15', '0,21,13', 34, 1, 33.3333, '::1', '3,2,1', '', 1);
 
 -- --------------------------------------------------------
 
@@ -431,7 +482,8 @@ INSERT INTO `savsoft_users` (`uid`, `password`, `email`, `first_name`, `last_nam
 (1, '21232f297a57a5a743894a0e4a801fc3', 'admin@example.com', 'Admin', 'Admin', '1234567890', NULL, 1, 1, 2122569000, 0, '', '2017-04-20 11:22:38', NULL, 'Active', 'dnwIpQWkxyA:APA91bFZLhdxZnPcNareTyHnJRikJGqaT7qh9DF4jSmyKSOq1rv6k7uwgmaQ4_K7jT3WNNUeKRdRQYsNf_OZaQZ7i5nKI_CjA6QGPwPsL5_D7ShPTtsuIwTkr0CuGx0RS7oAVNg_bImc', NULL),
 (5, 'e10adc3949ba59abbe56e057f20f883e', 'user@example.com', 'User', 'User', '1234567890', '123', 1, 0, 2122569000, 0, '', '2017-04-20 11:22:38', NULL, 'Active', NULL, NULL),
 (6, '31b5f3eeb7380d2c2d4771d355f322eb', 'segr@segr.hgf', 'SN', 'JKH', 'JKKASN', NULL, 4, 0, 0, 0, NULL, '2018-04-08 13:28:15', NULL, 'Active', NULL, NULL),
-(7, '202cb962ac59075b964b07152d234b70', 'marsanline@gmail.com', 'Muhire', 'Peter', '1234567', NULL, 1, 0, 0, 0, NULL, '2018-04-08 13:35:42', NULL, 'Active', NULL, NULL);
+(7, '202cb962ac59075b964b07152d234b70', 'marsanline@gmail.com', 'Muhire', 'Peter', '1234567', NULL, 1, 0, 0, 0, NULL, '2018-04-08 13:35:42', NULL, 'Active', NULL, NULL),
+(8, '118b0b9cc045dc517a98658ec79a976a', 'threeoldkeys@gmail.com', 'MUHIZI', 'Anaclet', '987654345678', NULL, 1, 0, 0, 0, NULL, '2018-04-09 18:40:44', NULL, 'Active', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -541,25 +593,25 @@ ALTER TABLE `savsoft_users`
 -- AUTO_INCREMENT for table `class_coment`
 --
 ALTER TABLE `class_coment`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `class_gid`
 --
 ALTER TABLE `class_gid`
-  MODIFY `clgid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `clgid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `live_class`
 --
 ALTER TABLE `live_class`
-  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `savsoft_answers`
 --
 ALTER TABLE `savsoft_answers`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `savsoft_category`
@@ -589,7 +641,7 @@ ALTER TABLE `savsoft_notification`
 -- AUTO_INCREMENT for table `savsoft_options`
 --
 ALTER TABLE `savsoft_options`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `savsoft_payment`
@@ -601,7 +653,7 @@ ALTER TABLE `savsoft_payment`
 -- AUTO_INCREMENT for table `savsoft_qbank`
 --
 ALTER TABLE `savsoft_qbank`
-  MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `savsoft_qcl`
@@ -613,19 +665,19 @@ ALTER TABLE `savsoft_qcl`
 -- AUTO_INCREMENT for table `savsoft_quiz`
 --
 ALTER TABLE `savsoft_quiz`
-  MODIFY `quid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `quid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `savsoft_result`
 --
 ALTER TABLE `savsoft_result`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `savsoft_users`
 --
 ALTER TABLE `savsoft_users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
