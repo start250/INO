@@ -15,5 +15,5 @@ if (file_exists($filename)) {
 } 
 
 
-
-updateViews('books','_id',$_id,$conn);
+incrementTargetCol('books','downloads','_id',$_id,$conn);
+ 

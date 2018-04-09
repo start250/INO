@@ -1,11 +1,11 @@
 <?php  
  
-function updateViews($table,$col,$id,$conn){
+function incrementTargetCol($table,$colToUpdate,$col,$id,$conn){
 
 $table=mysqli_real_escape_string($conn,$table);
 $id=mysqli_real_escape_string($conn,$id);
 
-$query = "UPDATE $table SET downloads=downloads+1  WHERE BINARY $col = '$id'";
+$query = "UPDATE $table SET $colToUpdate=$colToUpdate+1  WHERE BINARY $col = '$id'";
  
 if ($conn->query($query) === TRUE) {
  // echo "<br>";

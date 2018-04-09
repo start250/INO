@@ -1,8 +1,12 @@
 <?php 
+if(!isset($_GET['post'])){
+header('LOCATION: /INOGIT/');
+ die();
+}
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php'); 
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/views.php');  
-$id=mysqli_real_escape_string($conn,$_GET['post']);
-updateViews('POSTS',$id,$conn);
+$id=mysqli_real_escape_string($conn,$_GET['post']); 
+incrementTargetCol('posts','views','id',$id,$conn);
   
 $sql =  "SELECT * FROM Posts WHERE id='$id'";
   $result = $conn->query($sql);
@@ -10,80 +14,110 @@ $sql =  "SELECT * FROM Posts WHERE id='$id'";
 $stmt = $conn->prepare("SELECT * FROM posts WHERE id='".$_GET["post"]."'"); 
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc(); 
+ $row_1 = $result->fetch_assoc(); 
 
 ?>
 
 <!DOCTYPE html>
 <html>
-<head> 
-  <title><?=$row['title']?></title>
-  
-<?php include('../Public/views/_header.php');?>
-  
-<style>
-img{
-  max-width:600px;
-}
-</style>
- </head>
- <body>
 
- <?php include('../Public/views/_navs_main.php');?>
- <style>
- 
+<head>
+    <title>
+        <?= $row_1['title']?>
+    </title>
 
-.featured{
-  background-color:#444;
-  height:400px;
-  width:100%;
-}
-  
-  </style>
+    <?php include('../Public/views/_header.php');?>
+
+    <style>
+        img {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <?php include('../Public/views/_nav.php');?>
+    <style>
+        .featured {
+            background-color: #444;
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 
 
- <!-- post place -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
-        <br>
-        <br>
-        <br>
-                <h2 class="text-center"><?=$row['title']?></h2> 
-<p class="text-right">
-            <i class="fa fa-eye"></i>  <?=$row['views']?>     
-          | <i class="fa fa-user-circle"></i> by <a href="#"><?=$row['author']?></a> 
-         </p>
+    <!-- post place -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <br>
+                <br>
+                <br>
+                <h2 class="text-center">
+                    <?= $row_1['title']?>
+                </h2>
+                <p class="text-right">
+                    <i class="fa fa-eye"></i>
+                    <?= $row_1['views']?>
+                        |
+                        <i class="fa fa-user-circle"></i> by
+                        <a href="#">
+                            <?= $row_1['author']?>
+                        </a>
+                </p>
 
                 <br>
                 <br>
                 <div class="jumbotron" style="word-wrap: break-word">
-                    <?=$row['content']?>
+                    <?= $row_1['content']?>
                 </div>
-                <p><i class="fa fa-clock"></i> <?=$row['created_at']?>
-          | <i class="fa fa-comment"></i> <a href="#"><?=$row['comments']?> Comments</a>
-          | <i class="fa fa-share-alt-square"></i> <a href="#"><?=$row['shares']?> Shares</a>
-          | <i class="fa fa-tags"></i> Section : <a href="#"><span class=""><?=$row['section']?></span></a> 
-        </p>
-            
-       </div>
- 
-<!-- sideBAR PLACE -->
-       <div class="col-lg-4">
-       <!-- featured image -->
-       <div class="featured">
-<img style="
- object-fit: cover;
- width:100%;
-  height:100%"  src="/INOGIT/Resources/Storage/Featured_images/<?=$row['featured_image']?>">
-</div>
-          <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/sidebar.php');?>
-      </div>
+                <p>
+                    <i class="fa fa-clock"></i>
+                    <?= $row_1['created_at']?>
+                        |
+                        <i class="fa fa-comment"></i>
+                        <a href="#">
+                            <?= $row_1['comments']?> Comments</a>
+                        |
+                        <i class="fa fa-share-alt-square"></i>
+                        <a href="#">
+                            <?= $row_1['shares']?> Shares</a>
+                        |
+                        <i class="fa fa-tags"></i> Section :
+                        <a href="#">
+                            <span class="">
+                                <?= $row_1['section']?>
+                            </span>
+                        </a>
+                </p>
 
-   </div>
-</div> 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>
-  
- 
- 
+            </div>
 
+            <!-- sideBAR PLACE -->
+            <div class="col-lg-4">
+                
+                <div class="featured">
+                    <img style="
+                  object-fit: cover;
+                  width:100%;
+                    height:100%" src="/INOGIT/Resources/Storage/Featuredimgs/<?php
+                     $filename = $_SERVER['DOCUMENT_ROOT'].'/INOGIT/Resources/Storage/Featuredimgs/'. $row_1['featured_image'];
+                     if (file_exists($filename)) {
+                         echo  $row_1['featured_image'];
+                     } else {
+                         echo 'Default.png';
+                     } 
+                     
+                     
+                     
+                     ?>">
+                </div>
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_sidebar.php');?>
+            </div>
+<!-- sidebar closed -->
+        </div> 
+        <!-- row closed -->
+    </div>
+    <!-- container closed -->
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_footer.php');?>

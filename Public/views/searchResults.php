@@ -1,14 +1,20 @@
 <?php 
-include('DBfiles/connectDB.php');
+require_once('DBfiles/connectDB.php');
 
-$srch=$_GET['q'];
-$sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' LIMIT 2";  
+$srch= mysqli_real_escape_string($conn,$_GET['q']); 
+$sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' LIMIT 5";  
 
 $result = $conn->query($sql);
+
+?>
+<h4> Results of "<?=$_GET['q']?>" in books...</h4>
+<br>
+<?php
+
+if (mysqli_num_rows($result)==0) {
+    echo "no results found<br><br>";}
 while($row = $result->fetch_assoc()) {
     ?>
-
-<br>
 
 <div class="row z-depth-1">
     <div class="col-lg-12">
@@ -39,7 +45,7 @@ while($row = $result->fetch_assoc()) {
                             </b>
                         </label>
                         <br>
-                        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
+                        <button  onclick="getBookSrc(<?=$row['_id']?>);" class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row['_id']; ?>">
                             <i class="fa fa-book" aria-hidden="true"></i>
                             Read Now</button>
                         <span id="er"></span>
@@ -77,7 +83,7 @@ while($row = $result->fetch_assoc()) {
 
 <?php } ?>
 
-
+ 
 
 <script>
 function getBookSrc(bookID){
@@ -86,7 +92,60 @@ $("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
 });
 }
 
-</script>
-</div> 
-<br>
+</script> 
+ 
+<h4> Results of "<?=$_GET['q']?>" in posts...</h4>
 <br> 
+
+<?php
+ 
+
+ 
+$sql = "SELECT * FROM posts WHERE title LIKE '%$srch%' OR  author LIKE '%$srch%' LIMIT 5";  
+
+$result = $conn->query($sql);
+if (mysqli_num_rows($result)==0) {
+    echo "no results found<br><br>";
+}
+while($row = $result->fetch_assoc()) {
+    ?><br> 
+  <div class=" row">
+      
+ 
+      <div class="col-sm-4 col-xs-4 col-md-4 col-lg-3">
+       
+                 <div class="card">
+                      
+                     
+                     <img style="max-height:200px;max-width:140px" class="card-img-top" src="/INOGIT/Resources/Storage/Featuredimgs/<?php
+                     $filename = 'Resources/Storage/Featuredimgs/'.$row['featured_image'];
+                     if (file_exists($filename)) {
+                         echo $row['featured_image'];
+                     } else {
+                         echo 'Default.png';
+                     } 
+                     
+                     
+                     
+                     ?>">
+                     
+                      </div>
+                        </div>
+                         <div class="col-sm-8 col-xs-8 col-md-8 col-lg-9 card">
+                          <div class="card-block">
+                         
+                         <h4 class="card-title mt-3"><?=$row['title']?></h4>
+                          
+                    </div>  <?=$row['excerpt']?>
+                       
+                     <div class="card-footer">
+                         <small>Last updated <?=$row['updated_at']?></small>
+                         <a href="javascript:void();" ><button class="btn btn-secondary float-right btn-sm">Read More..</button></a>
+                     </div>
+                 </div>
+         
+   </div>
+ 
+<br> 
+
+<?php } ?>

@@ -1,5 +1,4 @@
-savsoftquiz
-Savsoft Quiz v4.0 is a php based open source web application to create and manage online quiz, test, exam on your website.
+n a php based open source web application to create and manage online quiz, test, exam on your website.
 
 Main Features:
 
@@ -24,8 +23,7 @@ Main Features:
 10) Users/students: Manage users by groups.
 
 Online Demo
-
-URL: http://savsoftquiz.com/savsoftquiz_v4.0/
+ 
 
 Administrator login: Username: admin@example.com password: admin
 
@@ -33,10 +31,4 @@ Student login Username: user@example.com password: 123456
 
 Server Requirements:
 
-PHP 5+ One MySql Database (v5+) Linux or Windows server ( Recommend Linux with cPanel hosting) Minimum 35 MB Disk space (web space)
-
-Community Support http://savsoftquiz.com/forum/
-
-Documentation: http://savsoftquiz.com/docs/
-
-Installation: http://www.savsoftquiz.com/user_guide_v4.0/installation.html
+PHP 5+ One MySql Database (v5+) Linux or Windows server ( Recommend Linux with cPanel hosting) Minimum 35 MB Disk space (web space) 

@@ -161,9 +161,13 @@ if(@$_GET['s']!="Academic" && @$_GET['sub'])
 if(isset($_GET['q'])){
     require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/searchResults.php');?>
   </div> 
+  <!-- sidebar starts on get q -->
+  <div class="col-lg-4">
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_sidebar.php');
     ?>
+    </div>
+     <!-- sidebar closed on get q-->
     </div> 
       <?php
     require_once('Public/views/_footer.php'); 
@@ -186,7 +190,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
    frtzeryugihoj
    frtzeryugihoj -->
     </div>
+     <!-- sidebar starts -->
+  <div class="col-lg-4">
    <?php require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_sidebar.php');?>
+   </div>
+     <!-- sidebar closed -->
     <hr>
 <?php
 if(@$_GET['t']==3 && @$_GET['post']){

@@ -1,7 +1,9 @@
-
-
-
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 if (isset($_GET['delete'])) {
 	
 	mysqli_query($conn,"DELETE from books where _id='".$_GET['delete']."'");
@@ -11,17 +13,17 @@ if (isset($_POST['search_post_btn'])) {
 }
 
 
-if (@$search_post!=''&&@$_SESSION['admin']==$ad) {
+if (@$search_post!=''&&@$_SESSION['level']=='admin') {
 $query=mysqli_query($conn,"SELECT * from books where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%'") or die('Failed to search '.mysqli_error());
 }
-elseif (@$search_post!=''&&@$_SESSION['author']==$au) {
-	$query=mysqli_query($conn,"SELECT * from books where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%' AND added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
+elseif (@$search_post!=''&&@$_SESSION['level']=='author') {
+	$query=mysqli_query($conn,"SELECT * from books where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%' AND added_by='".$_SESSION['username']."'") or die('Failed to search '.mysqli_error());
 }
-elseif(@!$search_post&&@$_SESSION['admin'])
+elseif(@!$search_post&&@$_SESSION['level']==='admin')
 {
 	$query=mysqli_query($conn,"SELECT * from books WHERE section='".$_GET['section']."'");
 }
-elseif (@!$search_post&&$_SESSION['author']) {
+elseif (@!$search_post&&$_SESSION['level']==='author') {
 	$query=mysqli_query($conn,"SELECT * from books where added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
 }
 ?>
@@ -56,7 +58,7 @@ while ($row=mysqli_fetch_array($query)) {
         <td><?php echo $row['title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['pages']; ?></td>
-        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil-alt"></i></a> 
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil"></i></a> 
       </tr>
       <script>
 function deletetask<?php echo $row['_id']; ?>() {

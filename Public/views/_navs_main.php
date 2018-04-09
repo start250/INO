@@ -51,7 +51,7 @@ padding: 3px;
 
 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-size:100%; background-color: white; margin-bottom:20px;">
-    <a class="navbar-brand" href="#" style="color: black;">Iga Neza</a>
+    <a class="navbar-brand" href="/INOGIT" style="color: black;">Iga Neza</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
 
       <span class="navbar-toggler-icon" style="background-color: black; padding: 3px;"></span>

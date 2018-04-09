@@ -10,16 +10,16 @@ echo '<h3>Book Information...</h3>';
 
 }
 ?> 
-<form  class=" w-50 p-3" method="POST" enctype="multipart/form-data">
-<input class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
-<input class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
-<textarea placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
-<input class="form-control"id="pages" type="number" placeholder="pages (choose file for automatic guess)" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
-<input style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?php echo $f_ad['username'].$f_ad1['username']; ?>"><br> 
+<form action="<?=$_SERVER['PHP_SELF']?>" class="col-lg-6 col-md-12 col-xs-12" method="POST" enctype="multipart/form-data">
+<input required class="form-control" type="text" placeholder="Title" name="title" value="<?php echo $fetch3['title']; ?>"><br>
+<input required class="form-control" type="text" placeholder="Author" name="author" value="<?php echo $fetch3['author']; ?>"><br>
+<textarea required  placeholder="Description..." name="description" class="form-control"><?php echo $fetch3['description']; ?></textarea><br>
+<input required class="form-control"id="pages" type="number" placeholder="pages (choose file for automatic guess)" name="pages" value="<?php echo $fetch3['pages']; ?>"><br>
+<input required style="user-select: none;" class="form-control" type="text" placeholder="Added By..." name="added_by" value="<?=$fetch3['added_by'] ?>"><br> 
 
-<input hidden type="text"  id="size" name="size"><br>Thumbnail
-<input type="file" name="thumb" class="form-control"><br>Book
-<input id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
+<input  hidden type="text"  id="size" name="size"><br>Thumbnail
+<input   type="file" name="thumb" class="form-control"><br>Book
+<input   id="myFile"  class="form-control" onchange="myFunction()" type="file" name="fileToUpload">
 <?php 
 
 if ($_GET['edit']!=1) {
