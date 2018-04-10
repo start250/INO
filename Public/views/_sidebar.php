@@ -207,8 +207,8 @@ $sql = "SELECT * FROM Posts";
       <div class="span8">
         <p></p>
         <p>
-          <i class="icon-user"></i> by <a href="#"><?=$row['author']?></a> 
-         Section : <a href="#"><span class=""><?=$row['section']?></span></a> 
+        <i class="fa fa-user" aria-hidden="true"></i> by <a href="#"><?=$row['author']?></a> 
+         |<i class="fa fa-tags"></i>Section : <a href="#"><span class=""><?=$row['section']?></span></a> 
         </p>
       </div>
     </div>

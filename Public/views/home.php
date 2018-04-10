@@ -1,7 +1,3 @@
-
-<?php
-
-?>
 <h3>Featured Content</h3>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

@@ -69,31 +69,41 @@ padding: 3px;
         <li <?php if(@$_GET['section']=='health') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=health"><i class="fa fa-medkit"></i>&nbsp; Health</a></li>
         <li <?php if(@$_GET['section']=='culture') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=culture"><i class="fa fa-leaf"></i>&nbsp; Culture</a></li>
         <li <?php if(@$_GET['section']=='test') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=test"><i class="fa fa-question"></i>&nbsp; Test(s)</a></li>
-        <li <?php if(@$_GET['section']=='logos') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=logos"><i class="fa fa-flag"></i>&nbsp; Logos</a></li>
-      </ul>
-      <ul class="navbar-nav float-right">
-      <?php
-if (isset($_SESSION['admin'])||isset($_SESSION['author'])) {
-?>
- <li class="nav-item">
-          <a class="float-right nav-link" href="<?php if(@$_SESSION['admin']){ echo"../INOGIT/logout.php"; } else { echo"../INOGIT/Author/logout.php"; } ?>" style="color: black; font-size: 12px;">
-          <?php echo $f_ad['username'].$f_ad1['username']."<br>"; ?><strong>Logout</strong>
-        </a>
-        </li>
-<?php
-}
-      ?>
-       
-      </ul>
+      </ul> 
       <!--<form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>-->
+      <ul class="navbar-nav ml-auto">
+        <li>
     <div class="search-container">
     <form method="POST" action="">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit" name="srch"><i class="fa fa-search"></i></button>
     </form>
+</li>
+    <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+if(isset($_SESSION['username'])){
+    ?>
+<li> &nbsp; &nbsp;<a href="/INOGIT/User"><i class="fa fa-user" aria-hidden="true"></i></span> <?=$_SESSION['username']?></a></li>
+<li> &nbsp; &nbsp;<a href="/INOGIT/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a></li>
+</ul>
+    <?php
+
+}else{
+    ?>
+<li> &nbsp; &nbsp; <a href="/INOGIT/Register"><i class="fa fa-plus-circle" aria-hidden="true"></i></span> Sign Up</a> </li>
+<li> &nbsp; &nbsp;<a href="/INOGIT/Login"><i class="fa fa-sign-in" aria-hidden="true"></i></span> Login</a></li>
+</ul>
+    <?php
+
+}
+ 
+
+?>
   </div>
     </div>
 </nav>

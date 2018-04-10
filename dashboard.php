@@ -8,19 +8,7 @@ if(!isset($_SESSION['username'])){
 } 
  
 ?>
-
-
-<?php
-error_reporting(0);
-  if(!isset($_SESSION)) { session_start(); }  
-require_once('DBfiles/connectDB.php');
-@$sql0=mysqli_query($conn,"SELECT * from adminauthor where id='".$_SESSION['ad']."' AND priority='administrator'");
-$f_ad=mysqli_fetch_array($sql0);
-$ad=$f_ad['id'];
-$sql01=mysqli_query($conn,"SELECT * from adminauthor where id='".@$_SESSION['au']."' AND priority='author'");
-$f_ad1=mysqli_fetch_array($sql01);
-$au=$f_ad1['id'];
-?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>

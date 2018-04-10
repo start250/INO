@@ -64,19 +64,24 @@ $stmt = $conn->prepare("SELECT * FROM Posts WHERE id='".$_GET["edit"]."'");
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
+}else{
+  $row= array('title' =>'' ,
+  'content' =>''
+
+ );
 }
 
 
 ?>
-<?php
-session_start();
-if(isset($_SESSION['update_success'])){
-  echo '<div class="alert alert-success">'.$_SESSION['update_success'].'</div>';
-  unset($_SESSION['update_success']);
+<?php 
+if(isset($_SESSION['message'])){
+  echo '<div class="alert alert-success">'.$_SESSION['message'].'</div>';
+  $_SESSION['message']='Oinc!';
+  unset($_SESSION['message']);
 }
 ?>
 
-<form method="POST" enctype="multipart/form-data">
+<form   method="POST" enctype="multipart/form-data">
   <div class="row">
 	<div class="col-sm-9">
   <input name="id" value="<?=$row['id']?>" hidden>
@@ -86,57 +91,93 @@ if(isset($_SESSION['update_success'])){
     </div>
     <div class="col-sm-3">
       <?php
-    
-  if(@$_GET['section']=="business")
-        echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Business_Opportunities</option>
-    <option>Business_Advice</option>
-    <option>Business_News</option>
-    <option>Biographies_Of_Successful_Business_Men</option></select>';
-    else if(@$_GET['section']=="health")
-        echo '<select name="category" class="form-control"><option>Select Category</option>
+  
+  if(@$_GET['section']=="business"){
+    if($row['category']=='')
+    $row['category']='Select Category';
+    echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+  .'<option selected disabled>'.$row['category'].'</option>
+  <option>Business Opportunities</option>
+    <option>Business Advice</option>
+    <option>Business News</option>
+     <option>Biographies Of Successful Business Men</option></select>';
+  }
+  
+    else if(@$_GET['section']=="health"){
+      if($row['category']=='')
+      $row['category']='Select Category';
+
+       echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+  .'<option selected disabled>'.$row['category'].'</option>
     <option>Nutrion</option>
     <option>Traditional_Medecine</option>
     <option>Serious_Deseases</option>
     <option>Doctor_Advice</option>
     <option>Health_News</option></select>';
-    else if(@$_GET['section']=="eng_class")
-        echo '<select name="category" class="form-control"><option>Select Category</option>
+    }
+       
+    else if(@$_GET['section']=="eng_class"){
+      if($row['category']=='')
+      $row['category']='Select Category';
+        echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+        .'<option selected disabled>'.$row['category'].'</option>
     <option>For_Beginners</option>
     <option>For_Intermediates</option>
     <option>Advanced_English</option>
     <option>Business_English</option></select>
     ';
+    }
+      
     else if (@$_GET['section']=="culture")
-       echo '<select name="category" class="form-control"><option>Select Category</option>
+      { 
+         if($row['category']=='')
+    $row['category']='Select Category';
+    
+    echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+       .'<option selected disabled>'.$row['category'].'</option>
    <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
     <option>Kirazira_zumuco_Nyarwanda</option>
-    </select>'; 
+    </select>'; }
     else if(@$_GET['section']=="rules_road")
-        echo '<select name="category" class="form-control"><option>Select Category</option>
+       {
+        if($row['category']=='')
+        $row['category']='Select Category';
+        
+        echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+        .'<option selected disabled>'.$row['category'].'</option>
     <option>Ibibazo_nibisubizo</option>
     <option>Igazeti</option>
-    <option>Ibyapa</option></select>';
+    <option>Ibyapa</option></select>';}
     else if(@$_GET['section']=="academic") 
-      echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
-            <option>Select Level...</option>
-            <option value="nursary">Nursary</option>;
-            <option value="primary">Primary</option>
-            <option value="high school">High School</option>
-            <option value="other info">Other Info</option></select>&nbsp;
+{ if($row['category']=='')
+  $row['category']='Select one';
+  
+  echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
+      <option disabled>Select Level...</option>'
+      .'<option selected disabled>'.$row['level'].'</option>
+      <option value="nursary">Nursary</option>;
+      <option value="primary">Primary</option>
+      <option value="high school">High School</option>
+      <option value="other info">Other Info</option></select>&nbsp;
 
-          <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
-          <option>Select course...</option></select>&nbsp
-          <select name="year" id="year" class="selectAcademicInfo form-control">
-          <option>Select Grade/Year...</option></select>&nbsp
-          ';
-         
+    <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
+    <option disabled>Select course...</option>'
+    .'<option selected disabled>'.$row['course'].'</option></select>&nbsp
+    <select name="year" id="year" class="selectAcademicInfo form-control">
+    <option disabled>Select Grade/Year...</option>'
+    .'<option selected disabled>'.$row['year'].'</option></select>&nbsp
+    ';
+    }
     ?>
 <br>
       Featured image<input type="file" name="featured_image" class="form-control">
- 
+     <?php if(isset($_GET['edit'])){
+      echo '
+      <input type="checkbox" checked name="keep_featured" value="'.$row['featured_image'].'" > Don\'t change featured image
+      ';
+    }?>
     <center><br><br><input type="submit" name="<?php 
     if(isset($_GET['edit'])){
       echo 'update_post';
@@ -216,7 +257,7 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
   }
 </style>
 <?php
-// what is this double code??/
+// what is this double code??/ 
  if(isset($_POST['publish_post'])){
    if($_GET['section']!="academic"){
      $title=mysqli_escape_string($conn,$_POST['title']);
@@ -254,12 +295,18 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
 
 //a: Update Querry
 
-if(isset($_POST['update_post'])){
+if(isset($_POST['update_post'])){ 
+  if($_GET['section']=="academic"){
     $title=mysqli_escape_string($conn,$_POST['title']);
     $content=mysqli_escape_string($conn,$_POST['ckeditor']);
     $section=mysqli_escape_string($conn,$_GET['section']);
-    $category=mysqli_escape_string($conn,$_POST['category']);
-    $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+    $category=mysqli_escape_string($conn,$_POST['category']); 
+    if(!isset($_POST['keep_featured'])){
+      $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+   
+    }else{
+      $featured_image==mysqli_escape_string($conn,$_POST['keep_featured']);
+    }
     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
     $yr=$_POST['year'];
     $level=$_POST['level'];
@@ -275,9 +322,36 @@ if(isset($_POST['update_post'])){
     year='$yr',
     featured_image='$featured_image'WHERE id=".$_GET['edit'];
     move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
-    if($conn->query($qr)===TRUE){
-      echo "Update sucessfully!!";
-      $_SESSION['update_success']="Update Successful!";
+    if($conn->query($qr)===TRUE){ 
+      $_SESSION['message']="Update Successful!";
     }
   
-} 
+}else if($_GET['section']!="academic"){
+  $title=mysqli_escape_string($conn,$_POST['title']);
+  $content=mysqli_escape_string($conn,$_POST['ckeditor']);
+  $section=mysqli_escape_string($conn,$_GET['section']);
+  $category=mysqli_escape_string($conn,$_POST['category']); 
+  if(!isset($_POST['keep_featured'])){
+    $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
+ 
+  }else{
+    $featured_image=mysqli_escape_string($conn,$_POST['keep_featured']);
+  }
+  $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+  
+  $qr="UPDATE posts 
+  SET 
+  title= '$title',
+  content='$content',
+  section='$section',
+  category='$category',  
+  featured_image='$featured_image' WHERE id=".$_GET['edit'];
+  move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
+  if($conn->query($qr)===TRUE){
+    
+   $_SESSION['message']="Update Successful!";
+  }
+
+
+}
+}

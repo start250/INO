@@ -15,9 +15,9 @@ echo "luaa";
 <head>  
 <script type="text/javascript" src="js/jquery.min.js"></script>
  
-<?php include('../Public/views/_header.php');?>
+<?php include('Public/views/_header.php');?>
 </head>
-<?php include('../Public/views/_navs_main.php'); ?>
+<?php include('Public/views/_navs_main.php'); ?>
 <div id="main_dash" class="container">
 
 <?php

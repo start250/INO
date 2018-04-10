@@ -1,5 +1,10 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+if($_SESSION['level']!='admin')
+die("Unauthorized Access");
 ?>
 <div class="row">
   <div class="col-lg-6">

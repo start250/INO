@@ -8,20 +8,20 @@ if (isset($_POST['search_post_btn'])) {
 }
 
 
-if (@$search_post!='') {
-$query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%'") or die('Failed to search '.mysqli_error());
+if (@$search_post!=''&&isset($_SESSION['level'])&&$_SESSION['level']=='admin') {
+$query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR author LIKE '%$search_post%'") or die('Failed to search. E1');
 }
-elseif (@$search_post!='') {
-	$query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' OR added_by LIKE '%$search_post%' AND added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
+else if (@$search_post!=''&&isset($_SESSION['level'])&&$_SESSION['level']=='author') {
+	$query=mysqli_query($conn,"SELECT * from posts where title LIKE '%$search_post%' OR author LIKE '%$search_post%' OR pages LIKE '%$search_post%' AND author='".$_SESSION['username']."'") or die('Failed to search. E2');
 }
-elseif(@!$search_post)
+else if(isset($_SESSION['level'])&&$_SESSION['level']=='admin')
 {
-	$query=mysqli_query($conn,"SELECT * from posts WHERE section='".$_GET['section']."' ORDER BY id DESC");
+	$query=mysqli_query($conn,"SELECT * from posts WHERE section='".$_GET['section']."' ORDER BY id DESC") or die('Failed to search. E3');
 }
-elseif (@!$search_post) {
-	$query=mysqli_query($conn,"SELECT * from posts where added_by='".$f_ad1['username']."'") or die('Failed to search '.mysqli_error());
-}else{
-  $query=mysqli_query($conn,"SELECT * from posts where category='".$_GET['section']."'");
+else if (isset($_SESSION['level'])&&$_SESSION['level']=='author') {
+	$query=mysqli_query($conn,"SELECT * from posts where author='".$_SESSION['username']."' AND section='".$_GET['section']."'") or die("Failed to search. E4");
+}else{ 
+ die('FATAL ERROR. Contact site developer.');
 }
 ?>
 
@@ -57,7 +57,7 @@ while ($row=mysqli_fetch_array($query)) {
         <td><?php echo $row['section']; ?></td>
         <td><?php if($_GET['section']=="academic") echo $row['level']." | ".$row['course']; else echo $row['category']; ?></td>
         <td><?php echo $row['created_at']; ?></td>
-        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=editor&edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a>
+        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=editor&edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil"></i></a>
       </tr>
       <script>
 function deletetask<?php echo $row['id']; ?>() {

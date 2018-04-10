@@ -36,7 +36,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if(isset($_SESSION['username'])){
     ?>
-<li> &nbsp; &nbsp;<a href="/INOGIT/User"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span> <?=$_SESSION['username']?></a></li>
+<li> &nbsp; &nbsp;<a href="/INOGIT/User"><i class="fa fa-user" aria-hidden="true"></i></span> <?=$_SESSION['username']?></a></li>
 <li> &nbsp; &nbsp;<a href="/INOGIT/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a></li>
 </ul>
     <?php

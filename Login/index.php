@@ -18,12 +18,18 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
         $_SESSION['active']=$row['active'];
         $_SESSION['username']=$row['username'];  
         $_SESSION['level']=$row['level'];
-        if(isset($_SESSION['level'])&&($_SESSION['level']==='admin'||$_SESSION['level']==='author')) 
-        header("Location: /INOGIT/dashboard.php");
-        die();
+        if(isset($_SESSION['level'])&&($_SESSION['level']==='admin'||$_SESSION['level']==='author')){
+          header("Location: /INOGIT/dashboard.php");
+        die();  
+        }else{
+            header("Location: /INOGIT/");
+            die();   
+        }
+        
+    }else{
+        $message="Wrong email or password! Try again.";
     }
-        header("Location: /INOGIT/");
-        die();
+         
     }             
     if(isset($_POST['email_reset_pass'])){
                 $email=mysqli_real_escape_string($conn,$_POST['email_reset_pass']); 
@@ -84,7 +90,16 @@ if(isset($_SESSION['username'])){
     <div class="container">
         <div class="row">
             <!-- Sign In form -->
-            <div class="col-sm-5 col-sm-offset-1">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <?php
+    if(isset($message)){?>
+            <div class="alert alert-danger">
+
+    
+        <?= $message?>
+    
+</div>
+<?php }?>
                 <h3>Sign In</h3>
                 <p class="text-muted">
                     Please fill out the form below to login to your account.
@@ -117,7 +132,7 @@ if(isset($_SESSION['username'])){
 <p>
     <a href=".html#" id="lost-btn">Lost your password?</a>
 </p>
-<div class="col-sm-5 col-sm-offset-1" id="lost-form">
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="lost-form">
     <p>Enter your email address and we will send you a link to reset your password.</p>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" role="form">
         <input type="text" hidden name="req" value="pass">

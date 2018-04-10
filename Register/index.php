@@ -48,7 +48,7 @@ if(isset($_SESSION['username'])){
 				</span> -->
 
     <!-- Sign Up form -->
-    <div class="col-sm-5">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h3 class="text-right-xs">Sign Up</h3>
         <p class="text-muted text-right-xs">
             Please fill out the form below to create a new account.
