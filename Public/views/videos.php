@@ -12,7 +12,8 @@ else
 }
 
 //-------------------------------------
-$query13="SELECT * FROM videos WHERE category='$category13' order by id desc limit $pages,10";
+
+	$query13="SELECT * FROM videos WHERE category='$category13' order by id desc limit $pages,10";
 $display_count=1;
 $result13=$conn->query($query13);
 if(!@$_GET['post']){

@@ -16,7 +16,7 @@ if(isset($_POST['update_post'])){
        topic_s.innerHTML=topic;
      }
      else if(level=="primary"){
-       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>set</option>";
+       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>social studies</option><option>math</option><option>set</option>";
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
@@ -95,7 +95,7 @@ if(isset($_SESSION['message'])){
   if(@$_GET['section']=="business"){
     if($row['category']=='')
     $row['category']='Select Category';
-    echo '<select name="category" class="form-control"><option disabled>Select Category</option>'
+    echo '<select name="category" class="form-control">'
   .'<option selected disabled>'.$row['category'].'</option>
   <option>Business Opportunities</option>
     <option>Business Advice</option>
@@ -219,7 +219,7 @@ if(isset($_SESSION['message'])){
        topic_s.innerHTML=topic;
      }
      else if(level=="other info"){
-     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Now open</option>";
+     	topic="<option>links</option><option>Tips to Win Scholaship</option><option>News</option><option>Academic news</option>";
      	topic_s=document.getElementById("topic");
      	topic_s.innerHTML=topic;
      }
@@ -266,7 +266,7 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
      $author=$_SESSION['username'];
      $category=mysqli_escape_string($conn,$_POST['category']);
      $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+     $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
      $qr="INSERT INTO posts (author,title,content,section,category,featured_image) 
      VALUES ('$author','$title','$content','$section','$category','$featured_image')";
      move_uploaded_file($_FILES["featured_image"]["tmp_name"], $destination);
@@ -280,7 +280,7 @@ echo '<script type="text/javascript" src="ckeditor/ckeditor.js"></script>';
     $author=$_SESSION['username'];
     $category=mysqli_escape_string($conn,$_POST['category']);
     $featured_image=mysqli_escape_string($conn,basename( $_FILES["featured_image"]["name"]));
-    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
     $yr=$_POST['year'];
     $level=$_POST['level'];
     $course=$_POST['course'];
@@ -307,7 +307,7 @@ if(isset($_POST['update_post'])){
     }else{
       $featured_image==mysqli_escape_string($conn,$_POST['keep_featured']);
     }
-    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+    $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
     $yr=$_POST['year'];
     $level=$_POST['level'];
     $course=$_POST['course'];
@@ -337,7 +337,7 @@ if(isset($_POST['update_post'])){
   }else{
     $featured_image=mysqli_escape_string($conn,$_POST['keep_featured']);
   }
-  $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featured_images/".basename( $_FILES["featured_image"]["name"]);
+  $destination=$_SERVER['DOCUMENT_ROOT']."/INOGIT/Resources/Storage/Featuredimgs/".basename( $_FILES["featured_image"]["name"]);
   
   $qr="UPDATE posts 
   SET 

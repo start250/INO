@@ -1,9 +1,10 @@
+
 <?php
 $cat12=@$_GET['s'];
 $subCat12=@$_GET['sub'];
 ?>
 
-<?php if(@$_GET['sub']!="Ibyapa" && @$_GET['sub']!="Explore Rwandan Education" && @$_GET['sub']!="Meet With Business Mentors"){ ?>
+<?php if(@$_GET['sub']!="Ibyapa" && @$_GET['sub']!="Explore Rwandan Education"){ ?>
 	<ul id="myTab">
 		<?php if(@$_GET['sub']!="Academic news"){ ?>
 		<li style="background-color: <?php if(@$_GET['t']=='1') echo '#4d79ff';?>"><a href="index.php?s=<?php echo $cat12; ?>&sub=<?php echo $subCat12; ?>&t=1">Documents</a></li><?php } ?>
@@ -20,37 +21,16 @@ if(@$_GET['sub']=="Explore Rwandan Education" && @$_GET['t']){
 <?php } ?>
 <center>
 <?php
-if(@$_GET['sub']=="Biographies_Of_Successful_Business_Men")
-	echo "Biographies Of Successful Business Men";
-else if(@$_GET['sub']=="Ibibazo_nibisubizo")
-	echo "Ibibazo n'ibisubizo";
-else if(@$_GET['sub']=="Amateka_yu_Rwanda")
-	echo "Amateka y'u Rwanda";
-else if(@$_GET['sub']=="Kirazira_z'umuco_Nyarwanda")
-	echo "Kirazira z'umuco Nyarwanda";
-else if(@$_GET['sub']=="Explore Rwandan Education" && @$_GET['t']){
 	$lvl="";
 	if(@$_GET['lv']=="pri")
-		$lvl="Primary";
+		$lvl="Primary -> ";
 	else if(@$_GET['lv']=="ol")
-		$lvl="Ordinary level";
+		$lvl="Ordinary level -> ";
 	else if(@$_GET['lv']=="al")
-		$lvl="Advanced level level";
+		$lvl="Advanced level level -> ";
 	else if(@$_GET['lv']=="Nursary")
-		$lvl="Nursary";
-	echo $lvl."->".@$_GET['course'];
-}
-else{
-	$secondPart="";
-	$pos=stripos(@$_GET['sub'],"_");
-	if($pos===FALSE)
-		echo "<h2>".@$_GET['sub']."</h2>";
-	else{
-	list($fisrtPart,$secondPart)=explode("_", @$_GET['sub']);
-	echo "<h2>".$fisrtPart." ".$secondPart."</h2>";
-}
-}
-
+		$lvl="Nursary -> ";
+	echo $lvl.@$_GET['course'];
 ?>
 </center><br>
 <?php

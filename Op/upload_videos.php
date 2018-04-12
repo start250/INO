@@ -9,18 +9,20 @@ if (isset($_GET['delete'])) {
 ?>
 <div class="row"><div class="col-lg-4 form-group">
 <form  class="" method="POST" enctype="multipart/form-data">
-	<?php
+	<?php 
 	if(@$_GET['section']=="business")
         echo '<select name="category" class="form-control"><option>Select Category</option>
-    <option>Business_Opportunities</option>
-    <option>Business_Advice</option>
-    <option>Biographies_Of_Successful_Business_Men</option></select>';
+    <option>Business Opportunities</option>
+    <option>Business Advice</option>
+    <option>Business News</option>
+     <option>Biographies Of Successful Business Men</option></select>';
     else if(@$_GET['section']=="health")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Nutrion</option>
     <option>Traditional_Medecine</option>
     <option>Serious_Deseases</option>
-    <option>Doctor_Advice</option></select>';
+    <option>Doctor_Advice</option>
+    <option>Health_News</option></select>';
     else if(@$_GET['section']=="eng_class")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>For_Biginners</option>
@@ -38,7 +40,7 @@ if (isset($_GET['delete'])) {
     else if(@$_GET['section']=="rules_road")
         echo '<select name="category" class="form-control"><option>Select Category</option>
     <option>Ibibazo_nibisubizo</option>
-    <option>Ibyapa</option></select>';
+    <option>Igazeti</option>';
     ?>
 <br>
 <input class="form-control" type="text" placeholder="Title" name="title"><br>

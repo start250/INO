@@ -31,7 +31,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
                 else if(@$_GET['s']=="Health")
                     echo "Health";
                 else if(@$_GET['s']=="Quiz")
-                    echo "Random Quiz";  
+                    echo "Quiz";  
                 else if(@$_GET['s']=="Road")
                     echo "Amategeko y'umuhanda";
         ?></a> <?php if(@$_GET['sub']){ ?>| <img src="Resources/Storage/Logos/<?php $s=$_GET["sub"]; $query="SELECT * FROM logos WHERE position='".$s."'";
@@ -42,12 +42,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
     $subCat=@$_GET['sub'];
     if($subCat=="Library"){?>
             <center>
-               <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=1" class="lib_Cat" name="Science_Books"> <i class="fa fa-flask"></i>Science Books</a>
-                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=2" class="lib_Cat" name="Humanity_Books"><i class="fa fa-users"></i>Humanity Books</a>
-                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=3" class="lib_Cat" name="Life_Books"><i class="fa fa-heartbeat"></i>Life Books</a>
-                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=4" class="lib_Cat" name="ICT_Books"><i class="fa fa-laptop"></i>ICT Books</a><br>
-                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=5" class="lib_Cat" name="Language_Books"><i class="fa fa-language"></i>Language Books</a>
-                <a href="<?php echo $_SERVER['REQUEST_URI'];?>&lib_Cat=6" class="lib_Cat" name="Business_Books"><i class="fa fa-briefcase"></i>Business Books</a>
+               <a href="?s=Academic&sub=Library&lib_Cat=1" class="lib_Cat" name="Science_Books"> <i class="fa fa-flask"></i>Science Books</a>
+                <a href="?s=Academic&sub=Library&lib_Cat=2" class="lib_Cat" name="Humanity_Books"><i class="fa fa-users"></i>Humanity Books</a>
+                <a href="?s=Academic&sub=Library&lib_Cat=3" class="lib_Cat" name="Life_Books"><i class="fa fa-heartbeat"></i>Life Books</a>
+                <a href="?s=Academic&sub=Library&lib_Cat=4" class="lib_Cat" name="ICT_Books"><i class="fa fa-laptop"></i>ICT Books</a><br>
+                <a href="?s=Academic&sub=Library&lib_Cat=5" class="lib_Cat" name="Language_Books"><i class="fa fa-language"></i>Language Books</a>
+                <a href="?s=Academic&sub=Library&lib_Cat=6" class="lib_Cat" name="Business_Books"><i class="fa fa-briefcase"></i>Business Books</a>
             </center>
         <?php
     }
@@ -62,14 +62,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
         </form>
    <?php }
    else if($subCat=="Scholarship"){?>
-        <form method="POST">
             <center>
-                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-star"></i>Tips to Win Scholarship</button>
-                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-link"></i>Links</button>
-                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-newspaper"></i>News</button>
-                <button type="submit" name="sub_ex" class="SubCat"><i class="fa fa-question-circle"></i>Ask</button>
+                <a href="?s=Academic&sub=Scholarship&sc=1" class="SubCat"><i class="fa fa-star"></i>Tips to Win Scholarship</a>
+                <a href="?s=Academic&sub=Scholarship&sc=2" class="SubCat"><i class="fa fa-link"></i>Links</a>
+                <a href="?s=Academic&sub=Scholarship&sc=3" class="SubCat"><i class="fa fa-newspaper"></i>News</a>
+                <a href="?s=Academic&sub=Scholarship&sc=4" class="SubCat"><i class="fa fa-question-circle"></i>Ask</a>
             </center>
-        </form>
     <?php
    }
    else if(@$_GET['sub']=="Explore Rwandan Education"){
@@ -79,69 +77,87 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Nursary
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Baby class</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Middle class</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tp class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=baby&t=1">Baby class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=middle&t=1">Middle class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=top class&t=1">Top class</a></li>
     </ul>
 </div><div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Primary
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary science</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Social Studies</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=math&t=1">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=set&t=1">Elementary science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=social studies&t=1">Social Studies</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=kinyarwanda&t=1">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=english&t=1">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=francais&t=1">Francais</a></li>
     </ul>
 </div><div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ordinary level
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Biology</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geography</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">History</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Entrepreneurship</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Computer science</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kiswahili</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=math">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=biology&t=1">Biology</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=chemistry&t=1">Chemistry</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=geography&t=1">Geography</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=history&t=1">History</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=entrepreneurship&t=1">Entrepreneurship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=computer&t=1">Computer science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=kinyarwanda&t=1">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=english&t=1">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=francais&t=1">Francais</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=kiswahili&t=1">Kiswahili</a></li>
     </ul>
 </div><div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Advanced Level
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Math</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Biology</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geography</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">History</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Entrepreneurship</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Computer science</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kinyarwanda</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Francais</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Economie</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Literature</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General paper</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=math&t=1">Math</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=biology&t=1">Biology</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=chemistry&t=1">Chemistry</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=geography&t=1">Geography</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=history&t=1">History</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=entrepreneurship&t=1">Entrepreneurship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=computer&t=1">Computer science</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=kinyarwanda&t=1">Kinyarwanda</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=english&t=1">English</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=francais&t=1">Francais</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=economie&t=1">Economie</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=literature&t=1">Literature</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=gp&t=1">General paper</a></li>
     </ul>
 </div><div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">University
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Links</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tips to win scholarship</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ask</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=2">Links</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=1">Tips to win scholarship</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=4">Ask</a></li>
     </ul>
   </div></div></center>    
    <?php }
-if(@$_GET['sub']=="Ask_Teacher" || @$_GET['sub']=="Ask_Doctor" || @$_GET['sub']=="Baza_Sokuru" || @$_GET['sub']=="Baza_Mwarimu")
-include('Public/views/ask_everyone.php');
-if(@$_GET['s']!="Academic" && @$_GET['sub'])
+if(@$_GET['sub']=="Ask Teacher" || @$_GET['sub']=="Ask Doctor" || @$_GET['sub']=="Baza Sokuru" || @$_GET['sub']=="Baza Mwarimu")
+    include('Public/views/ask_everyone.php');
+else if(@$_GET['sub']=="Meet With Business Mentors")
+  include('Public/views/ask_everyone.php');
+else if(@$_GET['s']!="Academic" && @$_GET['sub'])
     include('Public/views/documentWRITTENvideo.php');   
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Library")
+    include('Public/views/listLib.php');
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Scholarship"  && !@$_GET['sc']=="4") 
+    include('Public/views/listSch.php');  
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Scholarship" && @$_GET['sc']=="4") 
+    include('Public/views/ask_everyone.php');  
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Academic news") 
+    include('Public/views/documentWRITTENvideo.php');  
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Explore Rwandan Education") {
+    echo "<br>";
+    include('Public/views/documentWRITTENvideo.php');  }
+else if(@$_GET['s']=="Quiz")
+  header("Location:Quiz/");
+else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Scholarship" && @$_GET['sc']=="4")
+  include('Public/views/ask_everyone.php'); 
+
     ?>
 
    <?php } ?>
@@ -176,7 +192,7 @@ if(isset($_GET['q'])){
 }
 
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
+//require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
     
 
 
@@ -206,7 +222,7 @@ $result20=$conn->query($query20);
 
    echo "<strong><h2>Related Videos</h2></strong>"; 
 while($row20=$result20->fetch_assoc()){
-    if($display_count<=5){
+    if($display_count<=6){
 ?>
 <div class="row">
     <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><?php echo $row20['title']; ?></a></strong><h4>
@@ -251,10 +267,9 @@ if(@$_GET['t']==1){
 $section22=@$_GET['s'];
 $category22=@$_GET['sub'];
 $query22="SELECT * FROM posts WHERE category='$category22' order by id desc";
-echo $pages;
 $display_count=1;
 $result22=$conn->query($query22);
-echo "<strong><h2>Also see</h2></strong>"; 
+echo '<strong><h2>Also see</h2></strong><br><br>'; 
 while($row22=$result22->fetch_assoc()){
     if($display_count<=5){
 ?>

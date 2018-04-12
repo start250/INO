@@ -1,6 +1,13 @@
 <?php
 $section13=@$_GET['s'];
-$category13=@$_GET['sub'];
+if(@$_GET['sc']=="1")
+    $category13="Tips to Win Scholaship";
+else if(@$_GET['sc']=="2")
+    $category13="links";
+else if(@$_GET['sc']=="3")
+    $category13="News";
+else 
+	$category13="/,,,bmnbnb";
 //-------------------------------------------------
 $pages=@$_GET['page'];
 if($pages=="" || $pages=="1"){
@@ -11,7 +18,7 @@ else
 	$pages=($pages*10)-10;
 }
 //---------------------------
-$query14="SELECT * FROM posts WHERE category='$category13' order by id desc limit $pages,10";
+$query14="SELECT * FROM posts WHERE course='$category13' order by id desc limit $pages,10";
 $display_count=1;
 $result14 = $conn->query($query14);
 if(!@$_GET['post'] && @$_GET['sub']!="Ibyapa"){

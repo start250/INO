@@ -43,7 +43,7 @@ else if(@$_GET['s']=="Academic"){ ?>
     <li><a href="/INOGIT/?s=Academic&sub=Explore Rwandan Education"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Explore Rwandan Education'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Explore Rwandan Education</a></li>
-    <li><a href="/INOGIT/?s=Academic&sub=Academic news"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Academic news'";
+    <li><a href="/INOGIT/?s=Academic&sub=Academic news&t=2"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Academic news'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Academic news</a></li>
     
@@ -63,7 +63,7 @@ else if(@$_GET['s']=="Business"){
     <li><a href="/INOGIT/?s=Business&sub=Biographies Of Successful Business Men&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Biographies Of Successful_Business Men'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Biographies Of Successful Business Men</a></li>
-    <li><a href="/INOGIT/?s=Business&sub= Meet With Business Mentors"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position=' Meet With Business Mentors'";
+    <li><a href="/INOGIT/?s=Business&sub=Meet With Business Mentors"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position=' Meet With Business Mentors'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Meet With Business Mentors</a></li>
     <?php
@@ -99,7 +99,7 @@ else if(@$_GET['s']=="Road"){
     <li><a href="/INOGIT/?s=Road&sub=Ibibazo nibisubizo&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibibazo nibisubizo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibibazo n'Ibisubizo</a></li>
-    <li><a href="/INOGIT/?s=Road&sub=Ibyapa&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibyapa'";
+    <li><a href="/INOGIT/?s=Road&sub=Ibyapa&t=2"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibyapa'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibyapa</a></li>
     <li><a href="/INOGIT/?s=Road&sub=Amakuru&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Amakuru'";
@@ -158,7 +158,7 @@ else if(@$_GET['s']=="Culture"){
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php'); 
 
-$sql = "SELECT * FROM Posts";
+$sql = "SELECT * FROM posts ORDER BY id DESC";
   
     $result = $conn->query($sql);
     ?>
@@ -167,8 +167,9 @@ $sql = "SELECT * FROM Posts";
     <h3>Recent posts...</h3>
     <br><hr>
     <?php
+    $POSTc=1;
       while($row = $result->fetch_assoc()) {
-         
+         if($POSTc<=5){
         ?>
 
 <div class="row">
@@ -217,5 +218,5 @@ $sql = "SELECT * FROM Posts";
 <hr>
 
 
-        <?php } ?>
+        <?php } $POSTc++; } ?>
       </div>

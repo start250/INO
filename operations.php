@@ -20,7 +20,7 @@ if (isset($_SESSION['level']) and ($_SESSION['level']==='author' or $_SESSION['l
     <li style="<?php if(@$_GET['action']=="upload_files") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=upload_files'?>">Upload Documents</a></li>
     <li style="<?php if(@$_GET['action']=="manage_books") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=manage_books'?>">Manage Books</a></li>
     <li style="<?php if(@$_GET['action']=="upload_videos") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_videos'?>">Upload Videos</a></li>
-    <li <?php if(@$_GET['section']=='logos') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=logos"><i class="fa fa-flag"></i>Change Logos</a></li>
+      <li <?php if(@$_GET['section']=='logos') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=logos"><i class="fa fa-flag"></i>Change Logos</a></li>
     <?php if(@$_GET['section']=="academic") {?><li style="<?php if(@$_GET['action']=="upload_files_lib") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_files_lib'?>">Upload Files Library</a></li><?php }?>
     
     <li style="<?php if(@$_GET['action']=="manage_authors") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=manage_authors'?>">Manage Authors</a></li>

@@ -1,7 +1,18 @@
 <?php
 
 $section13=@$_GET['s'];
-$category13=@$_GET['sub'];
+if(@$_GET['lib_Cat']=="1")
+    $category13="Science Book";
+else if(@$_GET['lib_Cat']=="2")
+    $category13="Humanity Book";
+else if(@$_GET['lib_Cat']=="3")
+    $category13="Life Book";
+else if(@$_GET['lib_Cat']=="4")
+    $category13="ICT Book";
+else if(@$_GET['lib_Cat']=="5")
+    $category13="Language Book";
+else if(@$_GET['lib_Cat']=="6")
+    $category13="Business Book";
 //----------------------------------------
 //-----------------------------------------
 $pages=@$_GET['page'];
@@ -14,8 +25,7 @@ else
 }
 
 //--------------------------------------
-
-    $query13="SELECT * FROM books WHERE book_category='$category13' order by _id desc limit $pages,10";
+$query13="SELECT * FROM books WHERE book_category='$category13' order by _id desc limit $pages,10";
 $display_count=1;
 $result13 = $conn->query($query13);
 while($row13 = $result13->fetch_assoc()) {
@@ -62,7 +72,7 @@ while($row13 = $result13->fetch_assoc()) {
 }
     ?>
 
-<?php 
+<?php
     $c=@$_GET['sub'];
 $sql1="select * from books where book_category='$c' order by _id desc";
 $res=mysqli_query($conn,$sql1);

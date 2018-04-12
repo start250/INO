@@ -14,8 +14,9 @@ if (isset($_GET['delete'])) {
          	echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
          	<option>Select Level...</option>
     <option value="nursary">Nursary</option>
-    <option value="primary">Primary</option>
-    <option value="high school">High School</option>
+    <option value="primary">Primary</option>Advanced level
+    <option value="high school">Ordinary level</option>
+    <option value="high school">Advanced level</option>
     <option value="other info">Other Info</option>
 </select>&nbsp;
 <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
@@ -107,7 +108,7 @@ function deletetask<?php echo $row['_id']; ?>() {
        topic_s.innerHTML=topic;
      }
      else if(level=="primary"){
-       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>set</option>";
+       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>social studies</option><option>math</option><option>set</option>";
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
@@ -117,7 +118,7 @@ function deletetask<?php echo $row['_id']; ?>() {
        topic_s.innerHTML=topic;
      }
      else if(level=="other info"){
-     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Now open</option>";
+     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Academic news</option><option>News</option>";
      	topic_s=document.getElementById("topic");
      	topic_s.innerHTML=topic;
      }
