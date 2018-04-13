@@ -4,9 +4,34 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 
-if (isset($_GET['delete'])) {
-	
-	mysqli_query($conn,"DELETE from books where _id='".$_GET['delete']."'");
+if(isset($_SESSION['level'])&&$_SESSION['level']==='admin'&&isset($_GET['id'])&&isset($_GET['delete'])&&$_GET['id']!==''&&$_GET['delete']!=='') { 
+  if(mysqli_query($conn,"DELETE from books where _id='".$_GET['id']."'")){
+    $file = $_SERVER['DOCUMENT_ROOT'].'/INOGIT/Resources/Storage/Books/'.$_GET['delete'];
+    
+    if (!unlink($file))
+      {
+        ?>
+        <div class="alert alert-danger">
+          Error deleting book.
+      </div>
+        <?php 
+      }
+    else
+      {
+        ?>
+        <div class="alert alert-success">
+        Deleted file successfully.
+      </div>
+        <?php  
+      }
+  }else{
+    ?>
+        <div class="alert alert-danger">
+        Error deleting book. Try again.
+      </div>
+        <?php  
+  }
+
 }
 if (isset($_POST['search_post_btn'])) {
 	$search_post=trim($_POST['search_post_text']);
@@ -50,25 +75,15 @@ elseif (@!$search_post&&$_SESSION['level']==='author') {
     <tbody>
 <?php
 
-while ($row=mysqli_fetch_array($query)) {
-
-
+while ($row=mysqli_fetch_array($query)) { 
 ?>
       <tr>
         <td><?php echo $row['title']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td><?php echo $row['pages']; ?></td>
-        <td style="font-size: 25px;"> <i onclick='deletetask<?php echo $row['_id']; ?>()' class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil"></i></a> 
+        <td style="font-size: 25px;"> <i onclick="deletetask('<?= $row['title'] ?>',<?= $row['_id'] ?>,'<?= $row['book_link'] ?>')" class="fa fa-trash"></i> | <a href="dashboard.php?section=<?php echo $_GET['section']; ?>&action=upload_files&edit=<?php echo $row['_id']; ?>"><i class="fa fa-pencil"></i></a> 
       </tr>
-      <script>
-function deletetask<?php echo $row['_id']; ?>() {
-    
-    if (confirm('Do you really want to delete this Book \"<?php echo $row['title']; ?>\"?') == true) {
-        location.href='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?php echo $_GET['action']; ?>&delete=<?php echo $row['_id']; ?>';
-    } 
-  
-}
-</script>
+     
       <?php
 }
 ?><?php
@@ -86,3 +101,12 @@ if (mysqli_num_rows($query)==0) {
   <div class="col-md-4">
      </div>
 </div>
+ <script>
+function deletetask(title,id,link) {
+    
+    if (confirm('Do you really want to delete this Book '+title+' ?') == true) {
+   window.location='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?= $_GET['action']; ?>&id='+id+'&delete='+encodeURIComponent(link);
+    } 
+  
+}
+</script>

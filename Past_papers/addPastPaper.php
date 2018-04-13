@@ -92,3 +92,125 @@ if ($conn->query($sql) === TRUE) {
   </div>
    <input type="submit"name="upload" class="btn btn-primary">
 </form>
+
+
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+if(isset($_SESSION['level'])&&$_SESSION['level']==='admin'&&isset($_GET['id'])) { 
+  if(mysqli_query($conn,"DELETE from past_papers where id='".$_GET['id']."'")){
+    if($_GET['Adelete']!=='')
+    $Afile = $_SERVER['DOCUMENT_ROOT'].'/INOGIT/Resources/Storage/Books/'.$_GET['Adelete'];
+    else  $Afile='nofiletodelete';
+    if($_GET['Qdelete']!=='')
+    $Qfile = $_SERVER['DOCUMENT_ROOT'].'/INOGIT/Resources/Storage/Books/'.$_GET['Qdelete'];
+    else  $Qfile='nofiletodelete';
+    
+    if (!unlink($Qfile)) {
+        ?>
+        <div class="alert alert-danger">
+          Error deleting questions.
+      </div>
+        <?php 
+      }
+    else
+      {
+        if (!unlink($Afile)) {
+
+          ?>
+          <div class="alert alert-info">
+          Info: Answers file not found.
+        </div>
+          <?php 
+        }
+        ?>
+        <div class="alert alert-success">
+        Deleted paper successfully.
+      </div>
+        <?php  
+      }
+  }else{
+    ?>
+        <div class="alert alert-danger">
+        Error deleting book. Try again.
+      </div>
+        <?php  
+  }
+
+}
+if (isset($_POST['search_post_btn'])) {
+	$search_post=trim($_POST['search_post_text']);
+}
+
+
+if (@$search_post!=''&&@$_SESSION['level']=='admin') {
+$query=mysqli_query($conn,"SELECT * from past_papers where title LIKE '%$search_post%' OR added_by LIKE '%$search_post%'") or die('Failed to search '.mysqli_error());
+}
+elseif (@$search_post!=''&&@$_SESSION['level']=='author') {
+	$query=mysqli_query($conn,"SELECT * from past_papers where title LIKE '%$search_post%'  added_by LIKE '%$search_post%' AND added_by='".$_SESSION['username']."'") or die('Failed to search '.mysqli_error());
+}
+elseif(@!$search_post&&@$_SESSION['level']==='admin')
+{
+	$query=mysqli_query($conn,"SELECT * from past_papers");
+}
+elseif (@!$search_post&&$_SESSION['level']==='author') {
+	$query=mysqli_query($conn,"SELECT * from past_papers where added_by='".$_SESSION['username']."'") or die('Failed to search '.mysqli_error());
+}
+?>
+
+  <br><br>
+      <div class="row">
+  <div class="col-md-8">
+    <h2>Available Papers.</h2>
+    <div class="search-container">
+    <form action="" method="post">
+      <input type="text" placeholder="Search post.." name="search_post_text" style="width: 75%;">
+      <button type="submit" name="search_post_btn" style="width: 20%;"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th> 
+        <th>Paper</th> 
+      </tr>
+    </thead>
+    <tbody>
+<?php
+
+while ($row=mysqli_fetch_array($query)) { 
+?>
+      <tr>
+        <td><?php echo $row['title']; ?></td> 
+         <td style="font-size: 25px;"> <i onclick="deletetask('<?= $row['title'] ?>',<?= $row['id'] ?>,'<?= $row['Alink'] ?>','<?= $row['Qlink'] ?>')" class="fa fa-trash"></i> 
+      </tr>
+     
+      <?php
+}
+?><?php
+if (mysqli_num_rows($query)==0) {
+  ?>
+  <tr>
+       
+        <td colspan="4">You haven't any past papers.</td>
+      </tr>
+  <?php
+}
+      ?>
+
+    </tbody></table></div>
+  <div class="col-md-4">
+     </div>
+</div>
+ <script>
+function deletetask(title,id,Alink,Qlink) {
+    
+    if (confirm('Do you really want to delete this paper '+title+' and its answers ?') == true) {
+   window.location='dashboard.php?section=<?php echo $_GET['section']; ?>&action=<?= $_GET['action']; ?>&id='+id+'&Adelete='+encodeURIComponent(Alink)+'&Qdelete='+encodeURIComponent(Qlink);
+    } 
+  
+}
+</script>

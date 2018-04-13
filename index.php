@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 
 
@@ -20,6 +20,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
         <?php
+        
                 if(@$_GET["s"]=="Academic")
                     echo "Academic";
                 else if(@$_GET['s']=="Business")
@@ -217,8 +218,8 @@ if(isset($_GET['q'])){
    
 }
 
-
-//require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
+if(!isset($_GET['s']))
+require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
     
 
 
