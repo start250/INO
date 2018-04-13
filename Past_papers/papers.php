@@ -159,7 +159,7 @@ for($i=2005;$i<=date('Y');$i++){
                         <button class="btn btn-info btn-xs" data-toggle="modal" onclick="getBookSrc(<?= $row['id']; ?>,'<?=$row['Qlink']?>');" data-target="#read_book_<?php echo $row['id']; ?>">
                             <i class="fa fa-book" aria-hidden="true"></i>
                            Questions</button><br> 
-                            <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc('a<?= $row['id']; ?>','<?=$row['Alink']?>');" data-target="#read_book_a<?php echo $row['id']; ?>">
+                            <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc('a<?= $row['id']; ?>','<?php if(empty($row['Alink'])) echo "404.pdf";else echo $row['Alink']  ;?>');" data-target="#read_book_a<?php echo $row['id']; ?>">
                             <i class="fa fa-book" aria-hidden="true"></i>
                            Answers </button><br>
                         <span id="er"></span>
@@ -204,7 +204,7 @@ for($i=2005;$i<=date('Y');$i++){
             </div>
             <div class="modal-body">
                 <iframe id="framea<?= $row['id']; ?>" style="width: 100%; height: 500px;"></iframe>
-                <a href="Resources/Storage/Books/<?php echo $row['Alink'];?>" download class="btn btn-primary btn-xs">
+                <a href="Resources/Storage/Books/<?php if(empty($row['Alink'])) echo "404.pdf";else echo $row['Alink']  ;?>" download class="btn btn-primary btn-xs">
                     <i class="fa fa-download" aria-hidden="true"></i>
                     Download</a>
                 <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
