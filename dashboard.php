@@ -31,8 +31,9 @@ if(!isset($_SESSION['username'])){
 </head>
 
 <body style="background-color: #e6f5ff; padding: 0px; margin: 0px;">
-	
-<?php require_once('Public/views/_navs_main.php'); ?>
+
+<?php 
+require_once('Public/views/_navs_main.php'); ?>
 <div id="main_dash" class="container">
 
 <?php
@@ -86,7 +87,7 @@ else if(@$_GET['section']=="test"){
 	$_SESSION["url"]="dashboard.php?section=test";
 	$section="Test";
 	$_SESSION["section"]=$section;
-	require_once('operations.php');
+	require_once('prepare.php');
 }
 else if(@$_GET['section']=="logos"){
 	$_SESSION["url"]="dashboard.php?section=logos";
