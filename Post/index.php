@@ -98,7 +98,7 @@ $result = $stmt->get_result();
             <div class="col-lg-4">
                 
                 <div class="featured">
-                    <img style="
+                    <img id="featuredImg" onclick="containToggle();" style="
                   object-fit: cover;
                   width:100%;
                     height:100%" src="/INOGIT/Resources/Storage/Featuredimgs/<?php
@@ -113,6 +113,15 @@ $result = $stmt->get_result();
                      
                      ?>">
                 </div>
+                <script>
+                var contain=true;
+                function containToggle(){
+
+                   (contain)?document.getElementById('featuredImg').style=" object-fit: contain; width:100%;height:100%" :
+                   document.getElementById('featuredImg').style=" object-fit: cover; width:100%;height:100%" 
+                   contain=!contain;
+                }
+                </script>
                 <?php include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_sidebar.php');?>
             </div>
 <!-- sidebar closed -->

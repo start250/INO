@@ -13,7 +13,7 @@ if(!isset($_GET['section'])){
     $_GET['section']='academic';
 }
 $section= mysqli_real_escape_string($conn,$_GET['section']); 
-$sql = "SELECT * FROM Books WHERE section='$section'";  
+$sql = "SELECT * FROM Books WHERE section='$section' ORDER by _id DESC LIMIT 5";  
 
 $result = $conn->query($sql);
 
@@ -111,7 +111,7 @@ $("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
  
 
  
-$sql = "SELECT * FROM posts WHERE section='$section' LIMIT 5";  
+$sql = "SELECT * FROM posts WHERE section='$section' ORDER by id DESC LIMIT 5";  
 
 $result = $conn->query($sql); 
 if (mysqli_num_rows($result)==0) {

@@ -18,6 +18,7 @@ if (isset($_SESSION['level']) and ($_SESSION['level']==='author' or $_SESSION['l
     <?php if ($_SESSION['level']==='admin') {
   ?>
     <li style="<?php if(@$_GET['action']=="upload_files") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=upload_files'?>">Upload Documents</a></li>
+    <li style="<?php if(@$_GET['action']=="upload_files") echo 'background-color: #ebebe0;'?>"><a href="<?php echo ''.@$url.'&action=past_papers'?>">Manage Past Papers</a></li>
     <li style="<?php if(@$_GET['action']=="manage_books") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=manage_books'?>">Manage Books</a></li>
     <li style="<?php if(@$_GET['action']=="upload_videos") echo 'background-color: #ebebe0';?>"><a href="<?php echo ''.@$url.'&action=upload_videos'?>">Upload Videos</a></li>
       <li <?php if(@$_GET['section']=='logos') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="dashboard.php?section=logos"><i class="fa fa-flag"></i>Change Logos</a></li>
@@ -53,8 +54,11 @@ else if(@$_GET['action']=="manage_books")
   include('Op/manage_books.php');
 else if(@$_GET['action']=="upload_files_lib")
   include('Op/upload_files_lib.php');
-else
+else if(@$_GET['action']=="past_papers")
+include($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Past_papers/addPastPaper.php');
+else 
   include("Op/home.php");
 ?>
   
+
 </div>

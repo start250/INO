@@ -20,19 +20,25 @@
       
 </ul>
 <ul class="navbar-nav ml-auto">
-  <li>
-
+  <li><?php
+  if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+  if(isset($_SESSION['level'])&&$_SESSION['level']==='admin'){
+    ?>
+     <li class="nav-item">
+        <a class="nav-link" href="/INOGIT/dashboard.php">Dashboard</a>
+      </li>
+      <?php } ?>
     <form action="/INOGIT/index.php" method="GET" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form></li>
       
       <?php
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
+
 if(isset($_SESSION['username'])){
-    ?>
+ ?>
 <li> &nbsp; &nbsp;<a href="/INOGIT/User"><i class="fa fa-user" aria-hidden="true"></i></span> <?=$_SESSION['username']?></a></li>
 <li> &nbsp; &nbsp;<a href="/INOGIT/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a></li>
 </ul>
