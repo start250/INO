@@ -1,3 +1,6 @@
+<p><b>Instruction:</b><br>
+&nbsp;&nbsp;&nbsp;1.Do not refresh page after click the quiz.<br>
+&nbsp;&nbsp;&nbsp;2.Duration of one quiz is 15 minutes.</p>
 <table class="table">
 <?php
 

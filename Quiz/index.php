@@ -14,8 +14,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 <p>
 	<strong><h3>Quiz</h3></strong>
 </p>
-<?php if(!@$_GET['c']){?>
-<center>
+<?php if(!@$_GET['c'] && !@$_GET['msg'] && !@$_GET['cheat']){?>
+<div style="margin-left: 120px;">
 	<p>
 		<h3><a href="?c=General knowledge">General knowledge</a></h3>
 	</p>
@@ -25,14 +25,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 	<p>
 		<h3><a href="?c=Umuco nyarwanda">Umuco nyarwanda</a></h3>
 	</p>
-</center>
+</div>
 <?php
 }
 else if(@$_GET['c'] && !@$_GET['quiz']){
 	include('displayQuizzes.php');}
 else if(@$_GET['quiz'] && @$_GET['c'])
 	include('takequiz.php');
-
+else if(@$_GET['msg'])
+    include('doneQuiz.php');
+else if(@$_GET['cheat']=="t")
+    include('cheat.php');
 ?>
 </div>
 <div class="col-lg-4">

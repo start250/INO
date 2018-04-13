@@ -68,7 +68,7 @@ padding: 3px;
         <li <?php if(@$_GET['section']=='business') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=business"><i class="fa fa-briefcase"></i>&nbsp; Business</a></li>
         <li <?php if(@$_GET['section']=='health') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=health"><i class="fa fa-medkit"></i>&nbsp; Health</a></li>
         <li <?php if(@$_GET['section']=='culture') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=culture"><i class="fa fa-leaf"></i>&nbsp; Culture</a></li>
-        <li <?php if(@$_GET['section']=='test') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/dashboard.php?section=test"><i class="fa fa-question"></i>&nbsp; Test(s)</a></li>
+        <li <?php if(@$_GET['section']=='test') echo 'style="border-bottom: 3px solid #0066ff;"'; ?>><a href="/INOGIT/Op/prepare.php"><i class="fa fa-question"></i>&nbsp; Test(s)</a></li>
       </ul> 
       <!--<form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
