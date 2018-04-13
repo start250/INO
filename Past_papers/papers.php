@@ -46,6 +46,7 @@ echo "  >>  ".$_SESSION['filter']['year'];
                 <button type="submit" name="course" class="SubCat" value="Mathematics">Mathematics</button>
                 <button type="submit" name="course" class="SubCat" value="Kinyarwanda">Kinyarwanda</button>
                 <button type="submit" name="course" class="SubCat" value="English">English</button>
+               
                 <button type="submit" name="course" class="SubCat" value="Social Studies">Social Studies</button> 
                 <button type="submit" name="course" class="SubCat" value="all">All</button> 
             </center>
@@ -75,6 +76,7 @@ for($i=2005;$i<=date('Y');$i++){
                     <button type="submit" name="course" class="SubCat" value="Kinyarwanda">Kinyarwanda</button>
                     <button type="submit" name="course" class="SubCat" value="English">English</button>
                     <button type="submit" name="course" class="SubCat" value="Geography">Geography</button> 
+                   
                     <button type="submit" name="course" class="SubCat" value="History">History</button>  
                     <button type="submit" name="course" class="SubCat" value="Chemistry">Chemistry</button> 
                     <button type="submit" name="course" class="SubCat" value="Biology">Biology</button> 
@@ -104,9 +106,12 @@ for($i=2005;$i<=date('Y');$i++){
                     <center>
                         <button type="submit" name="course" class="SubCat" value="Mathematics">Mathematics</button>
                         <button type="submit" name="course" class="SubCat" value="Kinyarwanda">Kinyarwanda</button>
+                       
                         <button type="submit" name="course" class="SubCat" value="English">English</button>
                         <button type="submit" name="course" class="SubCat" value="Geography">Geography</button> 
                         <button type="submit" name="course" class="SubCat" value="History">History</button>  
+                        <button type="submit" name="course" class="SubCat" value="Physics">Physics</button>
+               
                         <button type="submit" name="course" class="SubCat" value="Chemistry">Chemistry</button> 
                         <button type="submit" name="course" class="SubCat" value="Francais">Francais</button> 
                         <button type="submit" name="course" class="SubCat" value="Kiswahili">Kiswahili</button> 

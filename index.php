@@ -66,7 +66,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
       }
 
       
-
+      if(!isset($_POST['cat'])&&!isset($_POST['year'])&&!isset($_POST['course'])){ 
+        $_SESSION['filter']=[]; 
+      }
    if(isset($_POST['cat'])){ 
           $_SESSION['filter']=[]; 
           $_SESSION['filter']['cat']= $_POST['cat'];
