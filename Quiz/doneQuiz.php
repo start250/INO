@@ -14,10 +14,10 @@ if($msg=="all"){
 	else {
 		?>
 	<p style="font-size: 20px;color: red;font-weight: bold;"><?php echo $marks."/30" ?></p>
-	<a href="index.php?cheat=t&quiz=<?=$quizN?>">See Answers</a><br> <br><br>
+	<a href="index.php?cheat=t&quizz=<?=$quizN?>">See Answers</a><br> <br><br>
 		<?php
 	} ?>
-<a href="index.php?c=<?=$category?>&quizz=<?=$quizN?>" style="font-size: 20px;text-decoration: none;">Restart quiz</a><br>
+<a href="index.php?c=<?=$category?>&quiz=<?=$quizN?>" style="font-size: 20px;text-decoration: none;">Restart quiz</a><br>
 or<br>
 <a href="index.php" style="font-size: 20px;text-decoration: none;">Take another quiz</a></center>
 </center>
