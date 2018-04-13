@@ -11,9 +11,9 @@ while($row = $result->fetch_assoc()) {
 ?>
  <div class="alert alert-info">
 <?= $row['level']?>
- </div>
-
+ </div> 
   <?php }?>
+  
     
 </head>
 

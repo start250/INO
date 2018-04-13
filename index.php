@@ -67,21 +67,19 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 
       
 
-   if(isset($_POST['cat'])){
-          $_SESSION['paperCat']=$_POST['cat'];
-          $_SESSION['course']='';
-          $_SESSION['year']='';
-          $_SESSION['filter']=[];
+   if(isset($_POST['cat'])){ 
+          $_SESSION['filter']=[]; 
           $_SESSION['filter']['cat']= $_POST['cat'];
    }
 
-if(isset($_POST['course'])){
-$_SESSION['course']=($_POST['course']!=='all')?$_POST['course']:''; 
-$_SESSION['filter']['course']= $_POST['course'];
+if(isset($_POST['course'])){ 
+$_SESSION['filter']['course']= ($_POST['course']!=='all')?$_POST['course']:''; 
+if($_POST['course']==='all'){
+    $_SESSION['filter']['year']= '';
+}
 
 }
-if(isset($_POST['year'])){
-    $_SESSION['year']=$_POST['year'];
+if(isset($_POST['year'])){  
     $_SESSION['filter']['year']= $_POST['year'];
 }
    require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Past_papers/papers.php'); 

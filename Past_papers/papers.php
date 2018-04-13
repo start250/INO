@@ -19,12 +19,12 @@ echo "  >>  ".$_SESSION['filter']['year'];
 }
       
       if(isset($_POST['year'])){
-        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['paperCat']."' and paper_year='".$_SESSION['year']."' and title LIKE '%".$_SESSION['course']."%'";  
+        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['filter']['cat']."' and paper_year='".$_SESSION['filter']['year']."' and title LIKE '%".$_SESSION['filter']['course']."%'";  
      }else  if(isset($_POST['course'])){
-        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['paperCat']."' and title LIKE '%".$_SESSION['course']."%'";  
+        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['filter']['cat']."' and title LIKE '%".$_SESSION['filter']['course']."%'";  
  
      }else if(isset($_POST['cat'])){
-        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['paperCat']."'";
+        $sql = "SELECT * FROM past_papers where grade='".$_SESSION['filter']['cat']."'";
      }else{
         $sql = "SELECT * FROM past_papers LIMIT 25";
      }
@@ -38,7 +38,7 @@ echo "  >>  ".$_SESSION['filter']['year'];
     </div>
         <?php
     }
-        if(isset($_SESSION['paperCat'])&&$_SESSION['paperCat']==='p6'){
+        if(isset($_SESSION['filter']['cat'])&&$_SESSION['filter']['cat']==='p6'){
          
         ?>
        <form method="POST">
@@ -51,7 +51,7 @@ echo "  >>  ".$_SESSION['filter']['year'];
             </center>
         </form>
         <?php
-           if(isset($_SESSION['course'])&&$_SESSION['course']!=''){
+           if(isset($_SESSION['filter']['course'])&&$_SESSION['filter']['course']!=''){
             ?>
             <form method="POST">
 <center>
@@ -66,7 +66,7 @@ for($i=2005;$i<=date('Y');$i++){
 
             <?php
             }
-    }else  if(isset($_SESSION['paperCat'])&&$_SESSION['paperCat']==='s3'){
+    }else  if(isset($_SESSION['filter']['cat'])&&$_SESSION['filter']['cat']==='s3'){
          
             ?>
            <form method="POST">
@@ -82,7 +82,7 @@ for($i=2005;$i<=date('Y');$i++){
                 </center>
             </form>
             <?php
-               if(isset($_SESSION['course'])&&$_SESSION['course']!=''){
+               if(isset($_SESSION['filter']['course'])&&$_SESSION['filter']['course']!=''){
                 ?>
                 <form method="POST">
     <center>
@@ -97,7 +97,7 @@ for($i=2005;$i<=date('Y');$i++){
     
                 <?php
                 }
-            }else  if(isset($_SESSION['paperCat'])&&$_SESSION['paperCat']==='s6'){
+            }else  if(isset($_SESSION['filter']['cat'])&&$_SESSION['filter']['cat']==='s6'){
          
                 ?>
                <form method="POST">
@@ -115,7 +115,7 @@ for($i=2005;$i<=date('Y');$i++){
                     </center>
                 </form>
                 <?php
-                   if(isset($_SESSION['course'])&&$_SESSION['course']!=''){
+                   if(isset($_SESSION['filter']['course'])&&$_SESSION['filter']['course']!=''){
                     ?>
                     <form method="POST">
         <center>
