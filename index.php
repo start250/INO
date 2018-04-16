@@ -167,6 +167,16 @@ if(isset($_POST['year'])){
    <?php }
 if(@$_GET['sub']=="Ask Teacher" || @$_GET['sub']=="Ask Doctor" || @$_GET['sub']=="Baza Sokuru" || @$_GET['sub']=="Baza Mwarimu")
     include('Public/views/ask_everyone.php');
+
+///////////////////////////////////
+
+else if(@$_GET['s'] && !@$_GET['sub'])
+  include('indexa.php');
+
+
+///////
+
+
 else if(@$_GET['sub']=="Meet With Business Mentors")
   include('Public/views/ask_everyone.php');
 else if(@$_GET['s']!="Academic" && @$_GET['sub'])

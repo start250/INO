@@ -31,10 +31,10 @@
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
 <?php } 
 else if(@$_GET['s']=="Academic"){ ?>
-  <li><a href="/INOGIT/?s=Academic&sub=Library"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Library'";
+  <li><a href="/INOGIT/?s=Academic&sub=Library&lib_Cat=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Library'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Library</a></li>
-    <li><a href="/INOGIT/?s=Academic&sub=Scholarship"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
+    <li><a href="/INOGIT/?s=Academic&sub=Scholarship&sc=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Scholarship'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Scholarship</a></li>
     <li><a href="/INOGIT/?s=Academic&sub=Past Papers"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Past Papers'";
