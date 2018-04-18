@@ -24,39 +24,68 @@ while($row13 = $result13->fetch_assoc()) {
  <br>
  
 <div class="row z-depth-1">
-           <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-body" style="background-color: white;">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row13['thumb'];?>" class="img-thumb img-responsive">
-                        </div>
-                        <div class="col-md-8">
-                            <h4><?= $row13["title"]?></h4>
-                            <p style="font-size: 14px;">
-                            <?= $row13["description"]?>
-                             </p>
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="background-color: white;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row13['thumb'];?>" class="img-thumb img-responsive">
+                            </div>
+                            <div class="col-md-8">
+                                <h4>
+                                    <?= $row13["title"]?>
+                                </h4>
+                                <p style="font-size: 14px;">
+                                    <?= $row13["description"]?>
+                                </p>
 
-                             <label 
-                             style="font-size: 13px; color: #00cc00;">
-                             <?= $row13["pages"]?> pages</label> | 
-                             <label style="font-size: 13px; color: #00cc00;">
-                                 <span id="down<?= $row13['_id']; ?>"><?= $row13["downloads"]?>
-                                </span> downloads</label>
-                                    <br>
-                            <a href="Resources/Storage/Books/<?php echo $row13['book_link'];?>" download class="btn btn-primary btn-xs" onclick="download()">
-
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                                Download</a>
-                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#read_book_<?php echo $row13['_id']; ?>">
-                                <i class="fa fa-book" aria-hidden="true"></i>
-                                Read Now</button><span id="er"></span>
+                                <label style="font-size: 13px; color: #00cc00;">
+                                    <?= $row13["pages"]?> pages</label> |
+                                <label style="font-size: 13px; color: #00cc00;">
+                                    <span id="down<?= $row['_id']; ?>">
+                                        <?= $row13["downloads"]?>
+                                    </span> downloads</label> |
+                                <label style="font-size: 13px;">
+                                    Uploaded by
+                                    <b>
+                                        <?= $row13["added_by"]?>
+                                    </b>
+                                </label>
+                                <br>
+                                <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?=$row13['_id']?>);" data-target="#read_book_<?php echo $row13['_id']; ?>">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                    Read Now</button>
+                                <span id="er"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+
+<div id="read_book_<?php echo $row13['_id']; ?>" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">
+                            <?= $row13["title"]?>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="frame<?php echo $row13['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
+                        <a href="Resources/Storage/Books/<?php echo $row13['book_link'];?>" download class="btn btn-primary btn-xs">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                            Download</a>
+                        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     <?php
 }
@@ -89,3 +118,11 @@ if(@$_GET['page']<$num_of_pages){
 }
 echo "</center>"
 ?>
+<script>
+        function getBookSrc(bookID){
+            $.get("api_book.php?bookID="+bookID, function(data, status){
+                $("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
+    });
+        }
+        
+        </script>

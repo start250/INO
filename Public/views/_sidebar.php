@@ -96,7 +96,7 @@ else if(@$_GET['s']=="Road"){
    <li><a href="/INOGIT/?s=Road&sub=Igazeti&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Igazeti'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Igazeti</a></li>
-    <li><a href="/INOGIT/?s=Road&sub=Ibibazo nibisubizo&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibibazo nibisubizo'";
+    <li><a href="/INOGIT/?s=Road&sub=Ibibazo_nibisubizo&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibibazo nibisubizo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibibazo n'Ibisubizo</a></li>
     <li><a href="/INOGIT/?s=Road&sub=Ibyapa&t=2"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibyapa'";

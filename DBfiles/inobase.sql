@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2018 at 12:05 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Apr 16, 2018 at 01:24 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -152,7 +152,8 @@ INSERT INTO `books` (`_id`, `title`, `author`, `description`, `pages`, `size`, `
 (4, 'motherfucker', 'motherfucker', 'motherfucker ', 12, 22027, 'rtfgyhj', 'Assignment-Set+2-1523383292.pdf', 'eng_class', '', '', '', 'Corneille.png', 'For_Intermediates', 0, 0, NULL, '2018-04-10 18:01:32'),
 (5, 'fghjkjf', 'gdfhghjk', 'dgrhftgyhjb drftghj', 45, 27615, 'fghjk', 'Assignment-Set+1-1523383346.pdf', 'rules_road', '', '', '', 'Isaie.png', 'Ibibazo_nibisubizo', 0, 0, NULL, '2018-04-10 18:02:26'),
 (6, 'fghjkj', 'fghjjj', 'dgfhghjk', 54, 22027, 'dgfhgjhkj', 'Assignment-Set+2-1523396458.pdf', 'academic', '', '', '', 'Anaclet.png', 'Science Book', 0, 0, NULL, '2018-04-10 21:40:58'),
-(7, 'gfddf', 'ghj', 'ghghj', 45, 27615, 'fghj', 'Assignment-Set+1-1523396980.pdf', 'academic', '', '', '', 'Corneille.png', 'ICT Book', 1, 0, NULL, '2018-04-10 21:49:40');
+(7, 'gfddf', 'ghj', 'ghghj', 45, 27615, 'fghj', 'Assignment-Set+1-1523396980.pdf', 'academic', '', '', '', 'Corneille.png', 'ICT Book', 1, 0, NULL, '2018-04-10 21:49:40'),
+(8, 'qwertyuio', 'fghjkldfgghf', 'rftgyjkdf56', 456, 525777, 'sdfghj', '268937-1523874405.jpg', 'culture', '', '', '', 'ghost_recon_wildlands-wallpaper-2048x1152.jpg', 'Imigani', 0, 0, NULL, '2018-04-16 10:26:45');
 
 -- --------------------------------------------------------
 
@@ -291,7 +292,8 @@ INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `author`, `section`, `
 (7, 'gggggggggggg', '<p>cccccccccccccccccccc</p>\r\n', '', 'mik', 'academic', '', 'other info', 'Tips to Win Scholaship', '1', 'Corneille.png', '2018-04-10 22:08:58', '0000-00-00 00:00:00', 0, 0, 0),
 (8, 'cccccccccccccccccccccc', '<p>cccccccccccccccccccc</p>\r\n', '', 'mik', 'academic', '', 'other info', 'links', '', 'Isaie.png', '2018-04-10 22:09:17', '0000-00-00 00:00:00', 0, 0, 0),
 (9, 'ssssssssssssssssssssssss', '<p>ssssssssssssssssssssssss</p>\r\n', '', 'mik', 'academic', '', 'other info', 'News', '1', '', '2018-04-10 22:09:32', '0000-00-00 00:00:00', 0, 0, 0),
-(10, '', '', '', 'mik', 'academic', '', '', '', '', '', '2018-04-10 22:09:35', '0000-00-00 00:00:00', 0, 0, 0);
+(10, '', '', '', 'mik', 'academic', '', '', '', '', '', '2018-04-10 22:09:35', '0000-00-00 00:00:00', 0, 0, 0),
+(11, 'qwertyuiop', '<p>wertyuiop[]</p>\r\n', '', 'mik', 'culture', 'Ibisakuzo', '', '', '', 'far_cry_5_4k_8k-wide.jpg', '2018-04-16 10:16:10', '0000-00-00 00:00:00', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -327,7 +329,13 @@ INSERT INTO `quizzes` (`id`, `same_q`, `question`, `ans1`, `ans2`, `ans3`, `ans4
 (8, '1523580976', 'icyakane', 'rimwe', 'fg', 'gf', 'rtyh', 'radio', 'Science', 'java'),
 (9, '1523613308', 'fgvhbjk', 'fghjhlk', 'fgvhbjn', 'fcgvhbjnk', 'fcgvhbjnkm', 'radio', 'General knowledge', 'dgfhgjj'),
 (10, '1523613468', 'fdghuik', 'drftygh', 'xgvhbjnkm', 'swdefrgtyhu', 'ghjk', 'radio', 'Umuco nyarwanda', 'umuco'),
-(11, '1523613468', 'dfvgbhnjmk', 'dcfvbn', 'vbgnhmj', 'dfgbhnm', 'dfvgbhnm,', 'radio', 'Umuco nyarwanda', 'umuco');
+(11, '1523613468', 'dfvgbhnjmk', 'dcfvbn', 'vbgnhmj', 'dfgbhnm', 'dfvgbhnm,', 'radio', 'Umuco nyarwanda', 'umuco'),
+(12, '1523648772', 'rimwe', 'ok', 'rhfgf', 'ghjk', 'hjk', 'radio', 'Science', 'php scripting'),
+(13, '1523648772', 'kabiri', 'ok', 'hjk', 'hjk', 'bnm', 'radio', 'Science', 'php scripting'),
+(14, '1523648772', 'werf', 'ok', 'fcghb', 'vbn', 'vbn', 'radio', 'Science', 'php scripting'),
+(15, '1523648772', 'vbn', 'ok', 'cvbn', 'cvbn', 'cvbn', 'radio', 'Science', 'php scripting'),
+(16, '1523648772', 'ok', 'xcvbn', 'cvb', 'cvb', 'cvbhj', 'radio', 'Science', 'php scripting'),
+(17, '1523648772', 'dfghu', 'ok', 'xcvbn', 'cvbn', 'cvb', 'radio', 'Science', 'php scripting');
 
 -- --------------------------------------------------------
 
@@ -392,7 +400,8 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_link`, `section`, `views`, `comments`, `share`, `created_at`, `updated_at`) VALUES
-(1, 'fgnhb', 'bnghhnbv', 'Anaclet.png', 'Business_Advice', 'dfghjfdscdvfb', 'business', 1, 0, 0, '2018-04-11 00:14:58', '0000-00-00 00:00:00');
+(1, 'fgnhb', 'bnghhnbv', 'Anaclet.png', 'Business_Advice', 'dfghjfdscdvfb', 'business', 1, 0, 0, '2018-04-11 00:14:58', '0000-00-00 00:00:00'),
+(2, 'dryfthujk', 'ftghujko', '268937.jpg', 'Imigani', 'sedrftgyuijl', 'culture', 0, 0, 0, '2018-04-16 10:15:54', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -487,67 +496,56 @@ ALTER TABLE `videos`
 --
 ALTER TABLE `academicvideos`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `academic_doc`
 --
 ALTER TABLE `academic_doc`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `logos`
 --
 ALTER TABLE `logos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
 --
 -- AUTO_INCREMENT for table `past_papers`
 --
 ALTER TABLE `past_papers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `reset_password`
 --
 ALTER TABLE `reset_password`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
