@@ -35,7 +35,8 @@ if (isset($_GET['delete'])) {
    <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira_zumuco_Nyarwanda</option>
+    <option>Ururimi rwi kinyarwanda</option>
+    <option>Kirazira zumuco Nyarwanda</option>
     <option>Baza_Sokuru</option></select>'; 
     else if(@$_GET['section']=="rules_road")
         echo '<select name="category" class="form-control"><option>Select Category</option>

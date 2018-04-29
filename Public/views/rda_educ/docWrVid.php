@@ -39,7 +39,7 @@ if(@$_GET['sub']=="Explore Rwandan Education" && @$_GET['t']){
  if(@$_GET['t']=="1")
     include('document.php');
 else if(@$_GET['t']=="2")
-	include('written_posts.php');
+	include('posts.php');
 else if(@$_GET['t']=="3")
 	include('videos.php');
 

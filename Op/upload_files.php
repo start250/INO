@@ -1,3 +1,48 @@
+<script type="text/javascript">
+  function setLevel(){
+     level=document.getElementById("select_level").value;
+     if(level=="nursary"){
+       topic="<option>baby</option><option>middle</option><option>top class</option>";
+       topic_s=document.getElementById("topic");
+       topic_s.innerHTML=topic;
+     }
+     else if(level=="primary"){
+       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>social studies</option><option>math</option><option>set</option>";
+       topic_s=document.getElementById("topic");
+       topic_s.innerHTML=topic;
+     }
+      else if(level=="Ordinary level" || level=="Advanced level"){
+       topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>biology</option><option>chemistry</option><option>history</option><option>computer</option><option>kiswahili</option><option>literature</option><option>economie</option><option>entrepreneurship</option><option>geography</option>";
+       topic_s=document.getElementById("topic");
+       topic_s.innerHTML=topic;
+     }
+     else if(level=="other info"){
+      topic="<option>Microbiololgy</option><option>Physiology</option><option>Biodiversity</option><option>Oral Medicine</option><option>Pharmacology</option><option>Toxicology</option><option>Pharmacognosy</option><option>Biophyisycs</option><option>Marketing</option><option>Business</option><option>International relations</option><option>Botany</option><option>Zoology</option><option>Botany</option><option>Human nutrition</option><option>Sociology</option><option>Mental health</option><option>Physiology</option><option>Radiology</option><option>Geology</option><option>Hydrology</option><option>ICT</option><option>Computer programming</option><option>Biomolecular biology</option><option>Philosophy</option><option>Theology</option><option>Sociology</option><option>Astronomy</option><option>Economics</option><option>Laws</option><option>Archelogy</option><option>Veterinary medicine</option><option>Ecology</option><option>Electricity</option><option>Geography</option><option>History</option><option>Chemistry</option><option>Physics</option><option>English</option><option>Entrepreneurship</option><option>Mathematics</option><option>Kinyarwanda</option><option>Computer</option><option>Journalism</option><option>Education</option><option>Psychology</option>";
+      topic_s=document.getElementById("topic");
+      topic_s.innerHTML=topic;
+     }
+
+
+  }
+
+function setYa(){
+   topic1=document.getElementById("topic").value;
+   level=document.getElementById("select_level").value;
+  if(topic1=="economie" || topic1=="literature"){
+    year1="<option>4</option><option>5</option><option>6</option>"
+  year_s=document.getElementById("year");
+  year_s.innerHTML=year1;
+}
+else if(level!="nursary"){
+  year1="<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>"
+  year_s=document.getElementById("year");
+  year_s.innerHTML=year1;
+}
+
+else
+  document.getElementById("year").innerHTML="";
+}
+</script>
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 
@@ -25,49 +70,58 @@ echo '<h3>Book Information...</h3>';
 if ($_GET['edit']!=1) {
   ?>
   <br>
-<select  class="form-control" name="category"> 
+
     <?php
 
     if(@$_GET['section']=="academic")
-        echo "<option disabled  selected>Select Category</option>
-    <option>Science Book</option>
-    <option>Humanity Boook</option>
-    <option>Language Book</option>
-    <option>Life Book</option>
-    <option>ICT Book</option>
-    <option>Business Book</option>";
+        echo '<select name="level" onchange="setLevel()" id="select_level" class="selectAcademicInfo form-control">
+      <option disabled>Select Level...</option>
+      <option value="nursary">Nursary</option>
+      <option value="primary">Primary</option>
+      <option value="Ordinary level">Ordinary level</option>
+      <option value="Advanced level">Advanced level</option>
+      <option value="other info">University&Other</option></select>&nbsp;
+
+    <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
+    <option disabled>Select course...</option>'
+    .'<option selected disabled></option></select>&nbsp
+    <select name="year" id="year" class="selectAcademicInfo form-control">
+    <option disabled>Select Grade/Year...</option>'
+    .'<option selected disabled></option></select>&nbsp
+    ';
     else if(@$_GET['section']=="business")
-        echo "<option disabled selected>Select Category</option>
+        echo '<select  class="form-control" name="category"> <option disabled selected>Select Category</option>
    <option>Business Opportunities</option>
     <option>Business Advice</option>
     <option>Business News</option>
-     <option>Biographies Of Successful Business Men</option></select>";
+     <option>Biographies Of Successful Business Men</option></select>';
     else if(@$_GET['section']=="health")
-        echo "<option disabled selected>Select Category</option>
+        echo '<select  class="form-control" name="category"> <option disabled selected>Select Category</option>
      <option>Nutrion</option>
     <option>Traditional_Medecine</option>
     <option>Serious_Deseases</option>
     <option>Doctor_Advice</option>
-    <option>Health_News</option></select>";
+    <option>Health_News</option></select>';
     else if(@$_GET['section']=="eng_class")
-        echo "<option disabled selected>Select Category</option>
+        echo '<select  class="form-control" name="category"> <option disabled selected>Select Category</option>
     <option>For_Beginners</option>
     <option>For_Intermediates</option>
     <option>Advanced_English</option>
     <option>Business_English</option></select>
-    ";
+    ';
     else if (@$_GET['section']=="culture")
-       echo "<option disabled selected selected>Select Category</option>
+       echo '<select  class="form-control" name="category"> <option disabled selected selected>Select Category</option>
    <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
+    <option>Ururimi rwi kinyarwanda</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira_zumuco_Nyarwanda</option>"; 
+    <option>Kirazira zumuco Nyarwanda</option></select><br>'; 
     else if(@$_GET['section']=="rules_road")
         echo "<option disabled selected selected>Select Category</option>
    <option>Ibibazo_nibisubizo</option>
-    <option>Igazeti</option>";
+    <option>Igazeti</option></select><br>";
     ?>
-</select><br>
+
  <?php
 }
 ?>
@@ -151,14 +205,21 @@ $thumb=mysqli_real_escape_string($conn,basename( $_FILES["thumb"]["name"]));
 $book_link=mysqli_real_escape_string($conn,$book_name);
 $section=$_GET['section']; 
 $book_category=mysqli_escape_string($conn,$_POST['category']);
+
+if($section!="academic"){
 $sql = "INSERT INTO Books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
   
-                   VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$thumb','$book_link','$section','$book_category')";
+                   VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$thumb','$book_link','$section','$book_category')";}
+if($section=="academic"){
+  $level=mysqli_escape_string($conn,$_POST['level']);
+  $course=mysqli_escape_string($conn,$_POST['course']);
+  $sql = "INSERT INTO academic_doc (title, author, description, pages, thumb,book_file,level, course) 
+  
+                   VALUES ('$title', '$author', '$description', '$pages','$thumb','$book_link','$level','$course')";
+}
 
 if ($conn->query($sql) === TRUE) {
-    echo '<script type="text/javascript">
-   window.location = "/INOGIT/dashboard.php"
-</script>';
+    echo '';
 } else {
     echo "Error "; //. $sql . "<br>" . $conn->error;
 }
@@ -178,9 +239,7 @@ $added_by=mysqli_real_escape_string($conn,$_POST['added_by']);
 $sql = "UPDATE books set title='$title', author='$author', description='$description', pages='$pages', added_by='$added_by' where _id='".$_GET['edit']."'";
 
 if ($conn->query($sql) === TRUE) {
-    echo '<script type="text/javascript">
-location.href = "/inogit/"
-</script>';
+    echo '';
 } else {
     echo "Error updating... " ;//. $sql . "<br>" . $conn->error;
 }

@@ -15,8 +15,8 @@ if (isset($_GET['delete'])) {
          	<option>Select Level...</option>
     <option value="nursary">Nursary</option>
     <option value="primary">Primary</option>Advanced level
-    <option value="high school">Ordinary level</option>
-    <option value="high school">Advanced level</option>
+    <option value="Ordinary level">Ordinary level</option>
+    <option value="Advanced level">Advanced level</option>
     <option value="other info">Other Info</option>
 </select>&nbsp;
 <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
@@ -112,13 +112,13 @@ function deletetask<?php echo $row['_id']; ?>() {
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
-      else if(level=="high school"){
+      else if(level=="Advanced level" || level=="Ordinary level"){
        topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>biology</option><option>chemistry</option><option>history</option><option>computer</option><option>kiswahili</option><option>literature</option><option>economie</option><option>entrepreneurship</option><option>geography</option>";
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
      else if(level=="other info"){
-     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Academic news</option><option>News</option>";
+     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Academic news</option><option>News</option><option>Microbiololgy</option><option>Physiology</option><option>Biodiversity</option><option>Oral Medicine</option><option>Pharmacology</option><option>Toxicology</option><option>Pharmacognosy</option><option>Biophyisycs</option><option>Marketing</option><option>Business</option><option>International relations</option><option>Botany</option><option>Zoology</option><option>Botany</option><option>Human nutrition</option><option>Sociology</option><option>Mental health</option><option>Physiology</option><option>Radiology</option><option>Geology</option><option>Hydrology</option><option>ICT</option><option>Computer programming</option><option>Biomolecular biology</option><option>Philosophy</option><option>Theology</option><option>Sociology</option><option>Astronomy</option><option>Economics</option><option>Laws</option><option>Archelogy</option><option>Veterinary medicine</option><option>Ecology</option><option>Electricity</option><option>Geography</option><option>History</option><option>Chemistry</option><option>Physics</option><option>English</option><option>Entrepreneurship</option><option>Mathematics</option><option>Kinyarwanda</option><option>Computer</option><option>Journalism</option><option>Education</option><option>Psychology</option>";
      	topic_s=document.getElementById("topic");
      	topic_s.innerHTML=topic;
      }

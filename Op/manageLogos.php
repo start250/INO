@@ -18,6 +18,7 @@ die("Unauthorized Access");
   			<option>Health</option>
   			<option>English</option>
   			<option>Culture</option>
+        <option>Ururimi rw'i kinyarwanda</option>
   			<option>Quiz</option>
         <option>Academic news</option>
         <option>Explore Rwandan Education</option>

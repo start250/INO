@@ -40,11 +40,7 @@ while($row13 = $result13->fetch_assoc()) {
                                 </p>
 
                                 <label style="font-size: 13px; color: #00cc00;">
-                                    <?= $row13["pages"]?> pages</label> |
-                                <label style="font-size: 13px; color: #00cc00;">
-                                    <span id="down<?= $row['_id']; ?>">
-                                        <?= $row13["downloads"]?>
-                                    </span> downloads</label> |
+                                    <?= $row13["pages"]?> pages</label>
                                 <label style="font-size: 13px;">
                                     Uploaded by
                                     <b>
@@ -77,9 +73,7 @@ while($row13 = $result13->fetch_assoc()) {
                     </div>
                     <div class="modal-body">
                         <iframe id="frame<?php echo $row13['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
-                        <a href="Resources/Storage/Books/<?php echo $row13['book_link'];?>" download class="btn btn-primary btn-xs">
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                            Download</a>
+                        
                         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
                     </div>
 

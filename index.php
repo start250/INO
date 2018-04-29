@@ -34,22 +34,26 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
                 else if(@$_GET['s']=="Quiz")
                     echo "Quiz";  
                 else if(@$_GET['s']=="Road")
-                    echo "Amategeko y'umuhanda";
-        ?></a> <?php if(@$_GET['sub']){ ?>| <img src="Resources/Storage/Logos/<?php $s=$_GET["sub"]; $query="SELECT * FROM logos WHERE position='".$s."'";
+                    echo "Rules of road";
+        ?></a> <?php if(@$_GET['sub']){ echo $_GET['sub'];?>| 
+        <img src="Resources/Storage/Logos/<?php $s=$_GET["sub"];
+         $query="SELECT * FROM logos WHERE position='$s'";
+
     $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>"><?php echo @$_GET['sub'];} ?>
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>"/><?php echo @$_GET['sub'];} ?>
     </center><br>
     <?php
     $subCat=@$_GET['sub'];
     if($subCat=="Library"){?>
-            <center>
-               <a href="?s=Academic&sub=Library&lib_Cat=1" class="lib_Cat" name="Science_Books"> <i class="fa fa-flask"></i>Science Books</a>
-                <a href="?s=Academic&sub=Library&lib_Cat=2" class="lib_Cat" name="Humanity_Books"><i class="fa fa-users"></i>Humanity Books</a>
-                <a href="?s=Academic&sub=Library&lib_Cat=3" class="lib_Cat" name="Life_Books"><i class="fa fa-heartbeat"></i>Life Books</a>
+            <div class="row"><div class="col-sm-6">
+               <a href="?s=Academic&sub=Library&lib_Cat=1" class="lib_Cat" name="Science_Books"> <i class="fa fa-flask"></i>Science Books</a><br>
+                <a href="?s=Academic&sub=Library&lib_Cat=2" class="lib_Cat" name="Humanity_Books"><i class="fa fa-users"></i>Humanity Books</a><br>
+                <a href="?s=Academic&sub=Library&lib_Cat=3" class="lib_Cat" name="Life_Books"><i class="fa fa-heartbeat"></i>Life Books</a></div>
+                <div class="col-sm-6">
                 <a href="?s=Academic&sub=Library&lib_Cat=4" class="lib_Cat" name="ICT_Books"><i class="fa fa-laptop"></i>ICT Books</a><br>
-                <a href="?s=Academic&sub=Library&lib_Cat=5" class="lib_Cat" name="Language_Books"><i class="fa fa-language"></i>Language Books</a>
-                <a href="?s=Academic&sub=Library&lib_Cat=6" class="lib_Cat" name="Business_Books"><i class="fa fa-briefcase"></i>Business Books</a>
-            </center>
+                <a href="?s=Academic&sub=Library&lib_Cat=5" class="lib_Cat" name="Language_Books"><i class="fa fa-language"></i>Language Books</a><br>
+                <a href="?s=Academic&sub=Library&lib_Cat=6" class="lib_Cat" name="Business_Books"><i class="fa fa-briefcase"></i>Business Books</a></div>
+            </div>
         <?php
     }
     else if ($subCat=="Past Papers") {?>
@@ -106,9 +110,9 @@ if(isset($_POST['year'])){
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Nursary
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=baby&t=1">Baby class</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=middle&t=1">Middle class</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=Nursary&course=top class&t=1">Top class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=nursary&course=baby&t=1">Baby class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=nursary&course=middle&t=1">Middle class</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=nursary&course=top class&t=1">Top class</a></li>
     </ul>
 </div><div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Primary
@@ -159,15 +163,60 @@ if(isset($_POST['year'])){
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">University
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=2">Links</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=1">Tips to win scholarship</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Scholarship&sc=4">Ask</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Microbiololgy&t=1">Microbiololgy</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Physiology&t=1">Physiology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Biodiversity&t=1">Biodiversity</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Oral Medicine&t=1">Oral Medicine</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Pharmacology&t=1">Pharmacology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Toxicology&t=1">Toxicology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Pharmacognosy&t=1">Pharmacognosy</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Biophyisycs&t=1">Biophyisycs</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Marketing&t=1">Marketing</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Business&t=1">Business</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=International relations&t=1">International relations</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Botany&t=1">Botany</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Zoology&t=1">Zoology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Botany&t=1">Botany</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Human nutrition&t=1">Human nutrition</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Sociology&t=1">Sociology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Mental health&t=1">Mental health</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Physiology&t=1">Physiology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Radiology&t=1">Radiology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Geology&t=1">Geology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Hydrology&t=1">Hydrology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=ICT&t=1">ICT</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Computer programming&t=1">Computer programming</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Biomolecular biology&t=1">Biomolecular biology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Philosophy&t=1">Philosophy</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Theology&t=1">Theology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Sociology&t=1">Sociology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Astronomy&t=1">Astronomy</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Economics&t=1">Economics</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Laws&t=1">Laws</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Archelogy&t=1">Archelogy</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Veterinary medicine&t=1">Veterinary medicine</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Ecology&t=1">Ecology</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Electricity&t=1">Electricity</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Geography&t=1">Geography</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=History&t=1">History</a></li> 
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Chemistry&t=1">Chemistry</a></li> 
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Physics&t=1">Physics</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=English&t=1">English</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Entrepreneurship&t=1">Entrepreneurship</a></li> 
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Mathematics&t=1">Mathematics</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Kinyarwanda&t=1">Kinyarwanda</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Computer&t=1">Computer</a></li> 
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Journalism&t=1">Journalism</a></li> 
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Education&t=1">Education</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Psychology&t=1">Psychology</a></li>
     </ul>
   </div></div></center>    
    <?php }
 if(@$_GET['sub']=="Ask Teacher" || @$_GET['sub']=="Ask Doctor" || @$_GET['sub']=="Baza Sokuru" || @$_GET['sub']=="Baza Mwarimu")
     include('Public/views/ask_everyone.php');
 
+else if(@$_GET['s']=="Quiz")
+  header("Location:Quiz/");
 ///////////////////////////////////
 
 else if(@$_GET['s'] && !@$_GET['sub'])
@@ -175,12 +224,12 @@ else if(@$_GET['s'] && !@$_GET['sub'])
 
 
 ///////
-
+else if(@$_GET['s']!="Academic" && @$_GET['sub'])
+    include('Public/views/documentWRITTENvideo.php'); 
 
 else if(@$_GET['sub']=="Meet With Business Mentors")
   include('Public/views/ask_everyone.php');
-else if(@$_GET['s']!="Academic" && @$_GET['sub'])
-    include('Public/views/documentWRITTENvideo.php');   
+  
 else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Library")
     include('Public/views/listLib.php');
 else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Scholarship"  && !@$_GET['sc']=="4") 
@@ -191,9 +240,7 @@ else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Academic news")
     include('Public/views/documentWRITTENvideo.php');  
 else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Explore Rwandan Education") {
     echo "<br>";
-    include('Public/views/documentWRITTENvideo.php');  }
-else if(@$_GET['s']=="Quiz")
-  header("Location:Quiz/");
+    include('Public/views/rda_educ/docWrVid.php');  }
 else if(@$_GET['s']=="Academic" && @$_GET['sub']=="Scholarship" && @$_GET['sc']=="4")
   include('Public/views/ask_everyone.php'); 
 

@@ -1,20 +1,16 @@
+
 <?php
 
-$section13=@$_GET['s'];
-
-if(@$_GET['lib_Cat']=="1")
-    $category13="Science Book";
-else if(@$_GET['lib_Cat']=="2")
-    $category13="Humanity Book";
-else if(@$_GET['lib_Cat']=="3")
-    $category13="Life Book";
-else if(@$_GET['lib_Cat']=="4")
-    $category13="ICT Book";
-else if(@$_GET['lib_Cat']=="5")
-    $category13="Language Book";
-else if(@$_GET['lib_Cat']=="6")
-    $category13="Business Book";
-
+$course=@$_GET['course'];
+$level=@$_GET['lv'];
+if($level=="pri")
+    $level="primary";
+else if($level=="un")
+    $level="other info";
+else if($level=='ol')
+    $level="Ordinary level";
+else if($level=='al')
+    $level="Advanced level";
 //----------------------------------------
 //-----------------------------------------
 $pages=@$_GET['page'];
@@ -27,13 +23,16 @@ else
 }
 
 //--------------------------------------
-$query13="SELECT * FROM books WHERE book_category='$category13' order by _id desc limit $pages,10";
+
+    $query13="SELECT * FROM academic_doc WHERE level='$level' and course='$course' order by id desc limit $pages,10";
 $display_count=1;
 $result13 = $conn->query($query13);
 while($row13 = $result13->fetch_assoc()) {
     
 ?>
- <div class="row z-depth-1">
+ <br>
+ 
+<div class="row z-depth-1">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body" style="background-color: white;">
@@ -43,16 +42,16 @@ while($row13 = $result13->fetch_assoc()) {
                             </div>
                             <div class="col-md-8">
                                 <h4>
-                                    <?php echo $row13["title"]?>
+                                    <?= $row13["title"]?>
                                 </h4>
                                 <p style="font-size: 14px;">
                                     <?= $row13["description"]?>
                                 </p>
 
                                 <label style="font-size: 13px; color: #00cc00;">
-                                    <?php echo $row13["pages"]?> pages</label>
+                                    <?= $row13["pages"]?> pages</label>
                                 <br>
-                                <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?php echo $row13['_id']?>);" data-target="#read_book_<?php echo $row13['_id']; ?>">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?=$row13['_id']?>);" data-target="#read_book_<?php echo $row13['_id']; ?>">
                                     <i class="fa fa-book" aria-hidden="true"></i>
                                     Read Now</button>
                                 <span id="er"></span>
@@ -63,18 +62,21 @@ while($row13 = $result13->fetch_assoc()) {
             </div>
         </div>
 
-        <div id="read_book_<?php echo $row13['_id']; ?>" class="modal fade" role="dialog">
+
+
+<div id="read_book_<?php echo $row13['_id']; ?>" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
 
                 <div class="modal-content">
                     <div class="modal-header">
 
                         <h4 class="modal-title">
-                            <?php echo $row13["title"]?>
+                            <?= $row13["title"]?>
                         </h4>
                     </div>
                     <div class="modal-body">
                         <iframe id="frame<?php echo $row13['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
+                        
                         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
                     </div>
 
@@ -82,27 +84,13 @@ while($row13 = $result13->fetch_assoc()) {
             </div>
         </div>
 
-        <?php } ?>
-
-
-
-        <script>
-        function getBookSrc(bookID){
-            $.get("api_book.php?bookID="+bookID, function(data, status){
-                $("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
-    });
-        }
-        
-        </script>
-   
-
     <?php
-//}
+}
     ?>
 
-<?php
-    $c=@$_GET['sub'];
-$sql1="select * from books where book_category='$c' order by _id desc";
+<?php 
+    $c=@$_GET['lv'];
+$sql1="select * from academic_doc where level='$c' order by id desc";
 $res=mysqli_query($conn,$sql1);
 
 $count=mysqli_num_rows($res);
@@ -127,3 +115,11 @@ if(@$_GET['page']<$num_of_pages){
 }
 echo "</center>"
 ?>
+<script>
+        function getBookSrc(bookID){
+            $.get("api_book.php?bookID="+bookID, function(data, status){
+                $("#frame"+bookID).attr("SRC", "Resources/Storage/Books/"+data);
+    });
+        }
+        
+        </script>

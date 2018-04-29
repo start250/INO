@@ -25,8 +25,8 @@ if(isset($_POST['update_post'])){
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
-     else if(level=="other info"){
-      topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Now open</option>";
+     else if(level=="University"){
+      topic="<option>Microbiololgy</option><option>Physiology</option><option>Biodiversity</option><option>Oral Medicine</option><option>Pharmacology</option><option>Toxicology</option><option>Pharmacognosy</option><option>Biophyisycs</option><option>Marketing</option><option>Business</option><option>International relations</option><option>Botany</option><option>Zoology</option><option>Botany</option><option>Human nutrition</option><option>Sociology</option><option>Mental health</option><option>Physiology</option><option>Radiology</option><option>Geology</option><option>Hydrology</option><option>ICT</option><option>Computer programming</option><option>Biomolecular biology</option><option>Philosophy</option><option>Theology</option><option>Sociology</option><option>Astronomy</option><option>Economics</option><option>Laws</option><option>Archelogy</option><option>Veterinary medicine</option><option>Ecology</option><option>Electricity</option><option>Geography</option><option>History</option><option>Chemistry</option><option>Physics</option><option>English</option><option>Entrepreneurship</option><option>Mathematics</option><option>Kinyarwanda</option><option>Computer</option><option>Journalism</option><option>Education</option><option>Psychology</option>";
       topic_s=document.getElementById("topic");
       topic_s.innerHTML=topic;
      }
@@ -138,7 +138,8 @@ if(isset($_SESSION['message'])){
    <option>Amateka_yu_Rwanda</option>
     <option>Imigani</option>
     <option>Ibisakuzo</option>
-    <option>Kirazira_zumuco_Nyarwanda</option>
+    <option>Ururimi rwi kinyarwanda</option>
+    <option>Kirazira zumuco Nyarwanda</option>
     </select>'; }
     else if(@$_GET['section']=="rules_road")
        {
@@ -159,8 +160,9 @@ if(isset($_SESSION['message'])){
       .'<option selected disabled>'.$row['level'].'</option>
       <option value="nursary">Nursary</option>;
       <option value="primary">Primary</option>
-      <option value="high school">High School</option>
-      <option value="other info">Other Info</option></select>&nbsp;
+      <option value="Ordinary level">Ordinary level</option>
+      <option value="Advanced level">Advanced level</option>
+      <option value="other info">University&Other</option></select>&nbsp;
 
     <select name="course" id="topic" onchange="setYa()" class="selectAcademicInfo form-control">
     <option disabled>Select course...</option>'
@@ -213,13 +215,13 @@ if(isset($_SESSION['message'])){
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
-      else if(level=="high school"){
+      else if(level=="Ordinary level" || level=="Advanced level"){
        topic="<option>kinyarwanda</option><option>english</option><option>francais</option><option>gp</option><option>math</option><option>biology</option><option>chemistry</option><option>history</option><option>computer</option><option>kiswahili</option><option>literature</option><option>economie</option><option>entrepreneurship</option><option>geography</option>";
        topic_s=document.getElementById("topic");
        topic_s.innerHTML=topic;
      }
      else if(level=="other info"){
-     	topic="<option>links</option><option>Tips to Win Scholaship</option><option>News</option><option>Academic news</option>";
+     	topic="<option>link(s)</option><option>Tips to Win Scholaship</option><option>Academic news</option><option>Microbiololgy</option><option>Physiology</option><option>Biodiversity</option><option>Oral Medicine</option><option>Pharmacology</option><option>Toxicology</option><option>Pharmacognosy</option><option>Biophyisycs</option><option>Marketing</option><option>Business</option><option>International relations</option><option>Botany</option><option>Zoology</option><option>Botany</option><option>Human nutrition</option><option>Sociology</option><option>Mental health</option><option>Physiology</option><option>Radiology</option><option>Geology</option><option>Hydrology</option><option>ICT</option><option>Computer programming</option><option>Biomolecular biology</option><option>Philosophy</option><option>Theology</option><option>Sociology</option><option>Astronomy</option><option>Economics</option><option>Laws</option><option>Archelogy</option><option>Veterinary medicine</option><option>Ecology</option><option>Electricity</option><option>Geography</option><option>History</option><option>Chemistry</option><option>Physics</option><option>English</option><option>Entrepreneurship</option><option>Mathematics</option><option>Kinyarwanda</option><option>Computer</option><option>Journalism</option><option>Education</option><option>Psychology</option>";
      	topic_s=document.getElementById("topic");
      	topic_s.innerHTML=topic;
      }

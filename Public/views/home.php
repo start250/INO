@@ -47,12 +47,13 @@
       $sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' AND section='".$_SESSION["section"]."'";  
     }
     else{
-        $sql = "SELECT * FROM books";
+        $sql = "SELECT * FROM books order by _id desc";
     }
     
-      
+      $count=0;
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
+            if($count<11){
             ?>
 
         <br>
@@ -74,17 +75,7 @@
                                 </p>
 
                                 <label style="font-size: 13px; color: #00cc00;">
-                                    <?= $row["pages"]?> pages</label> |
-                                <label style="font-size: 13px; color: #00cc00;">
-                                    <span id="down<?= $row['_id']; ?>">
-                                        <?= $row["downloads"]?>
-                                    </span> downloads</label> |
-                                <label style="font-size: 13px;">
-                                    Uploaded by
-                                    <b>
-                                        <?= $row["added_by"]?>
-                                    </b>
-                                </label>
+                                    <?= $row["pages"]?> pages</label>
                                 <br>
                                 <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?=$row['_id']?>);" data-target="#read_book_<?php echo $row['_id']; ?>">
                                     <i class="fa fa-book" aria-hidden="true"></i>
@@ -109,9 +100,7 @@
                     </div>
                     <div class="modal-body">
                         <iframe id="frame<?php echo $row['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
-                        <a href="Resources/Storage/Books/<?php echo $row['book_link'];?>" download class="btn btn-primary btn-xs">
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                            Download</a>
+                        
                         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
                     </div>
 
@@ -119,7 +108,7 @@
             </div>
         </div>
 
-        <?php } ?>
+        <?php $count++;}} ?>
 
 
 

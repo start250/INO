@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2018 at 01:24 PM
+-- Generation Time: Apr 29, 2018 at 09:57 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -40,13 +40,6 @@ CREATE TABLE `academicvideos` (
   `views` int(11) NOT NULL DEFAULT '0',
   `comments` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `academicvideos`
---
-
-INSERT INTO `academicvideos` (`id`, `title`, `description`, `thumb`, `video_link`, `course`, `level`, `year`, `views`, `comments`) VALUES
-(1, 'gfthjkl;', 'ertfyguhijoklp;', 'Corneille.png', 'drftgyjhukijkl', 'francais', 'primary', '1', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -89,6 +82,7 @@ CREATE TABLE `admin/author` (
 --
 
 INSERT INTO `admin/author` (`id`, `names`, `username`, `password`, `email`, `priority`) VALUES
+(0, 'admin', 'inoAdmin', 'inoAdmin', 'admin@ino.com', 'admin'),
 (12, 'INO admin', 'admin', 'admin', 'admin@ino.com', 'administrator');
 
 -- --------------------------------------------------------
@@ -111,7 +105,6 @@ CREATE TABLE `adminauthor` (
 --
 
 INSERT INTO `adminauthor` (`id`, `names`, `username`, `password`, `email`, `priority`) VALUES
-(12, 'INO admin', 'admin', 'admin', 'admin@ino.com', 'administrator'),
 (14230860, 'Muhire', 'mars', '123', 'marsanline@gmail.com', 'author');
 
 -- --------------------------------------------------------
@@ -140,20 +133,6 @@ CREATE TABLE `books` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `books`
---
-
-INSERT INTO `books` (`_id`, `title`, `author`, `description`, `pages`, `size`, `added_by`, `book_link`, `section`, `level`, `year`, `course`, `thumb`, `book_category`, `downloads`, `views`, `updated_at`, `created_at`) VALUES
-(1, 'hello p', 'hello p', 'hello p hello p hello p hello p hello p ', 22, 27615, 'licas', 'Assignment-Set+1-1523381383.pdf', 'academic', '', '', '', 'Anaclet.png', 'Science Book', 0, 0, NULL, '2018-04-10 17:29:43'),
-(2, 'dfghjkl', 'ghbjnmk,', 'cvbbnm,.', 6, 22027, 'ghjkl.', 'Assignment-Set+2-1523382584.pdf', 'eng_class', '', '', '', 'Corneille.png', '', 0, 0, NULL, '2018-04-10 17:49:44'),
-(3, 'DHJHKHF', 'FGHJMK', 'GHGMJ,KFD', 212, 27615, 'NVBNV', 'Assignment-Set+1-1523382820.pdf', 'eng_class', '', '', '', 'Anaclet.png', '', 0, 0, NULL, '2018-04-10 17:53:40'),
-(4, 'motherfucker', 'motherfucker', 'motherfucker ', 12, 22027, 'rtfgyhj', 'Assignment-Set+2-1523383292.pdf', 'eng_class', '', '', '', 'Corneille.png', 'For_Intermediates', 0, 0, NULL, '2018-04-10 18:01:32'),
-(5, 'fghjkjf', 'gdfhghjk', 'dgrhftgyhjb drftghj', 45, 27615, 'fghjk', 'Assignment-Set+1-1523383346.pdf', 'rules_road', '', '', '', 'Isaie.png', 'Ibibazo_nibisubizo', 0, 0, NULL, '2018-04-10 18:02:26'),
-(6, 'fghjkj', 'fghjjj', 'dgfhghjk', 54, 22027, 'dgfhgjhkj', 'Assignment-Set+2-1523396458.pdf', 'academic', '', '', '', 'Anaclet.png', 'Science Book', 0, 0, NULL, '2018-04-10 21:40:58'),
-(7, 'gfddf', 'ghj', 'ghghj', 45, 27615, 'fghj', 'Assignment-Set+1-1523396980.pdf', 'academic', '', '', '', 'Corneille.png', 'ICT Book', 1, 0, NULL, '2018-04-10 21:49:40'),
-(8, 'qwertyuio', 'fghjkldfgghf', 'rftgyjkdf56', 456, 525777, 'sdfghj', '268937-1523874405.jpg', 'culture', '', '', '', 'ghost_recon_wildlands-wallpaper-2048x1152.jpg', 'Imigani', 0, 0, NULL, '2018-04-16 10:26:45');
 
 -- --------------------------------------------------------
 
@@ -225,7 +204,8 @@ INSERT INTO `logos` (`id`, `filename`, `position`) VALUES
 (37, 'more-2-1523184741.png', 'Imigani'),
 (38, 'cloud-computing-3-1523184711.png', 'Ibisakuzo'),
 (39, 'forbidden-1523184415.png', 'Kirazira zumuco Nyarwanda'),
-(40, 'unlocked-1523184386.png', 'Baza Sokuru');
+(40, 'unlocked-1523184386.png', 'Baza Sokuru'),
+(41, 'unlocked-1523184386.png', 'Ururimi rwi kinyarwanda');
 
 -- --------------------------------------------------------
 
@@ -242,16 +222,6 @@ CREATE TABLE `past_papers` (
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `past_papers`
---
-
-INSERT INTO `past_papers` (`id`, `paper_year`, `grade`, `Qlink`, `Alink`, `createdAt`, `title`) VALUES
-(1, 2018, 'P6', 'assign_word_ladder-q-1523580557.pdf', 'sample-3pp-a-1523580557.pdf', '2018-04-13 00:49:17', 'Social Studies'),
-(2, 2007, 'S6', 'sqrt-q-1523581088.pdf', 'sample-3pp-a-1523581088.pdf', '2018-04-13 00:58:08', 'Mathematics'),
-(3, 2016, 'Other Papers', 'sqrt-q-1523587270.pdf', '', '2018-04-13 02:41:10', 'WDA Construction'),
-(4, 2015, 'S6', 'sample-3pp-q-1523587310.pdf', 'assign_word_ladder-a-1523587310.pdf', '2018-04-13 02:41:50', 'Physics');
 
 -- --------------------------------------------------------
 
@@ -278,23 +248,6 @@ CREATE TABLE `posts` (
   `views` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `content`, `excerpt`, `author`, `section`, `category`, `level`, `course`, `year`, `featured_image`, `created_at`, `updated_at`, `shares`, `comments`, `views`) VALUES
-(1, 'chvbjmbgc fghj', '<p>dfghjfdghkjjhg dfghj<img alt=\"\" src=\" http://localhost/INOGIT/Resources/Storage/Images/1523383400.png\" style=\"height:280px; width:280px\" /></p>\r\n', '', 'mik', 'business', 'Business Opportunities', '', '', '', 'Isaie.png', '2018-04-10 18:04:39', '0000-00-00 00:00:00', 0, 0, 0),
-(2, 'dxfgchjbjk', '<p><img alt=\"\" src=\" http://localhost/INOGIT/Resources/Storage/Images/1523389775.png\" style=\"height:480px; width:480px\" />dfghjkhgfdsghjkhgfdsfgyhj</p>\r\n\r\n<p>sdfghjkhgfdghjkhgfhj</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\" http://localhost/INOGIT/Resources/Storage/Images/1523389775.png\" style=\"height:480px; width:480px\" />dgfhjkljhgfdghgjkl;</p>\r\n\r\n<p>dfghjkhdfghjkkhgfghj</p>\r\n', '', 'mik', 'rules_road', 'Ibyapa', '', '', '', 'Corneille.png', '2018-04-10 19:51:15', '0000-00-00 00:00:00', 0, 0, 1),
-(3, 'LUCAS', '<p>LKJHGFD</p>\r\n', '', 'mik', 'rules_road', 'Igazeti', '', '', '', 'Corneille.png', '2018-04-10 21:07:38', '0000-00-00 00:00:00', 0, 0, 0),
-(4, 'LUCAS', '<p>GHJGFDSF</p>\r\n', '', 'mik', 'rules_road', 'Igazeti', '', '', '', 'Corneille.png', '2018-04-10 21:12:55', '0000-00-00 00:00:00', 0, 0, 0),
-(5, '', '<p>rtyuiofghj</p>\r\n', '', 'mik', 'rules_road', 'Igazeti', '', '', '', '', '2018-04-10 21:19:17', '0000-00-00 00:00:00', 0, 0, 0),
-(6, 'tyuioiouyt', '<p>tyuiiuytret</p>\r\n', '', 'mik', 'rules_road', 'Igazeti', '', '', '', '', '2018-04-10 21:19:29', '0000-00-00 00:00:00', 0, 0, 1),
-(7, 'gggggggggggg', '<p>cccccccccccccccccccc</p>\r\n', '', 'mik', 'academic', '', 'other info', 'Tips to Win Scholaship', '1', 'Corneille.png', '2018-04-10 22:08:58', '0000-00-00 00:00:00', 0, 0, 0),
-(8, 'cccccccccccccccccccccc', '<p>cccccccccccccccccccc</p>\r\n', '', 'mik', 'academic', '', 'other info', 'links', '', 'Isaie.png', '2018-04-10 22:09:17', '0000-00-00 00:00:00', 0, 0, 0),
-(9, 'ssssssssssssssssssssssss', '<p>ssssssssssssssssssssssss</p>\r\n', '', 'mik', 'academic', '', 'other info', 'News', '1', '', '2018-04-10 22:09:32', '0000-00-00 00:00:00', 0, 0, 0),
-(10, '', '', '', 'mik', 'academic', '', '', '', '', '', '2018-04-10 22:09:35', '0000-00-00 00:00:00', 0, 0, 0),
-(11, 'qwertyuiop', '<p>wertyuiop[]</p>\r\n', '', 'mik', 'culture', 'Ibisakuzo', '', '', '', 'far_cry_5_4k_8k-wide.jpg', '2018-04-16 10:16:10', '0000-00-00 00:00:00', 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -313,29 +266,6 @@ CREATE TABLE `quizzes` (
   `category` text NOT NULL,
   `title` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `quizzes`
---
-
-INSERT INTO `quizzes` (`id`, `same_q`, `question`, `ans1`, `ans2`, `ans3`, `ans4`, `type`, `category`, `title`) VALUES
-(1, '1523580863', 'icyambere', 'oiuy', 'yuio', 'ytuio', '', 'radio', 'Science', 'c++'),
-(2, '1523580863', '', '56yuj', 'rgthyju', '', 'rimwe', 'radio', 'Science', 'c++'),
-(3, '1523580863', '', 'tyujkj', '', 'rimwe', 'y5rtyhg', 'radio', 'Science', 'c++'),
-(4, '1523580863', '', '', '', '', '', 'radio', 'Science', 'c++'),
-(5, '1523580976', 'icyambere', 'rimwe', 't', 't', 'f', 'radio', 'Science', 'java'),
-(6, '1523580976', 'icyakabiri', 'rimwe', 'd', 'f', 'd', 'radio', 'Science', 'java'),
-(7, '1523580976', 'icyagatatu', 'rimwe', 'f', 'f', 'f', 'radio', 'Science', 'java'),
-(8, '1523580976', 'icyakane', 'rimwe', 'fg', 'gf', 'rtyh', 'radio', 'Science', 'java'),
-(9, '1523613308', 'fgvhbjk', 'fghjhlk', 'fgvhbjn', 'fcgvhbjnk', 'fcgvhbjnkm', 'radio', 'General knowledge', 'dgfhgjj'),
-(10, '1523613468', 'fdghuik', 'drftygh', 'xgvhbjnkm', 'swdefrgtyhu', 'ghjk', 'radio', 'Umuco nyarwanda', 'umuco'),
-(11, '1523613468', 'dfvgbhnjmk', 'dcfvbn', 'vbgnhmj', 'dfgbhnm', 'dfvgbhnm,', 'radio', 'Umuco nyarwanda', 'umuco'),
-(12, '1523648772', 'rimwe', 'ok', 'rhfgf', 'ghjk', 'hjk', 'radio', 'Science', 'php scripting'),
-(13, '1523648772', 'kabiri', 'ok', 'hjk', 'hjk', 'bnm', 'radio', 'Science', 'php scripting'),
-(14, '1523648772', 'werf', 'ok', 'fcghb', 'vbn', 'vbn', 'radio', 'Science', 'php scripting'),
-(15, '1523648772', 'vbn', 'ok', 'cvbn', 'cvbn', 'cvbn', 'radio', 'Science', 'php scripting'),
-(16, '1523648772', 'ok', 'xcvbn', 'cvb', 'cvb', 'cvbhj', 'radio', 'Science', 'php scripting'),
-(17, '1523648772', 'dfghu', 'ok', 'xcvbn', 'cvbn', 'cvb', 'radio', 'Science', 'php scripting');
 
 -- --------------------------------------------------------
 
@@ -371,8 +301,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `level`, `joinedAt`, `active`) VALUES
-(1, 'mik', 'mik', '$2y$10$oUk4Uh.wQceRt6AyNa0N6O3Wzo9OGYRS/15FTafb4xnKtFa3JanU2', 'mik@mik.com', 'admin', '2018-04-06 23:19:48', 0),
-(2, 'segr', 'segr', '$2y$10$Llj/K7JvlNQBrp/g3fzEaehXwX.5oTYyeiYU7FIep4T05h0lz.Zku', 'segr@segr.hgf', 'guest', '2018-04-07 13:48:30', 0);
+(1, 'mik', 'mik', '$2y$10$oUk4Uh.wQceRt6AyNa0N6O3Wzo9OGYRS/15FTafb4xnKtFa3JanU2', 'mik@mik.comc', 'admin', '2018-04-06 23:19:48', 0);
 
 -- --------------------------------------------------------
 
@@ -394,14 +323,6 @@ CREATE TABLE `videos` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `videos`
---
-
-INSERT INTO `videos` (`id`, `title`, `description`, `thumb`, `category`, `video_link`, `section`, `views`, `comments`, `share`, `created_at`, `updated_at`) VALUES
-(1, 'fgnhb', 'bnghhnbv', 'Anaclet.png', 'Business_Advice', 'dfghjfdscdvfb', 'business', 1, 0, 0, '2018-04-11 00:14:58', '0000-00-00 00:00:00'),
-(2, 'dryfthujk', 'ftghujko', '268937.jpg', 'Imigani', 'sedrftgyuijl', 'culture', 0, 0, 0, '2018-04-16 10:15:54', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -495,7 +416,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `academicvideos`
 --
 ALTER TABLE `academicvideos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `academic_doc`
 --
@@ -505,7 +426,7 @@ ALTER TABLE `academic_doc`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -515,22 +436,22 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `logos`
 --
 ALTER TABLE `logos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `past_papers`
 --
 ALTER TABLE `past_papers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `reset_password`
 --
@@ -540,12 +461,12 @@ ALTER TABLE `reset_password`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

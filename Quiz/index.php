@@ -69,7 +69,7 @@ else if(@$_GET['cheat']=="t")
                             <a href="/INOGIT/?s=Road">
                                 <img class="logo" src="/INOGIT/Resources/Storage/Logos/<?php $query=" SELECT * FROM logos WHERE position='Road' ";
     $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Amategeko y'umuhanda</a>
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Rules of road</a>
                         </li>
                         <li>
                             <a href="/INOGIT/?s=Health">

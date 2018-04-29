@@ -15,7 +15,7 @@ function googleTranslateElementInit() {
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
- 
+ <br>
         <ul>
     <?php if(!@$_GET['s']) {?>        
         <li><a href="/INOGIT/?s=Academic"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Academic'";
@@ -26,7 +26,7 @@ function googleTranslateElementInit() {
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Business</a></li>
     <li><a href="/INOGIT/?s=Road"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Road'";
     $res = $conn->query($query);
-    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Amategeko y'umuhanda</a></li>
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Rules of road</a></li>
     <li><a href="/INOGIT/?s=Health"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Health'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Health</a></li>
@@ -148,7 +148,10 @@ else if(@$_GET['s']=="Culture"){
     <li><a href="/INOGIT/?s=Culture&sub=Ibisakuzo&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ibisakuzo'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ibisakuzo</a></li>
-    <li><a href="/INOGIT/?s=Culture&sub=Kirazira z'umuco Nyarwanda&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Kirazira zumuco Nyarwanda'";
+    <li><a href="/INOGIT/?s=Culture&sub=Ururimi rwi kinyarwanda&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Ururimi rwi kinyarwanda'";
+    $res = $conn->query($query);
+    $row=$res->fetch_assoc(); echo $row['filename']; ?>">Ururimi rw'i kinyarwanda</a></li> 
+    <li><a href="/INOGIT/?s=Culture&sub=Kirazira zumuco Nyarwanda&t=1"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Kirazira zumuco Nyarwanda'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Kirazira z'umuco Nyarwanda</a></li>
     <li><a href="/INOGIT/?s=Culture&sub=Baza Sokuru"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Baza Sokuru'";
