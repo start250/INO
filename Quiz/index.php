@@ -90,7 +90,7 @@ else if(@$_GET['cheat']=="t")
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco w'i Rwanda</a>
                         </li>
                         <li>
-                            <a href="/INOGIT/?s=Quiz">
+                            <a href="/INOGIT/Quiz/">
                                 <img class="logo" src="/INOGIT/Resources/Storage/Logos/<?php $query=" SELECT * FROM logos WHERE position='Quiz' ";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a>

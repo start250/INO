@@ -36,7 +36,7 @@ function googleTranslateElementInit() {
     <li><a href="/INOGIT/?s=Culture"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Culture'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Umuco w'i Rwanda</a></li>
-    <li><a href="/INOGIT/?s=Quiz"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Quiz'";
+    <li><a href="/INOGIT/Quiz/"><img src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Quiz'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">Quiz</a></li>
 <?php } 
