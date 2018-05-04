@@ -1,9 +1,5 @@
-<?php 
-
-
+<?php
 if(isset($_POST['upload'])){ 
- 
-
 //prepare questions upload
   $qname=basename($_FILES["Qupload"]["name"]);
   list($partName,$extension)=explode('.', $qname);

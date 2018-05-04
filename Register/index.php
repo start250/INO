@@ -1,10 +1,6 @@
-
-<?php 
-
+<?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php');  
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
-
-
 if(isset($_POST['name'])&&isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['email'])&&isset($_POST['terms'])){
     
 
@@ -21,7 +17,9 @@ if(isset($_POST['name'])&&isset($_POST['username'])&&isset($_POST['password'])&&
             $_SESSION['username']=$username;
             $_SESSION['level']='guest'; 
 			$_SESSION['active']=FALSE;
-			header("Location: /INOGIT");
+		
+			echo "<script>location.href='../'</script>";
+			
 			die();
 					} else {
 							echo "Error registering..";

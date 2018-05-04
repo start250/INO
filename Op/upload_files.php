@@ -117,9 +117,9 @@ if ($_GET['edit']!=1) {
     <option>Ibisakuzo</option>
     <option>Kirazira zumuco Nyarwanda</option></select><br>'; 
     else if(@$_GET['section']=="rules_road")
-        echo "<option disabled selected selected>Select Category</option>
+        echo '<select  class="form-control" name="category"><option disabled selected selected>Select Category</option>
    <option>Ibibazo_nibisubizo</option>
-    <option>Igazeti</option></select><br>";
+    <option>Igazeti</option></select><br>';
     ?>
 
  <?php
@@ -207,7 +207,7 @@ $section=$_GET['section'];
 $book_category=mysqli_escape_string($conn,$_POST['category']);
 
 if($section!="academic"){
-$sql = "INSERT INTO Books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
+$sql = "INSERT INTO books (title, author, description, pages, size, added_by, thumb,book_link,section, book_category) 
   
                    VALUES ('$title', '$author', '$description', '$pages', '$size', '$added_by', '$thumb','$book_link','$section','$book_category')";}
 if($section=="academic"){

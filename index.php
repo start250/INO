@@ -35,7 +35,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
                     echo "Quiz";  
                 else if(@$_GET['s']=="Road")
                     echo "Rules of road";
-        ?></a> <?php if(@$_GET['sub']){ echo $_GET['sub'];?>| 
+        ?></a> <?php if(@$_GET['sub']){?>| 
         <img src="Resources/Storage/Logos/<?php $s=$_GET["sub"];
          $query="SELECT * FROM logos WHERE position='$s'";
 
@@ -107,7 +107,7 @@ if(isset($_POST['year'])){
            $urlNow=$_SERVER['REQUEST_URI'];
     ?>
       <center><div class="dropDownsButton">  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Nursary
+    <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#007b5e;">Nursary
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=nursary&course=baby&t=1">Baby class</a></li>
@@ -115,7 +115,7 @@ if(isset($_POST['year'])){
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=nursary&course=top class&t=1">Top class</a></li>
     </ul>
 </div><div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Primary
+    <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#007b5e;">Primary
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=math&t=1">Math</a></li>
@@ -126,7 +126,7 @@ if(isset($_POST['year'])){
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=pri&course=francais&t=1">Francais</a></li>
     </ul>
 </div><div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ordinary level
+    <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#007b5e;">Ordinary level
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=math">Math</a></li>
@@ -142,7 +142,7 @@ if(isset($_POST['year'])){
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=ol&course=kiswahili&t=1">Kiswahili</a></li>
     </ul>
 </div><div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Advanced Level
+    <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#007b5e;">Advanced Level
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=math&t=1">Math</a></li>
@@ -160,7 +160,7 @@ if(isset($_POST['year'])){
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=al&course=gp&t=1">General paper</a></li>
     </ul>
 </div><div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">University
+    <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#007b5e;">University
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="?s=Academic&sub=Explore Rwandan Education&lv=un&course=Microbiololgy&t=1">Microbiololgy</a></li>
@@ -296,55 +296,68 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/home.php');?>
     <hr>
 <?php
 if(@$_GET['t']==3 && @$_GET['post']){
+    ?>
+    <div class="row">
+    <?php
 $section20=@$_GET['s'];
 $category20=@$_GET['sub'];
 $query20="SELECT * FROM videos WHERE category='$category20' order by id desc";
 $display_count=1;
 $result20=$conn->query($query20);
 
-   echo "<strong><h2>Related Videos</h2></strong>"; 
+   echo "<strong><h2>Related Videos:&nbsp;</h2></strong>"; 
 while($row20=$result20->fetch_assoc()){
-    if($display_count<=6){
+    if($display_count<=4){
 ?>
-<div class="row">
-    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><?php echo $row20['title']; ?></a></strong><h4>
-    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Thumbs/'.$row20['thumb'];?>"></a>
-    <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row20['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row20['comments']; ?></p>
+
+    <div class="col-lg-3"><h6><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><?php echo $row20['title']; ?></a></strong><h6>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row20['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/Resources/Storage/Thumbs/'.$row20['thumb'];?>"></a>
 </div>    
-</div>
-<hr>
+
 <?php
 }
 $display_count+=1;
-}}
-if(@$_GET['t']==2 && @$_GET['post']){
+}
+    ?>
+    </div>
+    <?php
+}
+if(@$_GET['t']==2 && @$_GET['post']){ ?>
+<strong><h2>Related:</h2></strong><br>
+<div class="row">
+
+<?php
     
 $section21=@$_GET['s'];
 $category21=@$_GET['sub'];
 $query21="SELECT * FROM posts WHERE category='$category21' order by id desc";
 $display_count=1;
 $result21=$conn->query($query21);
-echo "<strong><h2>Related Videos</h2></strong>"; 
+echo ""; 
 while($row21=$result21->fetch_assoc()){
-    if($display_count<=5){
+    if($display_count<=4){
 ?>
-<div class="row">
-    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><?php echo $row21['title']; ?></a></strong><h4>
-    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Featured_images/'.$row21['featured_image'];?>"></a>
-    <p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row21['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row21['comments']; ?></p>
+
+    <div class="col-lg-3"><h6><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><?php echo $row21['title']; ?></a></strong><h6>
+    <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row21['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featuredimgs/'.$row21['featured_image'];?>"></a>
 </div>    
-</div>
-<hr>
+
 <?php
 }
 $display_count+=1;
-}}
+}
+    ?>
+    </div>
+    <?php
+}
 //-------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------
 
 /*-------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------*/
-if(@$_GET['t']==1){
+if(@$_GET['t']==1){?>
+<div class="row">
+<?php
     
 $section22=@$_GET['s'];
 $category22=@$_GET['sub'];
@@ -353,18 +366,22 @@ $display_count=1;
 $result22=$conn->query($query22);
 echo '<strong><h2>Also see</h2></strong><br><br>'; 
 while($row22=$result22->fetch_assoc()){
-    if($display_count<=5){
+    if($display_count<=4){
 ?>
-<div class="row">
-    <div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><?php echo $row22['title']; ?></a></strong><h4>
+
+    <div class="col-lg-3"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><?php echo $row22['title']; ?></a></strong><h4>
     <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row22['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Logos/Featured_images/'.$row22['featured_image'];?>"></a>
 </div>    
-</div>
+
 <hr>
 <?php
 }
 $display_count+=1;
-}}
+}
+    ?>
+    </div>
+    <?php
+}
 ?>
     </div>
 </div> 

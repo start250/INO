@@ -1,6 +1,5 @@
-
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/DBfiles/connectDB.php');  
+require_once('../DBfiles/connectDB.php');  
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/mailer.php'); 
     if(!isset($_SESSION)) { session_start(); }   
@@ -18,11 +17,15 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
         $_SESSION['active']=$row['active'];
         $_SESSION['username']=$row['username'];  
         $_SESSION['level']=$row['level'];
-        if(isset($_SESSION['level'])&&($_SESSION['level']==='admin'||$_SESSION['level']==='author')){
-          header("Location: /INOGIT/dashboard.php");
+        if(isset($_SESSION['level'])&&($_SESSION['level']=='admin'||$_SESSION['level']=='author')){
+          //header("Location: ../dashboard.php");
+          echo "<script>location.href='../dashboard.php'</script>";
+            
         die();  
         }else{
-            header("Location: /INOGIT/");
+            //header("Location: /INOGIT/");
+            echo "<script>location.href='../'</script>";
+            
             die();   
         }
         

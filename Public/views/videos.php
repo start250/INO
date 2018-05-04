@@ -20,15 +20,11 @@ if(!@$_GET['post']){
 while($row13=$result13->fetch_assoc()){
 ?>
 <div class="row">
-	<div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row13['id']; ?>"><?php echo $row13['title']; ?></a></strong><h4></div>
-	<div class="col-lg-12">
-		<div class="col-lg-4"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row13['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row13['thumb'];?>"></a></div>
-		<div class="col-lg-8"><?php $str=$row13['description']; echo substr($str,0,260); ?>...<br><br>
+	<div class="col-lg-4"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row13['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Thumbs/'.$row13['thumb'];?>"></a></div><div class="col-lg-1"></div>
+		<div class="col-lg-7">
+		    <h5><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row13['id']; ?>"><?php echo $row13['title']; ?></a></strong><h5><br>
 			<a style="border:2px solid #4d79ff;padding: 10px;color: #4d79ff;" href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row13['id']; ?>">Watch full videos</a></div>
-	</div>
-	<div class="col-lg-12">
-		<p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row13['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row13['comments']; ?></p>
-	</div>
+	
 </div>
 <hr>
 <?php
@@ -44,7 +40,7 @@ else if(@$_GET['post']){
 
 <p style="text-align: center;"><h4><strong><?php echo $row15['title']; ?></strong></h4></p>
 <p><?php echo $row15['video_link']; ?></p><br><hr>
-<p style="text-align: center;"><i class="fa fa-eye"></i>Views:<?php echo $row15['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row15['comments']; ?></p><hr>
+<hr>
 <form method="POST" class="form-contact">
 <strong>Comment</strong><br>
 <input type="text" name="names" class="form-control" placeholder="Your names"><label style="color: red;">*</label><br>

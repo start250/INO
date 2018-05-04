@@ -1,7 +1,5 @@
-
 <?php  
-include('DBfiles/connectDB.php');
- 
+include('DBfiles/connectDB.php'); 
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/views.php');
 $_id=mysqli_real_escape_string($conn,$_GET['bookID']);
 

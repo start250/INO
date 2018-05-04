@@ -1,4 +1,5 @@
 <?php
+session_start();
 include($_SERVER['DOCUMENT_ROOT'].'/INOGIT'.'/DBfiles/connectDB.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
 ?>
@@ -27,12 +28,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/INOGIT/Public/views/_header.php');
                             <h3>
                                 <a href="?c=General knowledge">General knowledge</a>
                             </h3>
-                        </p>
+                        </p><hr style="border-width:10px;">
                         <p>
                             <h3>
                                 <a href="?c=Science">Science</a>
                             </h3>
-                        </p>
+                        </p><hr style="border-width:10px;">
                         <p>
                             <h3>
                                 <a href="?c=Umuco nyarwanda">Umuco nyarwanda</a>

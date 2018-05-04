@@ -1,5 +1,4 @@
 <?php
-
 $section13=@$_GET['s'];
 
 if(@$_GET['lib_Cat']=="1")

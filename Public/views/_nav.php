@@ -1,12 +1,11 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg" style="background-color:#007b5e !important;">
 <a class="navbar-brand" href="/INOGIT">
 <img class="logo" src="/INOGIT/Resources/Storage/Logos/<?php $query="SELECT * FROM logos WHERE position='Master'";
     $res = $conn->query($query);
     $row=$res->fetch_assoc(); echo $row['filename']; ?>">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:#1b661c;">
+    <span class="">Menu</span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -1,5 +1,4 @@
 <?php  
- 
 function incrementTargetCol($table,$colToUpdate,$col,$id,$conn){
 
 $table=mysqli_real_escape_string($conn,$table);

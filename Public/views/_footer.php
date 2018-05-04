@@ -1,4 +1,5 @@
-
+<?php
+?>
 <br><br><br>
 </div>
 <footer>
@@ -59,7 +60,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                 <p>Iga neza Online</p>
-                <p class="h6">&copy   <?php echo date("Y"); ?> All rights Reversed.
+                <p class="h6">&copy   <?php echo date("Y"); ?> All rights Reserved.
                     <a class="text-green ml-2" href="/INOGIT" target="_blank">IGANEZA</a>
                 </p>
             </div>

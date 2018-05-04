@@ -1,6 +1,5 @@
 <?php 
 require_once('DBfiles/connectDB.php');
-
 $srch= mysqli_real_escape_string($conn,$_GET['q']); 
 $sql = "SELECT * FROM Books WHERE title LIKE '%$srch%' OR description LIKE '%$srch%' OR added_by LIKE '%$srch%' OR pages LIKE '%$srch%' OR author LIKE '%$srch%' LIMIT 5";  
 

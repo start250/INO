@@ -76,7 +76,8 @@ for($i=2005;$i<=date('Y');$i++){
                     <button type="submit" name="course" class="SubCat" value="Kinyarwanda">Kinyarwanda</button>
                     <button type="submit" name="course" class="SubCat" value="English">English</button>
                     <button type="submit" name="course" class="SubCat" value="Geography">Geography</button> 
-                   
+                   <button type="submit" name="course" class="SubCat" value="Physics">Physics</button>
+                    <button type="submit" name="course" class="SubCat" value="Entrepreneurship">Entrepreneurship</button>
                     <button type="submit" name="course" class="SubCat" value="History">History</button>  
                     <button type="submit" name="course" class="SubCat" value="Chemistry">Chemistry</button> 
                     <button type="submit" name="course" class="SubCat" value="Biology">Biology</button> 
@@ -106,7 +107,8 @@ for($i=2005;$i<=date('Y');$i++){
                     <center>
                         <button type="submit" name="course" class="SubCat" value="Mathematics">Mathematics</button>
                         <button type="submit" name="course" class="SubCat" value="Kinyarwanda">Kinyarwanda</button>
-                       
+                        <button type="submit" name="course" class="SubCat" value="Economie">Economie</button>
+                        <button type="submit" name="course" class="SubCat" value="Literature">Literature</button>
                         <button type="submit" name="course" class="SubCat" value="English">English</button>
                         <button type="submit" name="course" class="SubCat" value="Geography">Geography</button> 
                         <button type="submit" name="course" class="SubCat" value="History">History</button>  

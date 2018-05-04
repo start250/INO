@@ -1,9 +1,6 @@
-
 <?php @$url=$_SESSION["url"];
 include('DBfiles/connectDB.php');
 ?>
-
-
 <?php
 
 if(!isset($_SESSION)) { session_start(); }  

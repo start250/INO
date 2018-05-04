@@ -1,6 +1,4 @@
-
 <?php
-
 $course=@$_GET['course'];
 $level=@$_GET['lv'];
 if($level=="pri")
@@ -51,7 +49,7 @@ while($row13 = $result13->fetch_assoc()) {
                                 <label style="font-size: 13px; color: #00cc00;">
                                     <?= $row13["pages"]?> pages</label>
                                 <br>
-                                <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?=$row13['_id']?>);" data-target="#read_book_<?php echo $row13['_id']; ?>">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" onclick="getBookSrc(<?=$row13['id']?>);" data-target="#read_book_<?php echo $row13['id']; ?>">
                                     <i class="fa fa-book" aria-hidden="true"></i>
                                     Read Now</button>
                                 <span id="er"></span>
@@ -64,7 +62,7 @@ while($row13 = $result13->fetch_assoc()) {
 
 
 
-<div id="read_book_<?php echo $row13['_id']; ?>" class="modal fade" role="dialog">
+<div id="read_book_<?php echo $row13['id']; ?>" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
 
                 <div class="modal-content">
@@ -75,7 +73,7 @@ while($row13 = $result13->fetch_assoc()) {
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <iframe id="frame<?php echo $row13['_id']; ?>"  style="width: 100%; height: 500px;"></iframe>
+                        <iframe id="frame<?php echo $row13['id']; ?>"  style="width: 100%; height: 500px;"></iframe>
                         
                         <button type="button" class="btn btn-default float-right" data-dismiss="modal">Close</button>
                     </div>

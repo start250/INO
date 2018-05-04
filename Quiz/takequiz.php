@@ -1,4 +1,3 @@
-
 <?php
 $_SESSION['c']=@$_GET['c'];
 $_SESSION['quiz']=@$_GET['quiz'];
@@ -59,7 +58,10 @@ if (isset($_POST['submitAns'])) {
      }
    $names++; 
   }
- header("Location:index.php?m=".$totalMarks."&msg=all");
+    ob_flush();
+    flush();
+ //header("Location:index.php?m=".$totalMarks."&msg=all");
+ echo "<script>location.href='index.php?m=".$totalMarks."&msg=all'</script>";
 }
 
 

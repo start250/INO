@@ -1,4 +1,3 @@
-
 <?php
 $course=@$_GET['course'];
 $level=@$_GET['lv'];

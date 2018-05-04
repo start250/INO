@@ -1,4 +1,5 @@
-
+<?php
+?>
 <form  method="POST" enctype="multipart/form-data">
     <input type="file" id="myFile" onchange="myFunction()" name="fileToUpload"/>
     <button type="submit" name="upload">Upload to server</button>

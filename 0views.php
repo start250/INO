@@ -1,5 +1,4 @@
-<?php  
- 
+<?php 
 function updateViews($table,$id,$conn){
 
 $table=mysqli_real_escape_string($conn,$table);

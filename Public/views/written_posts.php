@@ -18,16 +18,14 @@ if(!@$_GET['post'] && @$_GET['sub']!="Ibyapa"){
 while($row14 = $result14->fetch_assoc()) {
 ?>
 <div class="row">
-	<div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><?php echo $row14['title']; ?></a></strong><h4></div>
-	<div class="col-lg-12">
-		<div class="col-lg-4"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row14['featured_image'];?>"></a></div>
-		<div class="col-lg-8"><?php $str=$row14['content']; echo substr($str,0,260); ?>...<br><br>
+		<div class="col-lg-4"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featuredimgs/'.$row14['featured_image'];?>"></a></div>
+		<div class="col-lg-1"></div>
+		<div class="col-lg-7">
+		    <h6><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><?php echo $row14['title']; ?></a></strong><h6><br>
+		    <?php $str=$row14['content']; echo substr($str,0,260); ?>...<br><br>
 			<a style="border:2px solid #4d79ff;padding: 10px;color: #4d79ff;" href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>">Read more</a></div>
 	</div>
-	<div class="col-lg-12">
-		<p style="text-align: center;"><i class="fa fa-edit"></i>Post by: <strong><?php echo $row14['author']; ?></strong> | <i class="fa fa-eye"></i>Views:<?php echo $row14['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row14['comments']; ?></p>
-	</div>
-</div>
+
 <hr>
 <?php
 }}
@@ -40,9 +38,9 @@ else if(@$_GET['post'] && @$_GET['sub']!="Ibyapa"){
 	$row15=$result15->fetch_assoc();
 ?>
 <p style="text-align: center;"><h4><strong><?php echo $row15['title']; ?></strong></h4></p>
-<p style="text-align: center;"><img style="width: 60%;height: auto;" src="<?php echo '/INOGIT/Resources/Storage/Featured_images/'.$row15['featured_image'];?>"></p>
+<p style="text-align: center;"><img style="width: 60%;height: auto;" src="<?php echo '/INOGIT/Resources/Storage/Featuredimgs/'.$row15['featured_image'];?>"></p>
 <p><?php echo $row15['content']; ?></p><br><hr>
-<p style="text-align: center;"><i class="fa fa-edit"></i>Post by: <strong><?php echo $row15['author']; ?></strong> | <i class="fa fa-eye"></i>Views:<?php echo $row15['views']; ?> | <i class="fa fa-comment"></i>Comments:<?php echo $row15['comments']; ?></p><hr>
+<p style="text-align: center;"><i class="fa fa-edit"></i>Post by: <strong><?php echo $row15['author']; ?></strong> </p><hr>
 <form method="POST" class="form-contact">
 <strong>Comment</strong><br>
 <input type="text" name="names" class="form-control" placeholder="Your names"><label style="color: red;">*</label><br>

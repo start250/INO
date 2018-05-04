@@ -1,4 +1,3 @@
-
 <?php
 $level=@$_GET['lv'];
 $course=@$_GET['course'];
@@ -27,15 +26,13 @@ if(!@$_GET['post'] && @$_GET['sub']!="Ibyapa"){
 while($row14 = $result14->fetch_assoc()) {
 ?>
 <div class="row">
-	<div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><?php echo $row14['title']; ?></a></strong><h4></div>
-	<div class="col-lg-12">
+	<div class="row"><div class="col-lg-12"><h4><strong><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><?php echo $row14['title']; ?></a></strong><h4></div></div>
+	<div class="row">
 		<div class="col-lg-4"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>"><img style="width: 270px;height: 220px" src="<?php echo '/INOGIT/Resources/Storage/Featuredimgs/'.$row14['featured_image'];?>"></a></div>
 		<div class="col-lg-8"><?php $str=$row14['content']; echo substr($str,0,260); ?>...<br><br>
 			<a style="border:2px solid #4d79ff;padding: 10px;color: #4d79ff;" href="<?php echo $_SERVER['REQUEST_URI'] ?>&post=<?php echo $row14['id']; ?>">Read more</a></div>
 	</div>
-	<div class="col-lg-12">
-		
-	</div>
+	
 </div>
 <hr>
 <?php
@@ -48,6 +45,7 @@ else if(@$_GET['post'] && @$_GET['sub']!="Ibyapa"){
 	$result15 = $conn->query($query15);
 	$row15=$result15->fetch_assoc();
 ?>
+<div class="row"><div class="col-lg-12">
 <p style="text-align: center;"><h4><strong><?php echo $row15['title']; ?></strong></h4></p>
 <p style="text-align: center;"><img style="width: 60%;height: auto;" src="<?php echo '/INOGIT/Resources/Storage/Featuredimgs/'.$row15['featured_image'];?>"></p>
 <p><?php echo $row15['content']; ?></p><br><hr>
@@ -58,7 +56,7 @@ else if(@$_GET['post'] && @$_GET['sub']!="Ibyapa"){
 <input type="email" name="email" class="form-control" placeholder="Email"><label style="color: red;">*</label><br>
 <textarea cols="form-control" name="comment" id="comment"></textarea><br>
 <button class="form-control btn-primary" name="submit">submit</button>
-</form>
+</form></div></div>
 <br>
 <hr>
 <?php

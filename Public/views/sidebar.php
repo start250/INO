@@ -1,6 +1,4 @@
 <div class="container" style=" margin-left: 30px; margin-top:40px">
-
-
   <div class="block">
     <div class="row">
       <div class="imgCat ">

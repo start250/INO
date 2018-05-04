@@ -1,5 +1,4 @@
 <?php
-
 //require_once "Mail.php";
 function sendMail($from,$to,$subject,$token){
 
